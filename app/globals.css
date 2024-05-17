@@ -4,7 +4,7 @@
 
   @layer base {
     :root {
-      --background: 215 35% 81%;
+      --background: 0 0% 224%;
       --foreground: 219 59% 13%;
 
       --card: 0 0% 100%;
@@ -76,7 +76,7 @@
   }
 
   main, nav {
-    @apply max-w-6xl mx-auto my-12;
+    @apply mx-auto;
   }
 
   p {
@@ -84,5 +84,5 @@
   }
   
   h1 {
-    @apply scroll-m-20 text-5xl font-extrabold  lg:text-5xl;
+    @apply scroll-m-20 text-5xl font-extrabold lg:text-5xl;
   }
