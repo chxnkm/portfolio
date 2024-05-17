@@ -25,9 +25,6 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}>
-          <h1>
-            Kang Ming
-          </h1>
           {children}
         </body>
     </html>

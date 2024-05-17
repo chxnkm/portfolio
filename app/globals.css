@@ -1,11 +1,11 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
   @layer base {
     :root {
-      --background: 0 0% 100%;
-      --foreground: 0 0% 3.9%;
+      --background: 215 35% 81%;
+      --foreground: 219 59% 13%;
 
       --card: 0 0% 100%;
       --card-foreground: 0 0% 3.9%;
@@ -74,4 +74,15 @@
       @apply bg-background text-foreground;
     }
   }
+
+  main, nav {
+    @apply max-w-6xl mx-auto my-12;
+  }
+
+  p {
+    @apply mt-6;
+  }
   
+  h1 {
+    @apply scroll-m-20 text-5xl font-extrabold  lg:text-5xl;
+  }
