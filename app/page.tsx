@@ -1,4 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+
 import {
   Carousel,
   CarouselContent,
@@ -21,11 +23,18 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable"
 
+import Navbar from '@/components/Navbar'
+
 
 export default function Home() {
   return (
     <main>
-      <h1> tester</h1>
+      <Navbar/> 
+      <div className="intro container">
+        <h1 className="flex container mx-auto text-6xl mt-32">Hello, I'm Kang Ming.</h1>
+        <p className="flex container mx-auto font-medium text-xl">I'm a Computer Science graduate, a software engineer and an avid tinkerer.</p>
+      </div>
+      
     </main>
   );
 }
