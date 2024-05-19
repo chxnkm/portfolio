@@ -10,10 +10,24 @@ export default function Home() {
   return (
     <main>
       <Navbar/> 
-      <div className="intro container">
-        <h1 className="flex container mx-auto text-6xl mt-32">Hello, I'm Kang Ming.</h1>
-        <p className="flex container mx-auto font-medium text-xl">I'm a Computer Science graduate, a software engineer and an avid tinkerer.</p>
-        <p className="flex container mx-auto font-medium text-xl">Welcome to my portfolio. Happy browsing!</p>
+      <div className="intro container mx-auto">
+        <div className='flex'>
+          <div className='intro-words flex-1'>
+            <h1 className="flex container text-5xl mt-32">Hello, I'm Kang Ming.</h1>
+            <p className="flex container font-medium text-xl">I'm a Computer Science graduate, a software engineer and an avid tinkerer.</p>
+            <p className="flex container font-medium text-xl">Welcome to my portfolio. Happy browsing!</p>
+          </div>
+          <div className='intro-image flex-1 items-center justify-center mt-12'>
+          <Image
+              src={'/img/img2.jpg'}
+              alt={'lolie'}
+              width={640}
+              height={480}
+            />
+          </div>
+        </div>
+        
+        
       </div>
       <div className="container mx-auto">
         <div className="flex">
