@@ -30,7 +30,7 @@ export default function Navbar() {
               <Link href ="#">Hobbies</Link>
             </Button>
             <Button size="sm" variant="ghost">
-              <Link href ="#">Resume</Link>
+              <Link href ="/resume/RESUME_KANG_MING.pdf">Resume</Link>
             </Button>
           </div>
         </div>
