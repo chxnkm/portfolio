@@ -21,7 +21,7 @@ export default function AutoCarousel() {
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full max-w-xs"
+      className="w-full max-w-xl"
       onMouseLeave={plugin.current.reset}
       opts={{
         align: "start",
@@ -29,16 +29,16 @@ export default function AutoCarousel() {
       }}
     >
       <CarouselContent>
-  {Array.from({ length: 10 }).map((_, index) => (
+  {Array.from({ length: 3 }).map((_, index) => (
     <CarouselItem key={index}>
       <div className="p-1">
         <Card>
-          <CardContent className="flex aspect-square items-center justify-center p-6">
+          <CardContent className="flex aspect-video items-center justify-center p-6">
             <Image
               src={`/img/carousel/image${index + 1}.jpg`}
               alt={`Image ${index + 1}`}
-              width={300}
-              height={300}
+              width={1080}
+              height={1080}
             />
           </CardContent>
         </Card>

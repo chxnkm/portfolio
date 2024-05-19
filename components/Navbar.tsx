@@ -9,12 +9,13 @@ export default function Navbar() {
       <div className="w-full max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-20 items-center">
           <Link className="flex items-center" href="#">
-            {/* <MountainIcon className="h-6 w-6" /> */}
+            
             <div className="flex items-center space-x-2">
               <Avatar>
                 <AvatarImage src="https://github.com/chxnkm.png" />
                 <AvatarFallback>KM</AvatarFallback>
               </Avatar>
+              {/* <MountainIcon className="h-6 w-6" /> */}
               <span className="font-extrabold">KANG<br/>MING</span>
             </div>
           </Link>
