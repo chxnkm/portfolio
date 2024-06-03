@@ -29,13 +29,13 @@ export default function AutoCarousel() {
       }}
     >
       <CarouselContent>
-  {Array.from({ length: 3 }).map((_, index) => (
+  {Array.from({ length: 5 }).map((_, index) => (
     <CarouselItem key={index}>
       <div className="p-1">
         <Card>
           <CardContent className="flex aspect-video items-center justify-center p-6">
             <Image
-              src={`/img/carousel/image${index + 1}.jpg`}
+              src={`/img/img${index + 1}.jpg`}
               alt={`Image ${index + 1}`}
               width={1080}
               height={1080}
