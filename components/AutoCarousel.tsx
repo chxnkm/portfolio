@@ -12,12 +12,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
- 
-export default function AutoCarousel() {
+
+export default function AutoCarousel({ basePath = '/img/', length = 3 }) {
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: false, stopOnFocusIn: false })
   )
- 
+
   return (
     <Carousel
       plugins={[plugin.current]}
@@ -29,23 +29,23 @@ export default function AutoCarousel() {
       }}
     >
       <CarouselContent>
-  {Array.from({ length: 5 }).map((_, index) => (
-    <CarouselItem key={index}>
-      <div className="p-1">
-        <Card>
-          <CardContent className="flex aspect-video items-center justify-center p-6">
-            <Image
-              src={`/img/img${index + 1}.jpg`}
-              alt={`Image ${index + 1}`}
-              width={1080}
-              height={1080}
-            />
-          </CardContent>
-        </Card>
-      </div>
-    </CarouselItem>
-  ))}
-</CarouselContent>
+        {Array.from({ length }).map((_, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-video items-center justify-center p-6">
+                  <Image
+                    src={`${basePath}img${index + 1}.jpg`}
+                    alt={`Image ${index + 1}`}
+                    width={1080}
+                    height={1080}
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
     </Carousel>
   )
 }

@@ -19,7 +19,7 @@ export default function Home() {
           </div>
           <div className='intro-image flex-1 items-center justify-center mt-12'>
           <Image
-              src={'/img/img2.jpg'}
+              src={'/img/splash.jpg'}
               alt={'lolie'}
               width={640}
               height={480}
@@ -34,8 +34,8 @@ export default function Home() {
           <div className="body flex-1  p-8">
             <div>
               <h1 className="text-3xl font-bold mb-4 mt-12">Past Projects</h1>
-              <p>Some of my past projects include:
-                <ul>
+              <p>Some of my past projects include:</p>
+              <ul>
                   <li>
                     s
                   </li>
@@ -43,11 +43,10 @@ export default function Home() {
                     s
                   </li>
                 </ul>
-              </p>
             </div>
           </div>
           <div className="flex-1 flex items-center justify-center bg-white p-8">
-            <AutoCarousel/>
+            <AutoCarousel length={3} basePath='/img/'/>
           </div>
         </div>
       </div>
