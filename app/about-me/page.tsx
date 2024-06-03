@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Image from 'next/image'
+import Link from "next/link"
 
 
 export default function Home() {
@@ -9,12 +10,16 @@ export default function Home() {
         <div className="text container mx-auto">
             <div className="mt-32 grid grid-cols-2 gap-4">
                 <div>
-                    <Image src="/img/img1.jpg" width={500} height={500} alt="my face"/>
+                    <Image src="/img/me.jpg" width={500} height={500} alt="my face"/>
                 </div>
                 <div>
                     <h1 className="col-span-2 lg:col-start-2 text-right">About Me</h1>
-                    <p className="col-span-2 lg:col-start-2 text-right">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    <p className="text-xl col-span-2 lg:col-start-2 text-right">
+                        Hello all, Kang Ming here. A graduate Computer Science student from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
+                        <br /><br/>
+                        With a multitude of projects I have worked on in my university tenure, I have amassed robust skills in <strong>full-stack development</strong> as well as <strong>machine learning and GPT-related technologies</strong>.
+                        <br /><br/>
+                        I am open to any software-related full-time opportunities in Singapore. My résumé is linked <Link href="/resume/RESUME_KANG_MING.pdf" className="text-blue-500 underline">here</Link>, and I am contactable via my <Link href="mailto:ckangming0@gmail.com" className="text-blue-500 underline">email</Link> too.
                     </p>
                 </div>
                 
