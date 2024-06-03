@@ -10,11 +10,11 @@ export default function Home() {
         <div className="text container mx-auto">
             <div className="mt-32 grid grid-cols-2 gap-4">
                 <div>
-                    <Image src="/img/me.jpg" width={500} height={500} alt="my face"/>
+                    <Image src="/img/me.jpg" width={600} height={900} alt="my face"/>
                 </div>
                 <div>
                     <h1 className="col-span-2 lg:col-start-2 text-right">About Me</h1>
-                    <p className="text-xl col-span-2 lg:col-start-2 text-right">
+                    <p className="text-xl col-span-2 lg:col-start-2 text-left">
                         Hello all, Kang Ming here. A graduate Computer Science student from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
                         <br /><br/>
                         With a multitude of projects I have worked on in my university tenure, I have amassed robust skills in <strong>full-stack development</strong> as well as <strong>machine learning and GPT-related technologies</strong>.
