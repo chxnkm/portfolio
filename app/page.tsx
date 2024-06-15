@@ -12,20 +12,23 @@ export default function Home() {
       <Navbar/> 
       <div className="intro container mx-auto">
         <div className='flex'>
-          <div className='intro-words flex-1'>
-            <h1 className="flex container text-5xl mt-32">Hello, I'm Kang Ming.</h1>
-            <p className="flex container font-medium text-xl">I'm a Computer Science graduate, a software engineer and an avid tinkerer.</p>
-            <p className="flex container font-medium text-xl">Welcome to my portfolio. Happy browsing!</p>
+          <div className="intro-words flex-1">
+            <h1 className="container mt-32 text-5xl">
+              Hello, I'm <span className="text-pastelBlue">Kang Ming.</span>
+            </h1>
+            <p className="container text-xl font-medium">I'm a Computer Science graduate, a software engineer, and an avid tinkerer.</p>
+            <p className="container text-xl font-medium">Welcome to my portfolio. Happy browsing!</p>
           </div>
-          <div className='intro-image flex-1 items-center justify-center mt-12'>
-          <Image
+        <div className='intro-image flex-1 items-center justify-center mt-12'>
+          <AutoCarousel length={3} basePath='/img/'/>
+          {/* <Image
               src={'/img/splash.jpg'}
               alt={'lolie'}
               width={640}
               height={480}
-            />
-          </div>
+            /> */}
         </div>
+      </div>
         
         
       </div>
