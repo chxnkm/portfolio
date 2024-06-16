@@ -14,7 +14,7 @@ export default function Home() {
                 </div>
                 <div>
                     <h1 className="col-span-2 lg:col-start-2 text-right">About Me 😄</h1>
-                    <p className="text-xl col-span-2 lg:col-start-2 text-left">
+                    <p className="text-xl col-span-2 lg:col-start-2 text-justify">
                         Hello all, Kang Ming here. A graduate Computer Science student from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
                         <br /><br/>
                         With a multitude of projects I have worked on in my university tenure, I have amassed robust skills in <strong>full-stack development,</strong> as well as <strong>machine learning and GPT-related technologies</strong>.
