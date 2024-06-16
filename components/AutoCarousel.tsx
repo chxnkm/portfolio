@@ -3,21 +3,27 @@
 import * as React from 'react'
 import Autoplay from "embla-carousel-autoplay"
 import Image from 'next/image'
-import Link from 'next/link'
- 
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 
-export default function AutoCarousel({ basePath = '/img/', length = 3 }) {
+interface ImageObject {
+  src: string;
+  href: string;
+}
+
+interface AutoCarouselProps {
+  basePath?: string;
+  images: ImageObject[];
+}
+
+export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouselProps) {
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnInteraction: false, stopOnFocusIn: false })
-  )
+  );
 
   return (
     <Carousel
@@ -30,18 +36,19 @@ export default function AutoCarousel({ basePath = '/img/', length = 3 }) {
       }}
     >
       <CarouselContent>
-        {Array.from({ length }).map((_, index) => (
+        {images.map((image, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-video items-center justify-center p-6">
-                  <a href={`${basePath}`}>
-                  <Image
-                    src={`${basePath}img${index + 1}.jpg`}
-                    alt={`Image ${index + 1}`}
-                    width={1080}
-                    height={1080}
-                  /></a>
+                  <a href={image.href}>
+                    <Image
+                      src={`${basePath}${image.src}`}
+                      alt={`Image ${index + 1}`}
+                      width={1080}
+                      height={1080}
+                    />
+                  </a>
                 </CardContent>
               </Card>
             </div>
