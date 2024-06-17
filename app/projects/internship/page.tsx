@@ -1,12 +1,9 @@
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 import Image from 'next/image'
 
 
 export default function Home() {
     return (
       <main>
-        <Navbar/> 
         <div className="text container mx-auto">
             <div className="mt-32 grid grid-cols-2 gap-8">
                     <div>
@@ -58,7 +55,6 @@ export default function Home() {
                     </div>
             </div>
         </div>
-        <Footer/>
       </main>
     );
   }

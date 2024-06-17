@@ -1,5 +1,3 @@
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 import AutoCarousel from '@/components/AutoCarousel';
 
 const images = [
@@ -15,7 +13,6 @@ const images = [
 export default function Home() {
   return (
     <main>
-      <Navbar/> 
       <div className="intro container mx-auto">
         <div className='flex'>
           <div className="intro-words flex-1">
@@ -60,7 +57,6 @@ export default function Home() {
         </div>
       </div>
       
-      <Footer/>
     </main>
   );
 }
