@@ -40,6 +40,7 @@ export default function Home() {
             <div>
               <h1 className="text-3xl font-bold mb-4 mt-12">Past Projects</h1>
               <p>Some of my past projects include:</p>
+              {test}
               <ul>
                   <li>
                     s
