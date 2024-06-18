@@ -29,12 +29,12 @@ const config = {
       colors: {
         pastelRed: '#FF6961',
         pastelOrange: '#FF964F',
-        pastelGreen: '#28A228',
+        pastelBlue: '#699ed6',
         cpfGreen: '#0D6060',
         dcYellow: '#F5C51F',
         qaPurple: '#6a4cff',
         pastelBeige: '#fdf0d8',
-        navBar: '#a3a8ad',
+        text: '#35733e',
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
