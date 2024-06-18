@@ -1,19 +1,18 @@
 import Image from 'next/image'
 import Link from "next/link"
-import { Card } from '@/components/ui/card';
 import DownloadCard from '@/components/ui/DownloadCard';
 
 
 export default function Home() {
     return (
       <main>
-        <div className="text container mx-auto">
-            <div className="mt-32 grid grid-cols-2 gap-4">
+        <div className="container mx-auto">
+            <div className="mt-32 grid grid-cols-2 gap-24">
                 <div>
                     <Image src="/img/misc/me.jpg" width={600} height={900} alt="my face"/>
                 </div>
                 <div className='col-span-2 lg:col-start-2'>
-                    <h1 className="text-right">About Me 😄</h1>
+                    <h1 className="text-left">About Me 😄</h1>
                     <p className="text-xl text-justify">
                         Hello all, Kang Ming here. A graduate Computer Science student from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
                         <br /><br/>

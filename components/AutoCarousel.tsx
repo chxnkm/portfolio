@@ -39,14 +39,14 @@ export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouse
         {images.map((image, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <Card>
+              <Card className='bg-inherit border-slate-300 mb-8'>
                 <CardContent className="flex aspect-video items-center justify-center p-6">
                   <a href={image.href}>
                     <Image
                       src={`${basePath}${image.src}`}
                       alt={`Image ${index + 1}`}
-                      width={1080}
-                      height={1080}
+                      width={800}
+                      height={800}
                     />
                   </a>
                 </CardContent>

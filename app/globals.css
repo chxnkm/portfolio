@@ -86,3 +86,10 @@
   h1 {
     @apply scroll-m-20 text-5xl font-extrabold lg:text-5xl;
   }
+
+  @font-face {
+    font-family: 'belsey';
+    src: url('/fonts/Besley-VariableFont_wght.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }

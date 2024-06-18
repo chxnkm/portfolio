@@ -4,16 +4,6 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils"
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu"
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -36,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(
-          "min-h-screen flex flex-col bg-background font-sans antialiased",
+          "min-h-screen flex flex-col font-sans antialiased",
           fontSans.variable
         )}>
           <Navbar/>

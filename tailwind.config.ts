@@ -19,17 +19,22 @@ const config = {
       },
     },
     extend: {
+      lineHeight: {
+        'custom': '1.25',
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        belsey: ['belsey', 'serif'],
       },
       colors: {
-        pastelBlue: '#AEC6CF',
         pastelRed: '#FF6961',
         pastelOrange: '#FF964F',
         pastelGreen: '#28A228',
         cpfGreen: '#0D6060',
         dcYellow: '#F5C51F',
-        qaPurple: '#A100FF',
+        qaPurple: '#6a4cff',
+        pastelBeige: '#fdf0d8',
+        navBar: '#a3a8ad',
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
