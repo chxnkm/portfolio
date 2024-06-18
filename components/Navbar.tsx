@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { NavigationMenuDemo } from "./ui/NavMenu";
+import { NavMenu } from "./ui/NavMenu";
 
 
 export default function Navbar() {
@@ -18,7 +18,7 @@ export default function Navbar() {
             </div>
           </Link>
           <div className="flex">
-            <NavigationMenuDemo/>
+            <NavMenu/>
           </div>
         </div>
       </div>
