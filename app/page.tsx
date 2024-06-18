@@ -21,11 +21,12 @@ export default function Home() {
             <h1 className="container mt-32 text-6xl font-belsey font-black">
               Hello, I'm <span className="text-dcYellow leading-custom"><br/>Kang Ming.</span>
             </h1>
-            <p className="container text-2xl font-medium">I'm a <strong><span className="text-pastelGreen">Computer Science graduate</span>, a<br/> <span className="text-pastelRed">software engineer</span>, and an <span className="text-pastelOrange">avid tinkerer</span>.</strong></p>
+            <p className="container text-2xl font-bold">I'm a <span className="text-pastelGreen">Computer Science graduate</span>, <br/>a <span className="text-pastelRed">software engineer</span>, and <br/>an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
             <p className="container text-xl font-medium">Welcome to my portfolio. Happy browsing!</p>
           </div>
           <div className='intro-image flex-1 items-center justify-center my-12 pl-8'>
-        <div style={{ width: '480px', height: '480px', backgroundImage: 'url("/img/misc/main_splash.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '24px'}}></div>
+            
+            <div style={{ width: '480px', height: '480px', backgroundImage: 'url("/img/misc/main_splash.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '2vh'}}></div>
       </div>
       </div>
         
