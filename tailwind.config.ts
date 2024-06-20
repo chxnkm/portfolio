@@ -25,6 +25,7 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         belsey: ['belsey', 'serif'],
+        msz: ['msz', 'serif'],
       },
       colors: {
         pastelRed: '#FF6961',

@@ -22,7 +22,7 @@ export function NavMenu() {
           <Link href="/about-me" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} ${
-                currentPath === "/about-me" ? "bg-slate-300 underline" : ""
+                currentPath === "/about-me" ? "bg-[#f3a616] underline" : ""
               }`}
             >
               About Me
@@ -33,7 +33,7 @@ export function NavMenu() {
           <Link href="/projects" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} ${
-                currentPath === "/projects" ? "bg-slate-300 underline" : ""
+                currentPath === "/projects" ? "bg-[#f3a616] underline" : ""
               }`}
             >
               Projects
@@ -44,7 +44,7 @@ export function NavMenu() {
           <Link href="/hobbies" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} ${
-                currentPath === "/hobbies" ? "bg-slate-300 underline" : ""
+                currentPath === "/hobbies" ? "bg-[#f3a616] underline" : ""
               }`}
             >
               Hobbies
@@ -54,11 +54,7 @@ export function NavMenu() {
         <NavigationMenuItem>
           <Link href="/resume/RESUME_KANG_MING.pdf" legacyBehavior passHref>
             <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} ${
-                currentPath === "/resume/RESUME_KANG_MING.pdf"
-                  ? "bg-slate-300 underline"
-                  : ""
-              }`}
+              className={`${navigationMenuTriggerStyle()} bg-[#f3a616] font-black`}
             >
               Résumé
             </NavigationMenuLink>

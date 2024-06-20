@@ -4,19 +4,20 @@ import React from 'react';
 import Image from 'next/image';
 
 interface UnclickableImageProps {
+  width?: number;
   src: string;
   alt: string;
   unoptimized?: boolean;
 }
 
-const UnclickableImage: React.FC<UnclickableImageProps> = ({ src, alt, unoptimized }) => {
+const UnclickableImage: React.FC<UnclickableImageProps> = ({ width, src, alt, unoptimized }) => {
   const handleContextMenu = (event: React.MouseEvent) => {
     event.preventDefault();
   };
 
   return (
     <div onContextMenu={handleContextMenu}>
-      <Image src={src} width={600} height={480} alt={alt} unoptimized={unoptimized}/>
+      <Image src={src} width={width? width:600} height={200} alt={alt} unoptimized={unoptimized}/>
     </div>
   );
 };

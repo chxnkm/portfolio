@@ -4,7 +4,7 @@
 
   @layer base {
     :root {
-      --background: 0 0% 100%;
+      --background: 39, 90%, 92%;
       --foreground: 219 59% 13%;
 
       --card: 0 0% 100%;
@@ -90,6 +90,12 @@
   @font-face {
     font-family: 'belsey';
     src: url('/fonts/Besley-VariableFont_wght.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'msz';
+    src: url('/fonts/MaShanZheng-Regular.ttf') format('truetype');
     font-weight: 200;
     font-style: normal;
   }

@@ -23,8 +23,16 @@ export default function Home() {
             <p className="container text-xl font-medium">Welcome to my portfolio. Happy browsing!</p>
           </div>
           <div className='intro-image flex-1 items-center justify-center my-12 pl-8'>
-            
-            <div style={{ width: '480px', height: '480px', backgroundImage: 'url("/img/misc/main_splash.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', borderRadius: '2vh'}}/>
+            <div style={{
+              width: '480px',
+              height: '480px',
+              backgroundImage: 'url("/img/misc/main_splash.jpg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              clipPath: 'polygon(62% 7%, 100% 1%, 87% 81%, 18% 100%, 3% 27%)',
+              borderRadius: '70%',
+              boxShadow: '0 0 20px 10px rgba(0, 0, 0, 0.7)'
+            }} />
           </div>
         </div>        
       </div>

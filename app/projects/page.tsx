@@ -40,7 +40,7 @@ const Projects = async () => {
         </div>
         <div className='mt-12'>
           {projects.map((project, index) => (
-            <Card key={index} className="border-4 mt-4">
+            <Card key={index} className="border-2 mt-2">
               <CardHeader>
                 <CardTitle><a href={project.href} className="font-belsey text-3xl hover:underline">{project.name}</a></CardTitle>
                 <CardDescription>{project.date.toDateString().split(' ').slice(1).join(' ')}</CardDescription>

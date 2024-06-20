@@ -25,7 +25,7 @@ export default function Home() {
             <div className="mt-32 grid grid-cols-2 gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
-                            <UnclickableImage src="/img/fyp/pet.png" alt="PET model infrastructure"/>
+                            <UnclickableImage width={400} src="/img/fyp/pet.png" alt="PET model infrastructure"/>
                             <p className='mt-2 font-medium'>The PET Crowd Counting Model (Liu et. al., 2023)</p>
                         </div>
                     </div>
@@ -37,18 +37,16 @@ export default function Home() {
                         </p>   
                     </div>
             </div>
-            <div className="mt-32 grid grid-cols-2 gap-24">
+            <div className="mt-32 gap-24 bg-pastelBeige border-4 p-8 border-slate-700 rounded-lg">
                     <div>
-                        
-                    </div>
-                    <div>
-                    <h1 className="text-4xl col-span-2 lg:col-start-2 text-left"><span className="text-cpfGreen">Reflections</span></h1>
+                    <h1 className="text-4xl text-left font-belsey"><span className="text-cpfGreen">Reflections</span></h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
                             The journey of the final-year project was not an easy one - countless sleepless nights were spent toiling over training data, hyperparameter tuning, and writing and structuring ideas into a full-fledged report. Time management and efficiency were crucial in carrying the project over the line.<br/><br/>
-                            If I were to change anything in my project, it will be to give more time to my dataset creation and curation, which I felt was slightly lacking. However, I felt that the final-year project was overall well done, with an emphasis on clarity and solution-finding.
+                            If I were to change anything in my project, it will be to give more time to my dataset creation and curation, which I felt was slightly lacking. However, I felt that the final-year project was overall well done, with an emphasis on <strong>clarity and solution-finding</strong>.
 
-                        </p>   
+                        </p>  
                     </div>
+                    
             </div>
         </div>
       </main>
