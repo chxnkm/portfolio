@@ -39,17 +39,13 @@ export default function Home() {
             </div>
             <div className="mt-32 grid grid-cols-2 gap-24">
                     <div>
-                        <div className="docCentral flex flex-col items-center">
-                            <Image src="/img/internship/guide.gif" width={600} height={900} alt="docCentral intro" unoptimized={true}/>
-                            <p className='mt-2 font-medium'>Screengrabs of the guide for docCentral.</p>
-                        </div>
+                        
                     </div>
                     <div>
                     <h1 className="text-4xl col-span-2 lg:col-start-2 text-left"><span className="text-cpfGreen">Reflections</span></h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
-                            docCental is a document templating plugin for Microsoft Word that enables government officers to create documents from templates in a seamless and time-saving method. It consists of a Next.js-based webapp and a Microsoft Word XML Add-in. It taps on FormSG as an input for the document, which can be templated through the add-in, and outputs a completed document to one's desired email.
-                            <br/><br/>
-                            The main motivations of creating docCentral was to reduce repetitive document filling, where most of the document does not change, and only pertinent fields like the name, date and so on need to be modified. It streamlines workflow and improves productivity. Upon rolling out in a pilot to various interested governmental agencies, many express great interest in using the product.
+                            The journey of the final-year project was not an easy one - countless sleepless nights were spent toiling over training data, hyperparameter tuning, and writing and structuring ideas into a full-fledged report. Time management and efficiency were crucial in carrying the project over the line.<br/><br/>
+                            If I were to change anything in my project, it will be to give more time to my dataset creation and curation, which I felt was slightly lacking. However, I felt that the final-year project was overall well done, with an emphasis on clarity and solution-finding.
 
                         </p>   
                     </div>
