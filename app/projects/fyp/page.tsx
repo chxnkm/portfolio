@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import UnclickableImage from '@/components/UnclickableImage';
 
 
 export default function Home() {
@@ -8,16 +9,14 @@ export default function Home() {
             <div className="mt-32 grid grid-cols-2 gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
-                            <Image src="/img/img1.jpg" width={600} height={900} alt="docCentral intro"/>
-                            <p className='mt-2 font-medium'>Me and the docCentral team!</p>
+                            <UnclickableImage src="/img/fyp/fyp_1.gif" alt="docCentral intro" unoptimized={true}/>
+                            <p className='mt-2 font-medium'>Screenshots from crowd detections in Singapore.</p>
                         </div>
                     </div>
                     <div>
-                        <h1 className="col-span-2 lg:col-start-2 text-left">Final Year Project</h1>
+                        <h1 className="col-span-2 lg:col-start-2 text-left font-belsey">Final Year Project 🕵🏻‍♂️</h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
-                            In the beginning of 2023, I was grateful to be offered the opportunity to intern at the CPF Board under the <strong>Frontier Products Team.</strong>
-                            <br /><br/>
-                            In my short 5-month tenure, I have been greatly exposed to industrial-standard full-stack development, and had the chance to be part of two projects - a<strong> QA-bot </strong> leveraging <strong>GPT technologies,</strong> and docCentral, a <strong>full-stack document templating webapp and plugin</strong> for Microsoft Word.
+                            For my final year in university, I delved into crowd estimation as my topic for my final-year project. Under the tutelage and guidance of my professor Cham Tat Jen, I successfully utilised and improved the <strong>Point-Query Transformer (PET)</strong> crowd counting method, and evaluated it on a <strong>local novel Singaporean crowd dataset</strong> created for this project.
                         </p>    
                     </div>
             </div>
@@ -25,11 +24,11 @@ export default function Home() {
                     <div>
                         <div className="docCentral flex flex-col items-center">
                             <Image src="/img/internship/chatcentral.jpg" width={600} height={900} alt="docCentral intro"/>
-                            <p className='mt-2 font-medium'>GPT-powered QA Bot in practice.</p>
+                            <p className='mt-2 font-medium'>The PET Crowd Counting Model</p>
                         </div>
                     </div>
                     <div>
-                    <h1 className="text-4xl col-span-2 lg:col-start-2 text-left"><span className="text-qaPurple">GPT-powered QA Bot 🤖</span></h1>
+                    <h1 className="text-4xl col-span-2 lg:col-start-2 text-left"><span className="text-red-500">PET Crowd Counting Model 📊</span></h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
                             One of the products I worked on was spear-heading my team's large-language model (LLM) stack. We decided to venture and try out to create a GPT-powered question-answering bot capable of answering user-inputted queries about CPF. I worked on many aspects of the project, first by understanding the system of a language model, and started by collecting data from the CPF website via website automated website scraping with <strong>Selenium</strong>.
                             <br/><br/>
@@ -45,7 +44,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div>
-                    <h1 className="text-4xl col-span-2 lg:col-start-2 text-left"><span className="text-dcYellow">docCentral 📑</span></h1>
+                    <h1 className="text-4xl col-span-2 lg:col-start-2 text-left"><span className="text-cpfGreen">Reflections</span></h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
                             docCental is a document templating plugin for Microsoft Word that enables government officers to create documents from templates in a seamless and time-saving method. It consists of a Next.js-based webapp and a Microsoft Word XML Add-in. It taps on FormSG as an input for the document, which can be templated through the add-in, and outputs a completed document to one's desired email.
                             <br/><br/>

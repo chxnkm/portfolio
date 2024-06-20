@@ -17,10 +17,8 @@ export default function Home() {
       <div className="intro container mx-auto">
         <div className='flex gap-12'>
           <div className="intro-words flex-1">
-          <h1 className="container mt-32 text-6xl font-belsey font-black">
-  Hello, I'm <span className="text-text leading-custom"><br/><a href='/about-me' className="hover:underline">Kang Ming.</a></span>
-</h1>
-
+          <h1 className="container mt-32 text-6xl font-belsey font-black">Hello, I'm <span className="text-text leading-custom"><br/><a href='/about-me' className="hover:underline">Kang Ming.</a></span>
+          </h1>
             <p className="container text-2xl font-bold">I'm a <span className="text-pastelBlue">Computer Science graduate</span>,<br/><span className="text-pastelRed">software engineer</span>, and <br/>an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
             <p className="container text-xl font-medium">Welcome to my portfolio. Happy browsing!</p>
           </div>

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import UnclickableImage from '@/components/UnclickableImage';
 
 
 export default function Home() {
@@ -8,12 +9,12 @@ export default function Home() {
             <div className="mt-32 grid grid-cols-2 gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
-                            <Image src="/img/img1.jpg" width={600} height={900} alt="docCentral intro"/>
+                            <UnclickableImage src="/img/img1.jpg" alt="docCentral intro" />
                             <p className='mt-2 font-medium'>Me and the docCentral team!</p>
                         </div>
                     </div>
                     <div>
-                        <h1 className="col-span-2 lg:col-start-2 text-left">Internship at <span className="text-cpfGreen">CPF Board</span></h1>
+                        <h1 className="col-span-2 lg:col-start-2 text-left font-belsey">Internship at <span className="text-cpfGreen">CPF Board</span></h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
                             In the beginning of 2023, I was grateful to be offered the opportunity to intern at the CPF Board under the <strong>Frontier Products Team.</strong>
                             <br /><br/>
@@ -24,7 +25,7 @@ export default function Home() {
             <div className="mt-32 grid grid-cols-2 gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
-                            <Image src="/img/internship/chatcentral.jpg" width={600} height={900} alt="docCentral intro"/>
+                            <UnclickableImage src="/img/internship/chatcentral.jpg" alt="GPT-QA Bot example" />
                             <p className='mt-2 font-medium'>GPT-powered QA Bot in practice.</p>
                         </div>
                     </div>
@@ -40,7 +41,7 @@ export default function Home() {
             <div className="mt-32 grid grid-cols-2 gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
-                            <Image src="/img/internship/guide.gif" width={600} height={900} alt="docCentral intro" unoptimized={true}/>
+                            <UnclickableImage src="/img/internship/guide.gif" alt="docCentral intro" unoptimized={true}/>
                             <p className='mt-2 font-medium'>Screengrabs of the guide for docCentral.</p>
                         </div>
                     </div>

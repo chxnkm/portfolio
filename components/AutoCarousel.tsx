@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import Autoplay from "embla-carousel-autoplay"
-import Image from 'next/image'
+import UnclickableImage from './UnclickableImage'
 import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
@@ -42,12 +42,7 @@ export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouse
               <Card className='bg-inherit border-slate-00 mb-8'>
                 <CardContent className="flex aspect-video items-center justify-center p-6">
                   <a href={image.href}>
-                    <Image
-                      src={`${basePath}${image.src}`}
-                      alt={`Image ${index + 1}`}
-                      width={800}
-                      height={800}
-                    />
+                    <UnclickableImage src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
                   </a>
                 </CardContent>
               </Card>
