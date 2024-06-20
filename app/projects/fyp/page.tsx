@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import UnclickableImage from '@/components/UnclickableImage';
+import Link from 'next/link';
 
 
 export default function Home() {
@@ -10,13 +11,14 @@ export default function Home() {
                     <div>
                         <div className="docCentral flex flex-col items-center">
                             <UnclickableImage src="/img/fyp/fyp_1.gif" alt="docCentral intro" unoptimized={true}/>
-                            <p className='mt-2 font-medium'>Screenshots from crowd detections in Singapore.</p>
+                            <p className='mt-2 font-medium'>Screenshots from crowd detections from the SG-CE dataset.</p>
                         </div>
                     </div>
                     <div>
                         <h1 className="col-span-2 lg:col-start-2 text-left font-belsey">Final Year Project 🕵🏻‍♂️</h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
-                            For my final year in university, I delved into crowd estimation as my topic for my final-year project. Under the tutelage and guidance of my professor Cham Tat Jen, I successfully utilised and improved the <strong>Point-Query Transformer (PET)</strong> crowd counting method, and evaluated it on a <strong>local novel Singaporean crowd dataset</strong> created for this project.
+                            For my final year in university, I delved into crowd estimation as my topic for my final-year project. Under the tutelage and guidance of my professor Cham Tat Jen, I successfully utilised and improved the <strong>Point-Query Transformer (PET)</strong> crowd counting method, and evaluated it on a <strong>local novel Singaporean crowd dataset</strong> created for this project; some of the photos from the dataset are shown on the left.<br/><br/>
+                            The full report can be found <Link href="https://dr.ntu.edu.sg/handle/10356/174984" className="text-blue-500 underline">here.</Link>
                         </p>    
                     </div>
             </div>
@@ -30,9 +32,8 @@ export default function Home() {
                     <div>
                     <h1 className="text-4xl col-span-2 lg:col-start-2 text-left"><span className="text-red-500">PET Crowd Counting Model 📊</span></h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
-                            One of the products I worked on was spear-heading my team's large-language model (LLM) stack. We decided to venture and try out to create a GPT-powered question-answering bot capable of answering user-inputted queries about CPF. I worked on many aspects of the project, first by understanding the system of a language model, and started by collecting data from the CPF website via website automated website scraping with <strong>Selenium</strong>.
-                            <br/><br/>
-                            Leveraging the <strong>OpenAI GPT API</strong>, as well as a simple React-stack application, we were able to create a proof-of-concept, which received very positive feedback from the board of directors. We even presented the product in a inter-department sharing, where it also similarly was received very positively.
+                            The PET crowd counting method is a transformer-based crowd estimation technique. To summise, it involves a standard encoder-decoder transformer, modified with a variable rectangle window to deal with queried points of different densities. The densities of each queried point in a crowd image is determined using the <strong>point-query quadtree</strong>, which splits dense points into 4 smaller points for processing. The eventual predictions will then be crafted with the points queried and processed.<br/><br/>
+                            The architecture of the PET model is shown on the left.
                         </p>   
                     </div>
             </div>
