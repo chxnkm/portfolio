@@ -16,10 +16,10 @@ export function NavMenu() {
   const currentPath = usePathname()
 
   return (
-    <NavigationMenu className="">
+    <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/about-me" passHref>
+          <Link href="/about-me" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} ${
                 currentPath === "/about-me" ? "bg-slate-300 underline" : ""
@@ -30,7 +30,7 @@ export function NavMenu() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/projects" passHref>
+          <Link href="/projects" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} ${
                 currentPath === "/projects" ? "bg-slate-300 underline" : ""
@@ -41,7 +41,7 @@ export function NavMenu() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/hobbies" passHref>
+          <Link href="/hobbies" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} ${
                 currentPath === "/hobbies" ? "bg-slate-300 underline" : ""
@@ -52,7 +52,7 @@ export function NavMenu() {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/resume/RESUME_KANG_MING.pdf" passHref>
+          <Link href="/resume/RESUME_KANG_MING.pdf" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} ${
                 currentPath === "/resume/RESUME_KANG_MING.pdf"
