@@ -23,8 +23,8 @@ export default function Home() {
             <div className="mt-32 grid grid-cols-2 gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
-                            <Image src="/img/internship/chatcentral.jpg" width={600} height={900} alt="docCentral intro"/>
-                            <p className='mt-2 font-medium'>The PET Crowd Counting Model</p>
+                            <UnclickableImage src="/img/fyp/pet.png" alt="PET model infrastructure"/>
+                            <p className='mt-2 font-medium'>The PET Crowd Counting Model (Liu et. al., 2023)</p>
                         </div>
                     </div>
                     <div>
