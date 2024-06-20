@@ -14,7 +14,7 @@ export default function Home() {
                             <p className='mt-2 font-medium'>Screenshots from crowd detections from the SG-CE dataset.</p>
                         </div>
                     </div>
-                    <div>
+                    <div className='bg-pastelBeige border-4 p-8 border-slate-700 rounded-lg'>
                         <h1 className="col-span-2 lg:col-start-2 text-left font-belsey">Final Year Project 🕵🏻‍♂️</h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
                             For my final year in university, I delved into crowd estimation as my topic for my final-year project. Under the tutelage and guidance of my professor Cham Tat Jen, I successfully utilised and improved the <strong>Point-Query Transformer (PET)</strong> crowd counting method, and evaluated it on a <strong>local novel Singaporean crowd dataset</strong> created for this project; some of the photos from the dataset are shown on the left.<br/><br/>

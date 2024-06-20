@@ -13,7 +13,7 @@ export default function Home() {
                             <p className='mt-2 font-medium'>Me and the docCentral team!</p>
                         </div>
                     </div>
-                    <div>
+                    <div className='bg-pastelBeige border-4 p-8 border-slate-700 rounded-lg'>
                         <h1 className="col-span-2 lg:col-start-2 text-left font-belsey">Internship at <span className="text-cpfGreen">CPF Board</span></h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
                             In the beginning of 2023, I was grateful to be offered the opportunity to intern at the CPF Board under the <strong>Frontier Products Team.</strong>
