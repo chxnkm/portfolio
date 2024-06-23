@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from "next/link"
 import DownloadCard from '@/components/ui/DownloadCard';
 import UnclickableImage from '@/components/UnclickableImage';
@@ -8,13 +7,13 @@ export default function Home() {
     return (
       <main>
         <div className="container mx-auto">
-            <div className="mt-32 grid grid-cols-2 gap-24">
+            <div className="mt-32 grid grid-cols-2 gap-24 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                 <div>
                     {/* <Image src="/img/misc/me.jpg" width={600} height={480} alt="my face" /> */}
                     <UnclickableImage src="/img/misc/me.jpg" alt="my face" />
                 </div>
                 <div className='col-span-2 lg:col-start-2'>
-                    <h1 className="text-left font-belsey">About Me 😄</h1>
+                    <h1 className="text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About Me 😄</h1>
                     <p className="text-xl text-justify">
                         Hello all, Kang Ming here. A graduate Computer Science student from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
                         <br /><br/>

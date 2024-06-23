@@ -1,12 +1,13 @@
-import Image from 'next/image'
 import UnclickableImage from '@/components/UnclickableImage';
+import { Button } from '@/components/ui/button';
 
 
 export default function Home() {
     return (
       <main>
         <div className="text container mx-auto">
-            <div className="mt-32 grid grid-cols-2 gap-24">
+        <Button className='mt-[1vh] mb-[-32px] bg-[#bc7b0b]'><a href='/projects'>Back to Projects</a></Button>
+            <div className="mt-32 grid grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
                             <UnclickableImage src="/img/img1.jpg" alt="docCentral intro" />
@@ -14,7 +15,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className='bg-pastelBeige border-4 p-8 border-slate-700 rounded-lg'>
-                        <h1 className="col-span-2 lg:col-start-2 text-left font-belsey">Internship at <span className="text-cpfGreen">CPF Board</span></h1>
+                        <h1 className="col-span-2 lg:col-start-2 text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Internship at <span className="text-cpfGreen">CPF Board</span></h1>
                         <p className="text-lg col-span-2 lg:col-start-2 text-justify">
                             In the beginning of 2023, I was grateful to be offered the opportunity to intern at the CPF Board under the <strong>Frontier Products Team.</strong>
                             <br /><br/>
@@ -22,7 +23,7 @@ export default function Home() {
                         </p>    
                     </div>
             </div>
-            <div className="mt-32 grid grid-cols-2 gap-24">
+            <div className="mt-32 grid grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
                             <UnclickableImage src="/img/internship/chatcentral.jpg" alt="GPT-QA Bot example" />
@@ -38,7 +39,7 @@ export default function Home() {
                         </p>   
                     </div>
             </div>
-            <div className="mt-32 grid grid-cols-2 gap-24">
+            <div className="mt-32 grid grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">
                             <UnclickableImage src="/img/internship/guide.gif" alt="docCentral intro" unoptimized={true}/>

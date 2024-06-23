@@ -2,17 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent} from '@/components/ui/card';
 
-import { useState } from "react";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
-
 type Project = {
   date: Date;
   name: string;

@@ -39,7 +39,7 @@ export default function Home() {
       </div>
 
       <div className="container mx-auto">
-            <div className="mt-16 grid grid-cols-2 gap-24">
+            <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                 <div>
                 <h1 className="text-5 xl font-belsey font-black">
               What's Happening?
