@@ -4,7 +4,7 @@
 
   @layer base {
     :root {
-      --background: 39, 90%, 95%;
+      --background: 39, 90%, 93%;
       --foreground: 219 59% 13%;
 
       --card: 0 0% 100%;
@@ -130,5 +130,6 @@
   
   .animate-slideUp {
     animation: slideUp 0.8s ease-out forwards;
+    
   }
   

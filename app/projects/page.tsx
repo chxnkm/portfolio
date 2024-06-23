@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+
 import { 
   Card, 
   CardHeader, 
@@ -46,15 +46,16 @@ const Projects = () => {
   return (
     <main>
       <div className="text container mx-auto">
-        <div className="col-span-2 lg:col-start-2 text-right mt-32 gap-8">
+        <div className="col-span-2 lg:col-start-2 text-center mt-32 gap-8">
           <h1 className="font-black font-belsey">My Projects 👨🏻‍💻</h1>
           <p className="text-xl mt-12">Click on each card to learn more!</p>
         </div>
         <div className='mt-12'>
           {currentProjects.map((project, index) => (
-            <Card key={index} className="bg-background border-gray-200 mt-4 shadow-lg rounded-lg overflow-hidden animate-slideUp">
+            <a href={project.href}>
+            <Card key={index} className="bg-[#fdfdfd] border-gray-200 mt-4 shadow-lg rounded-lg overflow-hidden animate-slideUp">
               <CardHeader>
-                <CardTitle><a href={project.href} className="font-belsey text-3xl hover:underline">{project.name}</a></CardTitle>
+                <CardTitle className="font-belsey text-3xl">{project.name}</CardTitle>
                 <CardDescription>{new Date(project.date).toDateString().split(' ').slice(1).join(' ')}</CardDescription>
               </CardHeader>
               <CardContent className="flex items-center justify-between mt-[-5%]">
@@ -62,6 +63,7 @@ const Projects = () => {
                 <div style={{ width: '150px', height: '150px', backgroundImage: `url(${project.image})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'}}/>
               </CardContent>
             </Card>
+            </a>
           ))}
         </div>
         <Pagination className="mt-8">
