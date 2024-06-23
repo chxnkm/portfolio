@@ -1,36 +1,47 @@
-import fs from 'fs';
-import path from 'path';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent} from '@/components/ui/card';
+'use client'
 
-type Project = {
-  date: Date;
-  name: string;
-  description: string;
-  image: string;
-  href: string;
-};
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { 
+  Card, 
+  CardHeader, 
+  CardTitle, 
+  CardDescription, 
+  CardContent
+} from '@/components/ui/card';
 
-const fetchProjects = async (): Promise<Project[]> => {
-  const filePath = path.join(process.cwd(), 'data', 'projects.json');
-  const jsonData = fs.readFileSync(filePath, 'utf-8');
-  const projectsData = JSON.parse(jsonData).projects;
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination"
 
-  // Parse date strings into Date objects
-  const projects = projectsData.map((project: any) => ({
-    ...project,
-    date: new Date(project.date),
-  })) as Project[];
+import { Project } from '@/lib/projects-api';
 
-  // Sort projects in descending order based on date
-  projects.sort((a, b) => b.date.getTime() - a.date.getTime());
+const ITEMS_PER_PAGE = 5;
 
-  return projects;
-};
+const Projects = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [numPages, setNumPages] = useState(1);
 
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const response = await fetch('/api/fetch-projects');
+      const data = await response.json();
+      setProjects(data);
+      setNumPages(Math.ceil(data.length / ITEMS_PER_PAGE));
+    };
 
+    fetchProjects();
+  }, []);
 
-const Projects = async () => {
-  const projects = await fetchProjects();
+  const indexOfLastProject = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstProject = indexOfLastProject - ITEMS_PER_PAGE;
+  const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
 
   return (
     <main>
@@ -40,11 +51,11 @@ const Projects = async () => {
           <p className="text-xl mt-12">Click on each card to learn more!</p>
         </div>
         <div className='mt-12'>
-          {projects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <Card key={index} className="bg-background border-gray-200 mt-4 shadow-lg rounded-lg overflow-hidden animate-slideUp">
               <CardHeader>
                 <CardTitle><a href={project.href} className="font-belsey text-3xl hover:underline">{project.name}</a></CardTitle>
-                <CardDescription>{project.date.toDateString().split(' ').slice(1).join(' ')}</CardDescription>
+                <CardDescription>{new Date(project.date).toDateString().split(' ').slice(1).join(' ')}</CardDescription>
               </CardHeader>
               <CardContent className="flex items-center justify-between mt-[-5%]">
                 <p className="flex-grow max-w-[75%]">{project.description}</p>
@@ -53,6 +64,35 @@ const Projects = async () => {
             </Card>
           ))}
         </div>
+        <Pagination className="mt-8">
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious 
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                aria-disabled={currentPage === 1}
+                className={`${currentPage === 1 ? 'pointer-events-none opacity-50' : 'cursor-pointer'}`}
+              />
+            </PaginationItem>
+            {[...Array(numPages)].map((_, index) => (
+              <PaginationItem key={index}>
+                <PaginationLink 
+                  onClick={() => setCurrentPage(index + 1)}
+                  aria-current={currentPage === index + 1 ? 'page' : undefined}
+                  className="cursor-pointer"
+                >
+                  {index + 1}
+                </PaginationLink>
+              </PaginationItem>
+            ))}
+            <PaginationItem>
+              <PaginationNext 
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, numPages))}
+                aria-disabled={currentPage === numPages}
+                className={`${currentPage === numPages ? 'pointer-events-none opacity-50' : 'cursor-pointer'}`}
+              />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
       </div>
     </main>
   );
