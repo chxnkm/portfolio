@@ -2,6 +2,17 @@ import fs from 'fs';
 import path from 'path';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent} from '@/components/ui/card';
 
+import { useState } from "react";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
 type Project = {
   date: Date;
   name: string;
@@ -28,6 +39,7 @@ const fetchProjects = async (): Promise<Project[]> => {
 };
 
 
+
 const Projects = async () => {
   const projects = await fetchProjects();
 
@@ -40,7 +52,7 @@ const Projects = async () => {
         </div>
         <div className='mt-12'>
           {projects.map((project, index) => (
-            <Card key={index} className="border-2 mt-2">
+            <Card key={index} className="bg-background border-gray-200 mt-4 shadow-lg rounded-lg overflow-hidden animate-slideUp">
               <CardHeader>
                 <CardTitle><a href={project.href} className="font-belsey text-3xl hover:underline">{project.name}</a></CardTitle>
                 <CardDescription>{project.date.toDateString().split(' ').slice(1).join(' ')}</CardDescription>

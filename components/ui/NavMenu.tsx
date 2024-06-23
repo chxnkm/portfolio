@@ -54,7 +54,7 @@ export function NavMenu() {
         <NavigationMenuItem>
           <Link href="/resume/RESUME_KANG_MING.pdf" legacyBehavior passHref>
             <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} bg-[#f3a616] font-black`}
+              className={`${navigationMenuTriggerStyle()} bg-[#bc7b0b] font-black ml-4`}
             >
               Résumé
             </NavigationMenuLink>

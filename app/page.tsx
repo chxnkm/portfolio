@@ -13,7 +13,7 @@ const images = [
 export default function Home() {
   return (
     <main>
-      <div className='w-screen bg-pastelBeige'>
+      <div className='w-screen bg-image-with-opacity'>
       <div className="intro container mx-auto">
         <div className='flex gap-12'>
           <div className="intro-words flex-1">
