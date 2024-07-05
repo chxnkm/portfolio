@@ -1,13 +1,4 @@
-import AutoCarousel from '@/components/AutoCarousel';
-
-const images = [
-  { src: 'img1.jpg', href: '/projects/internship' },
-  { src: 'img2.jpg', href: '/projects/fyp' },
-  { src: 'img3.jpg', href: '/projects/ctf' },
-  { src: 'img4.jpg', href: '/hobbies/jamband' },
-  { src: 'img5.jpg', href: '/hobbies/photos' },
-  // Add more images as needed
-];
+import Projects from "@/components/project";
 
 
 export default function Home() {
@@ -37,22 +28,11 @@ export default function Home() {
         </div>        
       </div>
       </div>
-
-      <div className="container mx-auto">
-            <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
-                <div>
-                <h1 className="text-5 xl font-belsey font-black">
-              What's Happening?
-            </h1>
-
-                </div>
-                <div className='col-span-2 lg:col-start-2'>
-                    <AutoCarousel basePath='/img/' images={images}/>
-                </div>
-                
-            </div>
+      <div className=" mt-12 container mx-auto">
+          <h1 className="text-4xl font-black font-belsey">My Projects 👨🏻‍💻</h1>
+          <p className="text-lg mt-12">Click on each card to learn more!</p>
         </div>
-      
+      <Projects/>
     </main>
   );
 }

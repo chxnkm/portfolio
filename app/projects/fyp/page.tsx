@@ -7,7 +7,7 @@ export default function Home() {
     return (
       <main>
         <div className="text container mx-auto">
-        <Button className='mt-[1vh] mb-[-32px] bg-[#bc7b0b]'><a href='/projects'>Back to Projects</a></Button>
+        
             <div className="mt-32 grid grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                     <div>
                         <div className="docCentral flex flex-col items-center">

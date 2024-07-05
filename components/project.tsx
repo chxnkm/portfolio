@@ -46,10 +46,6 @@ const Projects = () => {
   return (
     <main>
       <div className="text container mx-auto">
-        <div className="col-span-2 lg:col-start-2 text-center mt-32 gap-8">
-          <h1 className="font-black font-belsey">My Projects 👨🏻‍💻</h1>
-          <p className="text-xl mt-12">Click on each card to learn more!</p>
-        </div>
         <div className='mt-12'>
           {currentProjects.map((project, index) => (
             <a href={project.href}>
