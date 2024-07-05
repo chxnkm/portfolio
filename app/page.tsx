@@ -28,10 +28,10 @@ export default function Home() {
         </div>        
       </div>
       </div>
-      <div className=" mt-12 container mx-auto">
+      <div className=" mt-12 container mx-auto animate-slideUp">
           <h1 className="text-4xl font-black font-belsey">My Projects 👨🏻‍💻</h1>
           <p className="text-lg mt-12">Click on each card to learn more!</p>
-        </div>
+      </div>
       <Projects/>
     </main>
   );
