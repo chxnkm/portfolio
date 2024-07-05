@@ -21,7 +21,7 @@ import {
 
 import { Project } from '@/lib/projects-api';
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 3;
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
