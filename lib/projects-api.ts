@@ -8,6 +8,7 @@ export type Project = {
   description: string;
   image: string;
   href: string;
+  skills: string[];
 };
 
 export const fetchProjects = async (): Promise<Project[]> => {
