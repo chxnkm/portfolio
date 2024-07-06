@@ -46,7 +46,7 @@ export default function Home() {
                         <br /><br/>
                         In my free time, I pursue photography (in both film and digital formats), jam to nostalgic tunes with my guitar and drums, and am an avid <i>Fallout</i> franchise lover.
                         <br/><br/>
-                        Curently, I am open to any software-related full-time opportunities in Singapore.
+                        Curently, I am open to any software-related full-time opportunities in Singapore. Please feel free to <a href='/contact' className="underline text-blue-500">contact me</a> using this form.
                     </p>
                 </div>
                 
@@ -58,7 +58,6 @@ export default function Home() {
       </div>
       <Projects/>
       <div className=" mt-[6vh] container mx-auto animate-slideUp">
-          
           <ContactForm/>
       </div>
     </main>

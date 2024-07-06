@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,6 +16,12 @@ export default function ContactForm() {
     message: ''
   });
   const [messageSent, setMessageSent] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    const { name, email, subject, message } = formData;
+    setIsFormValid(name.trim() !== '' && email.trim() !== '' && subject.trim() !== '' && message.trim() !== '');
+  }, [formData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -48,7 +54,7 @@ export default function ContactForm() {
         <div className="space-y-[2vh]">
           <h1 className="text-4xl font-black font-belsey">Contact 📞</h1>
           <p className="text-muted-foreground">
-            Thank you for visiting my portfolio. For any queries, offers or if you're interested in reaching out to me, feel free to fill up the form below.
+            If you're interested in reaching out to me, please feel free to fill up the form below. 
           </p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -70,7 +76,7 @@ export default function ContactForm() {
             <Label htmlFor="message">Message</Label>
             <Textarea id="message" value={formData.message} onChange={handleChange} placeholder="Enter your message" className="min-h-[150px]" />
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" disabled={!isFormValid}>
             Submit
           </Button>
           {messageSent && <p className="text-green-500 mt-2">Message sent!</p>}

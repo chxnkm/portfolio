@@ -29,7 +29,6 @@ export function NavMenu() {
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
-        
         <NavigationMenuItem>
           <Link href="/hobbies" legacyBehavior passHref>
             <NavigationMenuLink
@@ -38,6 +37,17 @@ export function NavMenu() {
               }`}
             >
               Hobbies
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/contact" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={`${navigationMenuTriggerStyle()} ${
+                currentPath === "/contact" ? "bg-[#f3a616] underline" : ""
+              }`}
+            >
+              Contact Me
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

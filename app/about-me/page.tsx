@@ -21,7 +21,7 @@ export default function Home() {
                         <br /><br/>
                         I am open to any software-related full-time opportunities in Singapore. I am contactable via my <Link href="mailto:ckangming0@gmail.com" className="text-blue-500 underline">email</Link>, and my résumé is available for download below.
                     </p>
-                    <DownloadCard fileName='Download my résumé!' fileUrl='/resume/RESUME_KANG_MING.pdf'></DownloadCard>
+                    <DownloadCard fileUrl='/resume/RESUME_KANG_MING.pdf'></DownloadCard>
                 </div>
                 
             </div>
