@@ -12,16 +12,10 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 export function NavMenu() {
   const currentPath = usePathname()
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
 
   const menuItems = [
     { href: "/#projects", label: "Projects" },
@@ -30,54 +24,49 @@ export function NavMenu() {
     { href: "/resume/RESUME_KANG_MING.pdf", label: "Résumé", className: "bg-[#bc7b0b] text-white" },
   ]
 
-  const NavItems = ({ mobile = false }) => (
-    <>
-      {menuItems.map((item) => {
-        if (mobile) {
-          return (
-            <DropdownMenuItem key={item.href} asChild>
-              <a href={item.href}>{item.label}</a>
-            </DropdownMenuItem>
-          )
-        }
-        return (
-          <NavigationMenuItem key={item.href}>
-            <Link href={item.href} legacyBehavior passHref>
-              <NavigationMenuLink
-                className={`${navigationMenuTriggerStyle()} ${
-                  currentPath === item.href ? "bg-[#f3a616] underline" : ""
-                } ${item.className || ""}`}
-              >
-                {item.label}
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        )
-      })}
-    </>
-  )
+  const closeMenu = () => {
+    setIsMenuOpen(false)
+  }
 
   return (
-    <>
-      {/* Desktop Navigation */}
-      <NavigationMenu className="hidden md:flex">
-        <NavigationMenuList>
-          <NavItems />
-        </NavigationMenuList>
-      </NavigationMenu>
-
-      {/* Mobile Navigation */}
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" size="icon" className="md:hidden">
-            <Menu className="h-[1.2rem] w-[1.2rem]" />
-            <span className="sr-only">Toggle menu</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56">
-          <NavItems mobile />
-        </DropdownMenuContent>
-      </DropdownMenu>
-    </>
+    <div className="relative z-10">
+      <button
+        className="md:hidden p-2"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <Menu />
+      </button>
+      <div className={`
+        md:block
+        absolute md:relative
+        top-full right-0
+        md:top-auto md:right-auto
+        bg-[#ededed]
+        shadow-md md:shadow-none
+        rounded-md
+        overflow-hidden
+        transition-all duration-300 ease-in-out
+        ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 md:max-h-none md:opacity-100'}
+      `}>
+        <NavigationMenu className="w-full">
+          <NavigationMenuList className="flex flex-col md:flex-row">
+            {menuItems.map((item, index) => (
+              <NavigationMenuItem key={index} className="md:my-0 my-1">
+                <Link href={item.href} legacyBehavior passHref>
+                  <NavigationMenuLink
+                    className={`${navigationMenuTriggerStyle()} ${
+                      currentPath === item.href ? "underline" : ""
+                    } ${item.className || ''} text-sm md:text-base`}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+    </div>
   )
 }
