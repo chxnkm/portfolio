@@ -57,9 +57,6 @@ export default function Home() {
           <p className="text-lg mt-12">Click on each card to learn more!</p>
       </div>
       <Projects/>
-      <div className=" mt-[6vh] container mx-auto animate-slideUp">
-          <ContactForm/>
-      </div>
     </main>
   );
 }
