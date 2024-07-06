@@ -6,36 +6,34 @@ import UnclickableImage from "@/components/UnclickableImage";
 export default function Home() {
   return (
     <main>
-      <div className='w-screen bg-image-with-opacity animate-slideUp'>
-      <div className="intro container mx-auto">
-        <div className='flex gap-12'>
-          <div className="intro-words flex-1">
-          <h1 className="container mt-32 text-6xl font-belsey font-black">Hello, I'm <span className="text-text leading-custom"><br/>Kang Ming.</span>
-          </h1>
-            <p className="container text-2xl font-bold">I'm a <span className="text-pastelBlue">Computer Science graduate</span>,<br/><span className="text-pastelRed">software engineer</span>, and <br/>an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
-            <p className="container text-xl font-medium">Welcome to my portfolio. Happy browsing!</p>
-          </div>
-          <div className='intro-image flex-1 items-center justify-center my-12 pl-8'>
-            <div style={{
-              width: '480px',
-              height: '480px',
-              backgroundImage: 'url("/img/misc/main_splash.jpg")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              clipPath: 'polygon(62% 7%, 100% 1%, 87% 81%, 18% 100%, 3% 27%)',
-              borderRadius: '70%',
-              boxShadow: '0 0 20px 10px rgba(0, 0, 0, 0.7)'
-            }} />
-          </div>
-        </div>        
+      <div className='bg-image-with-opacity min-w-full flex items-center justify-center animate-slideUp'>
+  <div className="intro container mx-auto">
+    <div className='flex gap-12'>
+      <div className="intro-words flex-1">
+        <h1 className="container mt-32 text-6xl font-belsey font-black">Hello, I'm <span className="text-text leading-custom"><br/>Kang Ming.</span></h1>
+        <p className="container text-2xl font-bold">I'm a <span className="text-pastelBlue">Computer Science graduate</span>,<br/><span className="text-pastelRed">software engineer</span>, and <br/>an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
+        <p className="container text-xl font-medium mb-12">Welcome to my portfolio. Happy browsing!</p>
       </div>
-      
+      <div className='intro-image flex items-center justify-center my-12 pl-8  overflow-clip'>
+        <div className="w-0 h-0 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full">
+          <div style={{
+            width: '100%',
+            height: '100%',
+            backgroundImage: 'url("/img/misc/main_splash.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            borderRadius: '50%',
+          }} />
+        </div>
       </div>
+    </div>        
+  </div>
+</div>
+
       <div className="about-me container mx-auto">
       <div className="mt-32 grid grid-cols-2 gap-24 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
-                <div>
-                    {/* <Image src="/img/misc/me.jpg" width={600} height={480} alt="my face" /> */}
-                    <UnclickableImage src="/img/misc/me.jpg" alt="my face" />
+                <div className="mt-20">
+                    <UnclickableImage width={480} src="/img/misc/me.jpg" alt="my face" />
                 </div>
                 <div className='col-span-2 lg:col-start-2'>
                     <h1 className="text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About Me 😄</h1>

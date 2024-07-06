@@ -106,6 +106,7 @@
 
   .bg-image-with-opacity {
     position: relative;
+    width: 100%;
   }
   .bg-image-with-opacity::before {
     content: '';

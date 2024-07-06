@@ -3,6 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Menu } from "lucide-react"
 
 import {
   NavigationMenu,
@@ -11,56 +12,72 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export function NavMenu() {
   const currentPath = usePathname()
 
-  return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-            <Link href="/#projects" legacyBehavior passHref>
+  const menuItems = [
+    { href: "/#projects", label: "Projects" },
+    { href: "/hobbies", label: "Hobbies" },
+    { href: "/contact", label: "Contact Me" },
+    { href: "/resume/RESUME_KANG_MING.pdf", label: "Résumé", className: "bg-[#bc7b0b] text-white" },
+  ]
+
+  const NavItems = ({ mobile = false }) => (
+    <>
+      {menuItems.map((item) => {
+        if (mobile) {
+          return (
+            <DropdownMenuItem key={item.href} asChild>
+              <a href={item.href}>{item.label}</a>
+            </DropdownMenuItem>
+          )
+        }
+        return (
+          <NavigationMenuItem key={item.href}>
+            <Link href={item.href} legacyBehavior passHref>
               <NavigationMenuLink
                 className={`${navigationMenuTriggerStyle()} ${
-                  currentPath === "/#projects" ? "bg-[#f3a616] underline" : ""
-                }`}
+                  currentPath === item.href ? "bg-[#f3a616] underline" : ""
+                } ${item.className || ""}`}
               >
-                Projects
+                {item.label}
               </NavigationMenuLink>
             </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/hobbies" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} ${
-                currentPath === "/hobbies" ? "bg-[#f3a616] underline" : ""
-              }`}
-            >
-              Hobbies
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/contact" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} ${
-                currentPath === "/contact" ? "bg-[#f3a616] underline" : ""
-              }`}
-            >
-              Contact Me
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/resume/RESUME_KANG_MING.pdf" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} bg-[#bc7b0b] text-white ml-4`}
-            >
-              Résumé
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+          </NavigationMenuItem>
+        )
+      })}
+    </>
+  )
+
+  return (
+    <>
+      {/* Desktop Navigation */}
+      <NavigationMenu className="hidden md:flex">
+        <NavigationMenuList>
+          <NavItems />
+        </NavigationMenuList>
+      </NavigationMenu>
+
+      {/* Mobile Navigation */}
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" size="icon" className="md:hidden">
+            <Menu className="h-[1.2rem] w-[1.2rem]" />
+            <span className="sr-only">Toggle menu</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-56">
+          <NavItems mobile />
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </>
   )
 }
