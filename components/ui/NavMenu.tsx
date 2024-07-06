@@ -19,17 +19,6 @@ export function NavMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <Link href="/about-me" legacyBehavior passHref>
-            <NavigationMenuLink
-              className={`${navigationMenuTriggerStyle()} ${
-                currentPath === "/about-me" ? "bg-[#f3a616] underline" : ""
-              }`}
-            >
-              About Me
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
           <Link href="/hobbies" legacyBehavior passHref>
             <NavigationMenuLink
               className={`${navigationMenuTriggerStyle()} ${
