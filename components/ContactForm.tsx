@@ -25,18 +25,17 @@ export default function ContactForm() {
     e.preventDefault();
 
     try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID',  // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        {
-          to_email: 'ckangming0@gmail.com',
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        'YOUR_USER_ID' // Replace with your EmailJS user ID
-      );
+        await emailjs.send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+            {
+              from_name: formData.name,
+              from_email: formData.email,
+              subject: formData.subject,
+              message: formData.message,
+            },
+            process.env.NEXT_PUBLIC_EMAILJS_USER_ID || ''
+          );
       setMessageSent(true);
     } catch (error) {
       console.error('Error sending email:', error);
@@ -49,7 +48,7 @@ export default function ContactForm() {
         <div className="space-y-[2vh]">
           <h1 className="text-4xl font-black font-belsey">Contact 📞</h1>
           <p className="text-muted-foreground">
-            Fill out the form below and we'll get back to you as soon as possible.
+            Thank you for visiting my portfolio. For any queries, offers or if you're interested in reaching out to me, feel free to fill up the form below.
           </p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -77,7 +76,7 @@ export default function ContactForm() {
           {messageSent && <p className="text-green-500 mt-2">Message sent!</p>}
         </form>
       </div>
-      <div className="relative hidden md:block">
+      <div className="relative md:block">
         <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent rounded-lg" />
         <div className="relative h-full flex items-center justify-center rounded-lg">
           <div className="absolute inset-0 bg-cover bg-center blur-sm" style={{ backgroundImage: `url('/resume/RESUME_KANG_MING.png')` }} />
