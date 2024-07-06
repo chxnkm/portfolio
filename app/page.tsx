@@ -52,7 +52,7 @@ export default function Home() {
                 
             </div>
       </div>
-      <div className=" mt-[6vh] container mx-auto animate-slideUp">
+      <div id='projects' className=" mt-[6vh] container mx-auto animate-slideUp">
           <h1 className="text-4xl font-black font-belsey">Projects and Work Experience 👨🏻‍💻</h1>
           <p className="text-lg mt-12">Click on each card to learn more!</p>
       </div>
