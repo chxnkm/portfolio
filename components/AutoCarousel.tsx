@@ -22,7 +22,7 @@ interface AutoCarouselProps {
 
 export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouselProps) {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnFocusIn: false })
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnFocusIn: false })
   );
 
   return (
@@ -42,7 +42,7 @@ export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouse
               <Card className='bg-inherit border-slate-00 mb-8'>
                 <CardContent className="flex aspect-video items-center justify-center p-6">
                   <a href={image.href}>
-                    <UnclickableImage src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
+                    <UnclickableImage width={800} src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
                   </a>
                 </CardContent>
               </Card>

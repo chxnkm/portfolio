@@ -1,6 +1,13 @@
-import ContactForm from "@/components/ContactForm";
+import AutoCarousel from "@/components/AutoCarousel";
 import Projects from "@/components/Projects";
 import UnclickableImage from "@/components/UnclickableImage";
+
+const images = [
+  { src: 'misc/main_splash.jpg'},
+  { src: 'misc/splash_2.jpg'},
+  { src: 'misc/splash_3.jpg'},
+  // Add more images as needed
+];
 
 
 export default function Home() {
@@ -8,23 +15,14 @@ export default function Home() {
     <main>
       <div className='bg-image-with-opacity min-w-full flex items-center justify-center animate-slideUp'>
   <div className="intro container mx-auto">
-    <div className='flex gap-12'>
-      <div className="intro-words container flex-1">
-        <h1 className="mt-32 text-6xl font-belsey font-black">Hello, I'm <span className="text-text leading-custom"><br/>Kang Ming.</span></h1>
+    <div className='flex flex-col lg:flex-row items-center justify-center gap-12'>
+      <div className="intro-words container text-center lg:text-left">
+        <h1 className="mt-20 text-6xl font-belsey font-black">Hello, I'm <span className="text-text leading-custom"><br/>Kang Ming.</span></h1>
         <p className="text-2xl font-bold">I'm a <span className="text-pastelBlue">Computer Science graduate</span>,<br/><span className="text-pastelRed">software engineer</span>, and <br/>an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
         <p className="text-xl font-medium mb-12">Welcome to my portfolio. Happy browsing!</p>
       </div>
-      <div className='intro-image hidden lg:flex lg:pr-8 items-center justify-center overflow-clip'>
-        <div className="w-56 h-56 lg:w-64 lg:h-64 rounded-full">
-          <div style={{
-            width: '100%',
-            height: '100%',
-            backgroundImage: 'url("/img/misc/main_splash.jpg")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            borderRadius: '50%',
-          }} />
-        </div>
+      <div className='intro-image mt-20 hidden lg:flex lg: pr-8 items-center justify-center overflow-clip'>
+        <AutoCarousel basePath='/img/' images={images}/>
       </div>
     </div>        
   </div>
