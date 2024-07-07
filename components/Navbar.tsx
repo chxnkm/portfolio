@@ -8,7 +8,7 @@ export default function Navbar() {
         <div className="grid grid-cols-2 md:grid-cols-3 h-20 items-center">
           <Link href="/" passHref>
             <div className="flex items-center space-x-3">
-              <span className="font-msz text-3xl md:text-4xl font-extrabold">陈</span>
+              <span className="font-msz text-3xl md:text-4xl font-extrabold hover:scale-110 duration-300">陈</span>
             </div>
           </Link>
           <div className="hidden md:block col-span-2 justify-self-end">
