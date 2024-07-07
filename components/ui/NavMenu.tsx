@@ -56,7 +56,7 @@ export function NavMenu() {
                   <NavigationMenuLink
                     className={`${navigationMenuTriggerStyle()} ${
                       currentPath === item.href ? "underline" : ""
-                    } ${item.className || ''} text-sm md:text-base`}
+                    } ${item.className || ''} text-sm`}
                     onClick={closeMenu}
                   >
                     {item.label}
