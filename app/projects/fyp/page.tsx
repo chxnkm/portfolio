@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
             <div className='order-2 mb-8 lg:mb-0'>
-                <h1 className="text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl"><span className="text-red-500">PET Crowd Counting Model 📊</span></h1>
+                <h1 className="text-left font-belsey text-xl sm:text-2xl md:text-3xl lg:text-4xl"><span className="text-red-500">PET Crowd Counting Model 📊</span></h1>
                 <p className="text-sm md:text-lg text-justify mt-4">
                     The PET crowd counting method is a transformer-based crowd estimation technique. To summarize, it involves a standard encoder-decoder transformer, modified with a variable rectangle window to deal with queried points of different densities. The densities of each queried point in a crowd image is determined using the <strong>point-query quadtree</strong>, which splits dense points into 4 smaller points for processing. The eventual predictions will then be crafted with the points queried and processed.<br/><br/>
                     The architecture of the PET model is shown on the right.
