@@ -14,7 +14,7 @@ export default function Home() {
         <p className="container text-2xl font-bold">I'm a <span className="text-pastelBlue">Computer Science graduate</span>,<br/><span className="text-pastelRed">software engineer</span>, and <br/>an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
         <p className="container text-xl font-medium mb-12">Welcome to my portfolio. Happy browsing!</p>
       </div>
-      <div className='intro-image flex items-center justify-center my-12 pl-8  overflow-clip'>
+      <div className='intro-image flex items-center justify-center overflow-clip'>
         <div className="w-0 h-0 md:w-64 md:h-64 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-full">
           <div style={{
             width: '100%',

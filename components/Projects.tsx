@@ -54,7 +54,7 @@ const Projects = () => {
                   <CardTitle className="font-belsey text-3xl">{project.name}</CardTitle>
                   <CardDescription>{new Date(project.date).toDateString().split(' ').slice(1).join(' ')}</CardDescription>
                 </CardHeader>
-                <CardContent className="flex flex-wrap items-start justify-between mt-[-5%]">
+                <CardContent className="flex flex-wrap items-start justify-between mt-[-2%]">
                   <div className="flex flex-col flex-grow max-w-[75%] mt-[2vh]">
                     <p>{project.description}</p>
                     <div className="flex flex-wrap font-belsey font-medium items-center justify-start gap-2 mt-8">
@@ -66,7 +66,9 @@ const Projects = () => {
                       ))}
                     </div>
                   </div>
+                  <div className='mt-4'>
                   <div style={{ width: '180px', height: '180px', backgroundImage: `url(${project.image})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} />
+                  </div>
                 </CardContent>
               </Card>
             </a>
