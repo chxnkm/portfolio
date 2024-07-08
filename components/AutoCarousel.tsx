@@ -12,7 +12,7 @@ import {
 
 interface ImageObject {
   src: string;
-  href: string;
+  href?: string;
 }
 
 interface AutoCarouselProps {
