@@ -137,4 +137,20 @@
     animation: slideUp 0.8s ease-out forwards;
     
   }
+
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .caret {
+    animation: blink 1.5s infinite;
+    font-weight: 100;
+    color: #35733e; /* Adjust color as needed */
+  }
+  
+  #typing-text.finished::after {
+    content: none;
+  }
   
