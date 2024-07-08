@@ -5,7 +5,7 @@ export default function Home() {
     return (
       <main>
         <div className="text container mx-auto">
-        <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
           <div className='bg-pastelBeige border-4 p-8 border-slate-700 rounded-lg order-2 mb-8 lg:mb-0'>
               <h1 className="text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">CTF Assignment - Retrospective</h1>
               <p className="text-sm md:text-lg text-justify mt-4">
