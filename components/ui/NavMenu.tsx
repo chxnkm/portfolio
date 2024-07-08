@@ -51,7 +51,7 @@ export function NavMenu() {
         <NavigationMenu className="w-full">
           <NavigationMenuList className="flex flex-col md:flex-row">
             {menuItems.map((item, index) => (
-              <NavigationMenuItem key={index} className="md:my-0 my-1">
+              <NavigationMenuItem key={index} className="md:my-0 my-1 hover:scale-110 duration-300">
                 <Link href={item.href} legacyBehavior passHref>
                   <NavigationMenuLink
                     className={`${navigationMenuTriggerStyle()} ${
