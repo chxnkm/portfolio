@@ -46,7 +46,7 @@ const Projects = () => {
   return (
     <main>
       <div className="text container mx-auto">
-        <div className='mt-12'>
+        <div className='mt-8'>
           {currentProjects.map((project, index) => (
             <a href={project.href} key={index}>
               <Card className="bg-[#fdfdfd] border-gray-200 mt-4 shadow-lg rounded-lg overflow-hidden animate-slideUp">
@@ -54,7 +54,7 @@ const Projects = () => {
                   <CardTitle className="font-belsey text-3xl">{project.name}</CardTitle>
                   <CardDescription>{new Date(project.date).toDateString().split(' ').slice(1).join(' ')}</CardDescription>
                 </CardHeader>
-                <CardContent className="flex flex-wrap items-start justify-between mt-[-2%]">
+                <CardContent className="flex flex-wrap items-start justify-between mt-[-3%]">
                   <div className="flex flex-col flex-grow max-w-[75%] mt-[2vh]">
                     <p>{project.description}</p>
                     <div className="flex flex-wrap font-belsey font-medium items-center justify-start gap-2 mt-8">

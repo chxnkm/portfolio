@@ -1,12 +1,35 @@
-import Image from 'next/image'
-import Link from "next/link"
-import DownloadCard from '@/components/ui/DownloadCard';
+import { Card } from "@/components/ui/card";
 
 
 export default function Home() {
-    return (
-      <main>
-       
-      </main>
-    );
-  }
+  return (
+    <main>
+      <div className='min-w-full flex items-center justify-center animate-slideUp'>
+        <div className="intro container mx-auto">
+          <div className="intro-words text-center lg:pl-8">
+            <h1 className="mt-8 text-6xl font-belsey font-black">
+              Hobbies</h1>
+            <p className="text-lg font-bold">When I&apos;m not busy coding, here&apos;s what I&apos;m doing.
+              <br />
+              Click on each card to take a look!</p>
+          </div>
+        </div>
+      </div>
+      <div className="grid lg:grid-cols-2 px-8 gap-8 mt-12">
+        <div className="col-span-1">
+          <Card className="bg-image-with-opacity min-h-64 flex items-center justify-center">
+            <h1 className="text-4xl text-center font-belsey font-black">
+              Photography
+            </h1>
+          </Card>
+        </div>
+        <div className="col-span-1">
+          <Card className="bg-image-with-opacity min-h-64 flex items-center justify-center">
+            <h1 className="text-4xl text-center font-belsey font-black">
+              Music</h1>
+          </Card>
+        </div>
+      </div>
+    </main>
+  );
+}
