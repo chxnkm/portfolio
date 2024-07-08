@@ -54,7 +54,7 @@ export default function ContactForm() {
         <div className="space-y-[2vh]">
           <h1 className="text-4xl font-black font-belsey">Contact 📞</h1>
           <p className="text-muted-foreground">
-            If you're interested in reaching out to me, please feel free to fill up the form below. 
+            If you&apos;re interested in reaching out to me, please feel free to fill up the form below. 
           </p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit}>
