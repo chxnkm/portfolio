@@ -39,16 +39,14 @@ export default function Home() {
 
       <div className="about-me lg:container mx-auto px-4">
         <div className="lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
-          <div className="order-1 lg:order-1 flex justify-center lg:justify-start">
-            <div className="flex flex-col items-center lg:items-start">
+          <div className="order-1 lg:order-none flex justify-center lg:justify-start">
+            <div className="flex flex-col items-center lg:items-start ">
               <AutoCarousel basePath='/img/' images={images} />
-              {/* <UnclickableImage width={480} src="/img/misc/me.jpg" alt="my face" /> */}
-
             </div>
           </div>
-          <div className='order-2 lg:order-2'>
-            <h1 className="text-center lg:text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About Me 😄</h1>
-            <div className="flex mt-4 space-x-4">
+          <div className='order-2 lg:order-none'>
+            <h1 className="text-center lg:text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About Me</h1>
+            <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
               <a className='hover:scale-125 duration-300' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
                 <GitHubIcon style={{ fontSize: 24 }} />
               </a>

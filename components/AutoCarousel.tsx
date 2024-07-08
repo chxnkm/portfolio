@@ -28,7 +28,7 @@ export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouse
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full max-w-xl"
+      className="w-[80%] max-w-xl m-auto"
       onMouseLeave={plugin.current.reset}
       opts={{
         align: "start",
@@ -39,10 +39,10 @@ export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouse
         {images.map((image, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <Card className='bg-inherit border-slate-00 mb-8'>
+              <Card className='bg-inherit border-slate-0 mb-8'>
                 <CardContent className="flex aspect-video items-center justify-center p-6">
                   <a href={image.href}>
-                    <UnclickableImage width={800} src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
+                    <UnclickableImage width={600} src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
                   </a>
                 </CardContent>
               </Card>
