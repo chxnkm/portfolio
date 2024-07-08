@@ -21,8 +21,8 @@ export default function Home() {
         <div className="intro container mx-auto">
           <div className='grid grid-cols-1 lg:grid-cols-6 items-center justify-center gap-12'>
             <div className="intro-words col-span-1 lg:col-span-4 text-center lg:text-left lg:pl-8">
-              <h1 className="mt-20 text-6xl font-belsey font-black">Hello, I'm <span className="text-text leading-custom"><br />Kang Ming.</span></h1>
-              <p className="text-2xl font-bold">I'm a <span className="text-pastelBlue">Computer Science graduate</span>,<br /><span className="text-pastelRed">software engineer</span>, and <br />an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
+              <h1 className="mt-20 text-6xl font-belsey font-black">Hello, I&apos;m <span className="text-text leading-custom"><br />Kang Ming.</span></h1>
+              <p className="text-2xl font-bold">I&apos;m a <span className="text-pastelBlue">Computer Science graduate</span>,<br /><span className="text-pastelRed">software engineer</span>, and <br />an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
               <p className="text-xl font-medium mb-12">Welcome to my portfolio. Happy browsing!</p>
             </div>
             <div className='intro-image col-span-1 lg:col-span-2 mt-20 hidden lg:flex pr-8 items-center justify-center overflow-clip'>

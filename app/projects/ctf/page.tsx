@@ -27,7 +27,7 @@ export default function Home() {
           <p className="text-sm md:text-lg text-justify mt-4">
               Overall, I felt that me and my team did a stellar job despite us being first-timers in CTF challenges. The countless practices and hack-the-boxes certainly paid off for the actual CTF, and I am hugely appreciative of my members for our success. 
               <br/><br/>
-              The importance of teamwork shouldn&apos;t be understated - we couldn&apos;t have done it without each other. I have also learnt that it's always good to be inquisitive, and to constantly ask questions, in which then one will improve themselves further.
+              The importance of teamwork shouldn&apos;t be understated - we couldn&apos;t have done it without each other. I have also learnt that it&apos;s always good to be inquisitive, and to constantly ask questions, in which then one will improve themselves further.
           </p>  
       </div>
             
