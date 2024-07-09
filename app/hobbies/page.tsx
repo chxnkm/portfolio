@@ -8,7 +8,7 @@ export default function Home() {
           <div className="intro-words text-center lg:pl-8">
             <h1 className="mt-8 text-6xl font-belsey font-black">
               Hobbies</h1>
-            <p className="text-lg font-bold">When I&apos;m not busy coding, here&apos;s what I&apos;m doing.
+            <p className="text-lg font-medium">When I&apos;m not busy coding, here&apos;s what I&apos;m doing.
               <br />
               Click on each card to take a look!</p>
           </div>
@@ -17,7 +17,7 @@ export default function Home() {
       <div className="grid lg:grid-cols-2 px-8 gap-8 mt-12">
         <div className="col-span-1">
           <a href="/hobbies/photography">
-            <Card className="bg-image-photos min-h-96 flex items-center justify-center">
+            <Card className="bg-image-photos min-h-96 flex items-center justify-center hover:scale-[1.02] duration-300">
               <h1 className="text-4xl text-center font-belsey font-black">
                 Photography
               </h1>
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="col-span-1">
           <a href="/hobbies/music">
-            <Card className="bg-image-music min-h-96 flex items-center justify-center">
+            <Card className="bg-image-music min-h-96 flex items-center justify-center hover:scale-[1.02] duration-300">
               <h1 className="text-4xl text-center font-belsey font-black">
                 Music</h1>
             </Card>

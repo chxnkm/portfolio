@@ -85,7 +85,7 @@ const Projects = () => {
           ) : (
             currentProjects.map((project, index) => (
               <a href={project.href} key={index}>
-                <Card className="bg-[#fdfdfd] border-gray-200 mt-4 shadow-lg rounded-lg overflow-hidden animate-slideUp">
+                <Card className="bg-[#fdfdfd] border-gray-200 mt-4 shadow-lg rounded-xl overflow-hidden hover:scale-[1.02] duration-300">
                   <CardHeader>
                     <CardTitle className="font-belsey text-3xl">{project.name}</CardTitle>
                     <CardDescription>{new Date(project.date).toDateString().split(' ').slice(1).join(' ')}</CardDescription>

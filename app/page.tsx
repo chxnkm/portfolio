@@ -45,14 +45,14 @@ export default function Home() {
           <div className='order-2 lg:order-none'>
             <h1 className="text-center lg:text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About Me</h1>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
-              <a className='icon-appear hover:scale-125 duration-300' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
-                <GitHubIcon style={{ fontSize: 24 }} />
+              <a className='icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
+                <GitHubIcon style={{ fontSize: 24 }} className='hover:scale-110'/>
               </a>
-              <a className='icon-appear hover:scale-125 duration-300' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
-                <LinkedInIcon style={{ fontSize: 24 }} />
+              <a className='icon-appear' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
+                <LinkedInIcon style={{ fontSize: 24 }} className='hover:scale-110'/>
               </a>
-              <a className='icon-appear hover:scale-125 duration-300' href="mailto:ckangming0.com">
-                <EmailIcon style={{ fontSize: 24 }} />
+              <a className='icon-appear' href="mailto:ckangming0.com">
+                <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110'/>
               </a>
             </div>
             <p className="text-md lg:text-lg text-justify">
