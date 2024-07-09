@@ -23,10 +23,10 @@ export default function Home() {
   }, []);
   return (
     <main>
-      <div className='bg-image-with-opacity min-w-full flex items-center justify-center animate-slideUp'>
+      <div className='bg-image-with-opacity bg-image min-w-full flex items-center justify-center animate-slideUp'>
         <div className="intro container mx-auto">
           <div className="intro-words text-center lg:pl-8">
-            <h1 className="mt-20 text-6xl font-belsey font-black">
+            <h1 className="mt-16 text-6xl font-belsey font-black">
               Hello, I&apos;m <span className="text-text leading-custom"><br />
                 <span id="typing-text" /></span><span className="caret">|</span></h1>
             <p className="text-2xl font-bold">I&apos;m a <span className="text-pastelBlue">Computer Science graduate</span>,<br /><span className="text-pastelRed">software engineer</span>, and <br />an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
@@ -36,7 +36,7 @@ export default function Home() {
       </div>
 
       <div className="about-me lg:container mx-auto px-4">
-        <div className="lg:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
+        <div className="lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
           <div className="order-1 lg:order-none flex justify-center lg:justify-start">
             <div className="flex flex-col items-center lg:items-start ">
               <AutoCarousel basePath='/img/' images={images} />
@@ -45,22 +45,22 @@ export default function Home() {
           <div className='order-2 lg:order-none'>
             <h1 className="text-center lg:text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About Me</h1>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
-  <a className='icon-appear hover:scale-125 duration-300' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
-    <GitHubIcon style={{ fontSize: 24 }} />
-  </a>
-  <a className='icon-appear hover:scale-125 duration-300' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
-    <LinkedInIcon style={{ fontSize: 24 }} />
-  </a>
-  <a className='icon-appear hover:scale-125 duration-300' href="mailto:ckangming0.com">
-    <EmailIcon style={{ fontSize: 24 }} />
-  </a>
-</div>
+              <a className='icon-appear hover:scale-125 duration-300' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
+                <GitHubIcon style={{ fontSize: 24 }} />
+              </a>
+              <a className='icon-appear hover:scale-125 duration-300' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
+                <LinkedInIcon style={{ fontSize: 24 }} />
+              </a>
+              <a className='icon-appear hover:scale-125 duration-300' href="mailto:ckangming0.com">
+                <EmailIcon style={{ fontSize: 24 }} />
+              </a>
+            </div>
             <p className="text-md lg:text-lg text-justify">
-              Hello all, Kang Ming here. A Computer Science graduate from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
+              A Computer Science graduate from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
               <br /><br />
               Having worked on a multitude of projects during my university tenure, I have amassed robust skills in <strong>full-stack development, data analytics,</strong> as well as <strong>machine learning and Generative AI-enabled applications</strong>.
               <br /><br />
-              In my free time, I pursue photography (in both film and digital formats), jam to nostalgic tunes with my guitar and drums, and am an avid <i>Fallout</i> franchise lover. Check out my hobbies <a href='/hobbies' className="underline text-blue-500">here!</a>
+              In my free time, I pursue <a href='/hobbies/photography' className="underline text-blue-500">photography</a> (in both film and digital formats), jam to nostalgic tunes with my guitar and drums, and am an avid <i>Fallout</i> franchise lover. Check out my hobbies <a href='/hobbies' className="underline text-blue-500">here!</a>
               <br /><br />
               Currently, I am open to any full-time software-related opportunities in Singapore. Please feel free to contact me <a href='/contact' className="underline text-blue-500">using this form</a> or at my socials above.
             </p>

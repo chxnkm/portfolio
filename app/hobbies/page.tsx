@@ -1,6 +1,5 @@
 import { Card } from "@/components/ui/card";
 
-
 export default function Home() {
   return (
     <main>
@@ -17,17 +16,21 @@ export default function Home() {
       </div>
       <div className="grid lg:grid-cols-2 px-8 gap-8 mt-12">
         <div className="col-span-1">
-          <Card className="bg-image-with-opacity min-h-64 flex items-center justify-center">
-            <h1 className="text-4xl text-center font-belsey font-black">
-              Photography
-            </h1>
-          </Card>
+          <a href="/hobbies/photography">
+            <Card className="bg-image-photos min-h-96 flex items-center justify-center">
+              <h1 className="text-4xl text-center font-belsey font-black">
+                Photography
+              </h1>
+            </Card>
+          </a>
         </div>
         <div className="col-span-1">
-          <Card className="bg-image-with-opacity min-h-64 flex items-center justify-center">
-            <h1 className="text-4xl text-center font-belsey font-black">
-              Music</h1>
-          </Card>
+          <a href="/hobbies/music">
+            <Card className="bg-image-music min-h-96 flex items-center justify-center">
+              <h1 className="text-4xl text-center font-belsey font-black">
+                Music</h1>
+            </Card>
+          </a>
         </div>
       </div>
     </main>
