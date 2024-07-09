@@ -13,7 +13,8 @@ export default function ContactForm() {
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    honeypot: '' // add honeypot field
   });
   const [messageSent, setMessageSent] = useState(false);
   const [isFormValid, setIsFormValid] = useState(false);
@@ -29,6 +30,12 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Check if the honeypot field is filled out
+    if (formData.honeypot !== '') {
+      console.log('Bot detected');
+      return;
+    }
 
     try {
       await emailjs.send(
@@ -58,6 +65,11 @@ export default function ContactForm() {
           </p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit}>
+          {/* Honeypot field - should be hidden from users */}
+          <div style={{ display: 'none' }}>
+            <Label htmlFor="honeypot">Do not fill this out</Label>
+            <Input id="honeypot" value={formData.honeypot} onChange={handleChange} placeholder="Do not fill this out" />
+          </div>
           <div className="grid lg:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
@@ -93,5 +105,4 @@ export default function ContactForm() {
       </div>
     </div>
   );
-  
 }
