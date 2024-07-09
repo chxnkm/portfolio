@@ -26,17 +26,17 @@ export default function Home() {
       <div className='bg-image-with-opacity bg-image min-w-full flex items-center justify-center animate-slideUp'>
         <div className="intro container mx-auto">
           <div className="intro-words text-center lg:pl-8">
-            <h1 className="mt-16 text-6xl font-belsey font-black">
+            <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-belsey font-black">
               Hello, I&apos;m <span className="text-text leading-custom"><br />
                 <span id="typing-text" /></span><span className="caret">|</span></h1>
-            <p className="text-2xl font-bold">I&apos;m a <span className="text-pastelBlue">Computer Science graduate</span>,<br /><span className="text-pastelRed">software engineer</span>, and <br />an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
-            <p className="text-xl font-medium mb-12">Welcome to my portfolio. Happy browsing!</p>
+            <p className="text-lg sm:text-xl lg:text-2xl font-bold">I&apos;m a <span className="text-pastelBlue">Computer Science graduate</span>,<br /><span className="text-pastelRed">software engineer</span>, and <br />an <span className="text-pastelOrange">avid tinkerer and hobbyist</span>.</p>
+            <p className="text-md sm:text-lg lg:text-xl font-medium mb-12">Welcome to my portfolio. Happy browsing!</p>
           </div>
         </div>
       </div>
 
       <div className="about-me lg:container mx-auto px-4">
-        <div className="lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
+        <div className="mt-8 lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
           <div className="order-1 lg:order-none flex justify-center lg:justify-start">
             <div className="flex flex-col items-center lg:items-start ">
               <AutoCarousel basePath='/img/' images={images} />
@@ -68,7 +68,7 @@ export default function Home() {
         </div>
       </div>
       <div id='projects' className=" mt-[6vh] container mx-auto animate-slideUp">
-        <h1 className="text-4xl font-black font-belsey">Projects and Work Experience 👨🏻‍💻</h1>
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-belsey">Projects and Work Experience 👨🏻‍💻</h1>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
       </div>
       <Projects />

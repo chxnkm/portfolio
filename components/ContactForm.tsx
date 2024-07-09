@@ -31,17 +31,17 @@ export default function ContactForm() {
     e.preventDefault();
 
     try {
-        await emailjs.send(
-            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
-            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
-            {
-              from_name: formData.name,
-              from_email: formData.email,
-              subject: formData.subject,
-              message: formData.message,
-            },
-            process.env.NEXT_PUBLIC_EMAILJS_USER_ID || ''
-          );
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID || ''
+      );
       setMessageSent(true);
     } catch (error) {
       console.error('Error sending email:', error);
@@ -49,16 +49,16 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="container max-w-5xl mx-auto grid grid-cols-2 gap-24 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24 p-6 md:p-10">
-      <div className="space-y-6">
+    <div className="container max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24 p-6 md:p-10">
+      <div className="space-y-6 md:order-1">
         <div className="space-y-[2vh]">
-          <h1 className="text-4xl font-black font-belsey">Contact 📞</h1>
-          <p className="text-muted-foreground">
-            If you&apos;re interested in reaching out to me, please feel free to fill up the form below. 
+          <h1 className="text-lg sm:text-2xl lg:text-4xl font-black font-belsey">Contact 📞</h1>
+          <p className="text-sm lg:text-lg text-muted-foreground">
+            If you&apos;re interested in reaching out to me, please feel free to fill up the form below.
           </p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit}>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="name">Name</Label>
               <Input id="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" />
@@ -82,7 +82,7 @@ export default function ContactForm() {
           {messageSent && <p className="text-green-500 mt-2">Message sent!</p>}
         </form>
       </div>
-      <div className="relative md:block">
+      <div className="relative min-h-32 md:order-2 md:block">
         <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent rounded-lg" />
         <div className="relative h-full flex items-center justify-center rounded-lg">
           <div className="absolute inset-0 bg-cover bg-center blur-sm" style={{ backgroundImage: `url('/resume/RESUME_KANG_MING.png')` }} />
@@ -93,4 +93,5 @@ export default function ContactForm() {
       </div>
     </div>
   );
+  
 }

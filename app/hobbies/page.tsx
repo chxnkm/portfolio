@@ -6,9 +6,9 @@ export default function Home() {
       <div className='min-w-full flex items-center justify-center animate-slideUp'>
         <div className="intro container mx-auto">
           <div className="intro-words text-center lg:pl-8">
-            <h1 className="mt-8 text-6xl font-belsey font-black">
+            <h1 className="mt-8 text-3xl sm:text-5xl lg:text-6xl font-belsey font-black">
               Hobbies</h1>
-            <p className="text-lg font-medium">When I&apos;m not busy coding, here&apos;s what I&apos;m doing.
+            <p className="text-sm sm:text-md lg:text-lg font-medium">When I&apos;m not busy coding, here&apos;s what I&apos;m doing.
               <br />
               Click on each card to take a look!</p>
           </div>
