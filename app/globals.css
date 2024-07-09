@@ -159,3 +159,21 @@ h1 { @apply scroll-m-20 text-5xl font-extrabold lg:text-5xl; }
   &:nth-child(2) { animation-delay: 0.125s; }
   &:nth-child(3) { animation-delay: 0.15s; }
 }
+
+.my-masonry-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Style your items */
+.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+  background: grey;
+  margin-bottom: 30px;
+}
