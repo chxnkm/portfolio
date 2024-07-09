@@ -1,3 +1,22 @@
+import PhotoGallery from "@/components/PhotoGallery";
+
+
+const photos = [
+    '/img/splash.jpg',
+    '/img/splash-photos.jpg',
+    '/img/splash-music.jpg',
+    '/img/splash.jpg',
+    '/img/splash.jpg',
+    '/img/splash.jpg',
+    '/img/splash.jpg',
+    '/img/splash.jpg',
+    '/img/splash.jpg',
+    '/img/splash.jpg',
+    '/img/splash.jpg',
+    '/img/splash.jpg'
+    // add more photo URLs
+  ];
+
 export default function Component() {
     return (
         <main>
@@ -10,7 +29,9 @@ export default function Component() {
                     </div>
                 </div>
             </div>
-            
+            <div className="container mx-auto">
+      <PhotoGallery/>
+    </div>
         </main>
 
     )
