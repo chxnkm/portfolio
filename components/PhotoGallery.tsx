@@ -11,7 +11,7 @@ const images = [
     { id: 4, src: '/img/splash-music.jpg', description: 'Nature landscape' },
     { id: 5, src: '/img/misc/contact_splash.jpg', description: 'Nature landscape' },
     { id: 6, src: '/img/misc/splash_3.jpg', description: 'Nature landscape' },
-    { id: 7, src: '/img/misc/main_splash.jpg', description: 'Nature landscape' },
+    { id: 7, src: '/img/img5.jpg', description: 'Nature landscape' },
   // Add more images as needed
 ];
 

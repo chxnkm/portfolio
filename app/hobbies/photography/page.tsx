@@ -15,7 +15,7 @@ const photos = [
     '/img/splash.jpg',
     '/img/splash.jpg'
     // add more photo URLs
-  ];
+];
 
 export default function Component() {
     return (
@@ -29,9 +29,9 @@ export default function Component() {
                     </div>
                 </div>
             </div>
-            <div className="container mx-auto">
-      <PhotoGallery/>
-    </div>
+            <div className="px-8 mt-8">
+                <PhotoGallery />
+            </div>
         </main>
 
     )
