@@ -30,7 +30,8 @@ export default function Component() {
                 </div>
             </div>
             <div className="px-8 mt-8">
-                <PhotoGallery />
+                    <PhotoGallery />
+
             </div>
         </main>
 
