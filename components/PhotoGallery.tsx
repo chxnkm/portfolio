@@ -79,18 +79,18 @@ const PhotoGallery: React.FC = () => {
     if (collectionId === selectedCollection) {
       return; // Exit early if trying to click on the same collection
     }
-    setSelectedCollection(collectionId);
     setImages([]);
     setLoading(true);
     setProgress(0);
     const interval = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 100) {
+        if (prev > 100) {
           clearInterval(interval);
           setLoading(false);
+          setSelectedCollection(collectionId);
           return 100;
         }
-        return prev + (100 / 15); // Increment the progress every 100ms
+        return prev + (100 / 18); // Increment the progress every 100ms
       });
     }, 100);
   };
