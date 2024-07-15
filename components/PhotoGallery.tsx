@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Masonry from 'react-masonry-css';
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 import { storage } from '@/lib/firebase';
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { motion, AnimatePresence } from 'framer-motion';
@@ -10,9 +11,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 const PhotoGallery: React.FC = () => {
   const [selectedCollection, setSelectedCollection] = useState('all');
   const [collections, setCollections] = useState<Array<{ id: string; name: string }>>([]);
-  const [images, setImages] = useState<Array<{ id: number; src: string; description: string }>>([]);
-  const [selectedImage, setSelectedImage] = useState<{ src: string; description: string } | null>(null);
+  const [images, setImages] = useState<Array<{ id: number; src: string }>>([]);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
     const fetchCollections = async () => {
@@ -36,7 +39,9 @@ const PhotoGallery: React.FC = () => {
 
   useEffect(() => {
     const fetchImages = async () => {
-      let imagesList: Array<{ id: number; src: string; description: string }> = [];
+      setLoading(true);
+      setProgress(0);
+      let imagesList: Array<{ id: number; src: string }> = [];
 
       try {
         if (selectedCollection === 'all') {
@@ -47,7 +52,7 @@ const PhotoGallery: React.FC = () => {
             const imagesInCollection = await listAll(ref(storage, collectionRef.fullPath));
             await Promise.all(imagesInCollection.items.map(async (imageRef) => {
               const url = await getDownloadURL(imageRef);
-              imagesList.push({ id: imagesList.length + 1, src: url, description: '' });
+              imagesList.push({ id: imagesList.length + 1, src: url });
             }));
           }));
         } else {
@@ -55,21 +60,43 @@ const PhotoGallery: React.FC = () => {
           const imagesInCollection = await listAll(collectionRef);
           await Promise.all(imagesInCollection.items.map(async (imageRef) => {
             const url = await getDownloadURL(imageRef);
-            imagesList.push({ id: imagesList.length + 1, src: url, description: '' });
+            imagesList.push({ id: imagesList.length + 1, src: url });
           }));
         }
 
         setImages(imagesList);
       } catch (error) {
         console.error('Error fetching images from Firebase:', error);
+      } finally {
+        setLoading(false);
       }
     };
-    
+
     fetchImages();
   }, [selectedCollection]);
 
-  const openDialog = (image: { src: string; description: string }, index: number) => {
-    setSelectedImage(image);
+  const handleCollectionChange = (collectionId: string) => {
+    if (collectionId === selectedCollection) {
+      return; // Exit early if trying to click on the same collection
+    }
+    setSelectedCollection(collectionId);
+    setImages([]);
+    setLoading(true);
+    setProgress(0);
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setLoading(false);
+          return 100;
+        }
+        return prev + (100 / 15); // Increment the progress every 100ms
+      });
+    }, 100);
+  };
+
+  const openDialog = (src: string, index: number) => {
+    setSelectedImage(src);
     setCurrentIndex(index);
   };
 
@@ -80,7 +107,7 @@ const PhotoGallery: React.FC = () => {
   const nextImage = () => {
     if (currentIndex < images.length - 1) {
       const newIndex = currentIndex + 1;
-      setSelectedImage(images[newIndex]);
+      setSelectedImage(images[newIndex].src);
       setCurrentIndex(newIndex);
     }
   };
@@ -88,7 +115,7 @@ const PhotoGallery: React.FC = () => {
   const prevImage = () => {
     if (currentIndex > 0) {
       const newIndex = currentIndex - 1;
-      setSelectedImage(images[newIndex]);
+      setSelectedImage(images[newIndex].src);
       setCurrentIndex(newIndex);
     }
   };
@@ -101,35 +128,42 @@ const PhotoGallery: React.FC = () => {
             key={collection.id}
             variant={selectedCollection === collection.id ? "default" : "outline"}
             className="w-full justify-start"
-            onClick={() => setSelectedCollection(collection.id)}
+            onClick={() => handleCollectionChange(collection.id)}
+            disabled={loading}
           >
             {collection.name}
           </Button>
         ))}
       </div>
       <div className="col-span-3">
-        <Masonry
-          breakpointCols={{ default: 3, 900: 2, 700: 1 }}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-        >
-          {images.map((image, index) => (
-            <div key={image.id} className="relative">
-              <img
-                src={image.src}
-                alt={image.description}
-                className="object-cover w-full h-full"
-                onClick={() => openDialog(image, index)}
-              />
-            </div>
-          ))}
-        </Masonry>
+        {loading ? (
+          <div className="flex items-center justify-center h-full">
+            <Progress value={progress} className="w-[60%]" />
+          </div>
+        ) : (
+          <Masonry
+            breakpointCols={{ default: 3, 900: 2, 700: 1 }}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {images.map((image, index) => (
+              <div key={image.id} className="relative">
+                <img
+                  src={image.src}
+                  alt=""
+                  className="object-cover w-full h-full max-h-96"
+                  onClick={() => openDialog(image.src, index)}
+                />
+              </div>
+            ))}
+          </Masonry>
+        )}
       </div>
 
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-50"
+            className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center z-20"
             onClick={closeDialog}
             initial={{ opacity: 0.25 }}
             animate={{ opacity: 1 }}
@@ -137,9 +171,8 @@ const PhotoGallery: React.FC = () => {
           >
             <div className="relative max-w-[85%] max-h-screen flex items-center justify-center">
               <motion.img
-                key={selectedImage.src}
-                src={selectedImage.src}
-                alt={selectedImage.description}
+                src={selectedImage}
+                alt="Portfolio Image"
                 className="max-w-[83%] max-h-screen"
                 initial={{ opacity: 0.25 }}
                 animate={{ opacity: 1 }}
@@ -147,7 +180,7 @@ const PhotoGallery: React.FC = () => {
               />
               {currentIndex > 0 && (
                 <button
-                  className="absolute left-0 rounded-full"
+                  className="absolute left-[-2rem] rounded-full"
                   onClick={(e) => {
                     e.stopPropagation();
                     prevImage();
@@ -160,7 +193,7 @@ const PhotoGallery: React.FC = () => {
               )}
               {currentIndex < images.length - 1 && (
                 <button
-                  className="absolute right-0 rounded-full"
+                  className="absolute right-[-2rem] rounded-full"
                   onClick={(e) => {
                     e.stopPropagation();
                     nextImage();
