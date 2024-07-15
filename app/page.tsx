@@ -55,7 +55,7 @@ export default function Home() {
                 <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110'/>
               </a>
             </div>
-            <p className="text-md lg:text-lg text-justify">
+            <p className="text-md lg:text-lg text-justify pr-8">
               A Computer Science graduate from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
               <br /><br />
               Having worked on a multitude of projects during my university tenure, I have amassed robust skills in <strong>full-stack development, data analytics,</strong> as well as <strong>machine learning and Generative AI-enabled applications</strong>.
