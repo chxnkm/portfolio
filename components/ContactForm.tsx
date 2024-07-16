@@ -86,7 +86,7 @@ export default function ContactForm() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="message">Message</Label>
-            <Textarea id="message" value={formData.message} onChange={handleChange} placeholder="Enter your message" className="min-h-[150px]" />
+            <Textarea id="message" value={formData.message} onChange={handleChange} placeholder="Enter your message" className="min-h-[150px] resize-none" />
           </div>
           <Button type="submit" className="w-full" disabled={!isFormValid}>
             Submit
