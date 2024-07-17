@@ -81,7 +81,7 @@ export default function Home() {
                 {albums.map((album) => (
                   <div key={album.id} className="col-span-1 px-4 pb-8">
                     <div
-                      className="relative overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-110"
+                      className="relative overflow-auto cursor-pointer transition-transform duration-300 hover:scale-110"
                       onClick={() => handleSearch(`${album.artists[0].name} ${album.name}`)}
                     >
                       <img
@@ -89,7 +89,7 @@ export default function Home() {
                         alt={album.name}
                         className="w-full h-full object-cover transition-opacity duration-300"
                       />
-                      <p className="text-xs font-semibold">{album.name}</p>
+                      <p className="text-[0.4rem] sm:text-xs font-semibold">{album.name}</p>
                     </div>
                   </div>
                 ))}
