@@ -55,7 +55,7 @@ export default function Home() {
                 <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110'/>
               </a>
             </div>
-            <p className="text-md lg:text-lg text-justify pr-8">
+            <p className="text-md lg:text-lg text-left lg:pr-8">
               A Computer Science graduate from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
               <br /><br />
               Having worked on a multitude of projects during my university tenure, I have amassed robust skills in <strong>full-stack development, data analytics,</strong> as well as <strong>machine learning and Generative AI-enabled applications</strong>.
@@ -67,7 +67,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id='projects' className=" mt-[6vh] container mx-auto animate-slideUp">
+      <div id='projects' className=" mt-16 lg:mt-32 container mx-auto animate-slideUp">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-belsey">Projects and Work Experience 👨🏻‍💻</h1>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
       </div>
