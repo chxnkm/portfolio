@@ -15,8 +15,8 @@ export default function Home() {
                     </p>    
                 </div>
                 <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/img1.jpg" alt="docCentral intro" />
-                    <p className='mt-2 font-medium text-center'>Me and the docCentral team!</p>
+                    <UnclickableImage src="/img/internship/intern-splash.jpg" alt="docCentral intro" />
+                    <p className='mt-2 font-medium text-center'>Me and the docCentral team!</p> 
                 </div>
             </div>
             <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">

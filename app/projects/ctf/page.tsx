@@ -18,7 +18,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="flex flex-col items-center order-1">
-                        <UnclickableImage src="/img/img3.jpg" alt="Completed CTF" />
+                        <UnclickableImage src="/img/ctf/ctf-splash.jpg" alt="Completed CTF" />
                         <p className='mt-2 font-medium text-center'>All challenges completed 😎</p>
                     </div>
                 </div>

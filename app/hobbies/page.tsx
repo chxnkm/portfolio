@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 export default function Home() {
   return (
     <main>
-      <div className='min-w-full flex items-center justify-center animate-slideUp'>
+      <div className='min-w-full flex items-center justify-center'>
         <div className="intro container mx-auto">
           <div className="intro-words text-center">
             <h1 className="mt-8 text-3xl sm:text-5xl lg:text-6xl font-belsey font-black">

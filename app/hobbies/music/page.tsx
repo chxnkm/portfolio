@@ -56,7 +56,7 @@ export default function Home() {
           </div>
           <div className="mt-12 border-4 p-8 border-slate-700 rounded-lg">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-belsey">
-              <span className="text-cpfGreen">"Music is life itself. What would this world be without good music?"</span>
+              <span className="text-cpfGreen">&quot;Music is life itself. What would this world be without good music?&quot;</span>
               <br />
               <p className="text-sm sm:text-md text-right pr-8 mt-4">-Louis Armstrong</p>
             </h1>
@@ -66,11 +66,11 @@ export default function Home() {
                     <p className="text-sm md:text-lg text-justify font-medium mt-4 pl-8">
                         Music has always been an essential part of my life. Taking up music lessons at a young age (as many Asian parents instructed us to do), I have since embraced music-making wholly and have enjoyed it ever since. It led me to joining concert band in my secondary and tertiary education, as well as leading the jam band in my university hall.
                         <br/><br/>
-                        In my free time when I'm not coding, I play the piano, guitar and drums.
+                        In my free time when I&apos;m not coding, I play the piano, guitar and drums.
                     </p>   
                 </div>
                 <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/img4.jpg" width={400} alt="Me and my band!" unoptimized={true}/>
+                    <UnclickableImage src="/img/misc/band-splash.jpg" width={400} alt="Me and my band!" unoptimized={true}/>
                     <p className='mt-2 font-medium text-center'>My band for one of my performances!</p>
                 </div>
             </div>
