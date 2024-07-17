@@ -12,7 +12,7 @@ export default function Home() {
                 <h1 className="text-left font-belsey text-lg sm:text-xl md:text-2xl lg:text-5xl">Final Year Project 🕵🏻‍♂️</h1>
                 <p className="text-sm md:text-lg text-justify mt-4">
                     For my final year in university, I delved into crowd estimation as my topic for my final-year project. Under the tutelage and guidance of my professor Cham Tat Jen, I successfully utilised and improved the <strong>Point-Query Transformer (PET)</strong> crowd counting method, and evaluated it on a <strong>local novel Singaporean crowd dataset</strong> created for this project; some of the photos from the dataset are shown below.<br/><br/>
-                    The full report can be found <Link href="https://dr.ntu.edu.sg/handle/10356/174984" className="text-blue-500 underline">here.</Link>
+                    The full report can be found <Link href="https://dr.ntu.edu.sg/handle/10356/174984" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">here.</Link>
                 </p>    
             </div>
             <div className="docCentral flex flex-col items-center order-1">
