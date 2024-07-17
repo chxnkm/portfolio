@@ -121,7 +121,7 @@ const PhotoGallery: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
       <div className="col-span-1 space-y-2">
         {collections.map((collection) => (
           <Button
