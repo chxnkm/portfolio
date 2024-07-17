@@ -37,6 +37,5 @@ storage.rules
 *.tsbuildinfo
 next-env.d.ts
 
-public
 data
 server
