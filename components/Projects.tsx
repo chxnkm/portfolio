@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
-import { 
-  Card, 
-  CardHeader, 
-  CardTitle, 
-  CardDescription, 
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
   CardContent
 } from '@/components/ui/card';
 
@@ -20,10 +20,19 @@ import {
 } from "@/components/ui/pagination"
 
 import { Skeleton } from "@/components/ui/skeleton"
-
-import { Project } from '@/lib/projects-api';
+import { db } from '@/lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 
 const ITEMS_PER_PAGE = 3;
+
+type Project = {
+  date: string;  // Change this to string as JSON doesn't have a Date type
+  name: string;
+  description: string;
+  image: string;
+  href: string;
+  skills: string[];
+};
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -32,13 +41,20 @@ const Projects = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      setIsLoading(true);
-      const response = await fetch('/api/fetch-projects');
-      const data = await response.json();
-      setProjects(data);
-      setNumPages(Math.ceil(data.length / ITEMS_PER_PAGE));
-      setIsLoading(false);
+    const fetchProjects = async (): Promise<any | null> => {
+      const docRef = doc(db, "projects", "projects");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        const projectArray = Object.keys(data).map(key => data[key]);
+        setProjects(projectArray);
+        setNumPages(Math.ceil(projectArray.length / ITEMS_PER_PAGE));
+        setIsLoading(false);
+      } else {
+        console.error("No document found for projects");
+        setIsLoading(false);
+      }
     };
 
     fetchProjects();
@@ -78,9 +94,9 @@ const Projects = () => {
         <div className='mt-8'>
           {isLoading ? (
             <>
-            {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
-              <SkeletonProject key={index} />
-            ))}
+              {Array.from({ length: ITEMS_PER_PAGE }).map((_, index) => (
+                <SkeletonProject key={index} />
+              ))}
             </>
           ) : (
             currentProjects.map((project, index) => (
@@ -103,7 +119,7 @@ const Projects = () => {
                       </div>
                     </div>
                     <div className='mt-4 hidden lg:block'>
-                    <div style={{ width: '180px', height: '180px', backgroundImage: `url(${project.image})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} />
+                      <div style={{ width: '180px', height: '180px', backgroundImage: `url(${project.image})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} />
                     </div>
                   </CardContent>
                 </Card>
