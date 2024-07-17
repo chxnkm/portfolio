@@ -151,7 +151,7 @@ const PhotoGallery: React.FC = () => {
                 <img
                   src={image.src}
                   alt=""
-                  className="object-cover w-full h-full max-h-96"
+                  className="object-cover w-full h-full"
                   onClick={() => openDialog(image.src, index)}
                 />
               </div>
@@ -173,7 +173,7 @@ const PhotoGallery: React.FC = () => {
               <motion.img
                 src={selectedImage}
                 alt="Portfolio Image"
-                className="w-[85vw] h-[85vh] object-contain "
+                className="w-[83vw] h-[83vh] object-contain"
                 initial={{ opacity: 0.25 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 1 }}

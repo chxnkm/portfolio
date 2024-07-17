@@ -39,7 +39,7 @@ export default function Home() {
         <div className="mt-8 lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
           <div className="order-1 lg:order-none flex justify-center lg:justify-start">
             <div className="flex flex-col items-center lg:items-start ">
-              <AutoCarousel basePath='img/' images={images} />
+              <AutoCarousel basePath='/img/' images={images} />
             </div>
           </div>
           <div className='order-2 lg:order-none'>
