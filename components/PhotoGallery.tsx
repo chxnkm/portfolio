@@ -173,14 +173,14 @@ const PhotoGallery: React.FC = () => {
               <motion.img
                 src={selectedImage}
                 alt="Portfolio Image"
-                className="max-w-[83%] max-h-screen"
+                className="w-[85vw] h-[85vh] object-contain "
                 initial={{ opacity: 0.25 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 1 }}
               />
               {currentIndex > 0 && (
                 <button
-                  className="absolute left-[-2rem] rounded-full"
+                  className="absolute flex left-[-2rem] rounded-full justify-start"
                   onClick={(e) => {
                     e.stopPropagation();
                     prevImage();
@@ -193,7 +193,7 @@ const PhotoGallery: React.FC = () => {
               )}
               {currentIndex < images.length - 1 && (
                 <button
-                  className="absolute right-[-2rem] rounded-full"
+                  className="absolute flex right-[-2rem] rounded-full justify-end"
                   onClick={(e) => {
                     e.stopPropagation();
                     nextImage();

@@ -52,7 +52,7 @@ export function NavMenu() {
           <NavigationMenuList className="flex flex-col md:flex-row">
             {menuItems.map((item, index) => (
               <NavigationMenuItem key={index} className="md:my-0 my-1 hover:scale-110 duration-300">
-                <Link href={item.href} target="_blank" rel="noopener noreferrer" legacyBehavior passHref>
+                <Link href={item.href} rel="noopener noreferrer" legacyBehavior passHref>
                   <NavigationMenuLink
                     className={`${navigationMenuTriggerStyle()} ${
                       currentPath === item.href ? "underline" : ""
