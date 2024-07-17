@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   // Check if the request path starts with /img
-  if (request.nextUrl.pathname.startsWith('/img')) {
+  if (request.nextUrl.pathname.startsWith('/img') || request.nextUrl.pathname.startsWith('/resume'))  {
     // Get the referer and host headers
     const referer = request.headers.get('referer') ?? '';
     const host = request.headers.get('host') ?? '';
@@ -21,5 +21,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/img/:path*'],
+  matcher: ['/img/:path*', '/resume/:path*']
 };
