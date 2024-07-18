@@ -127,7 +127,7 @@ const PhotoGallery: React.FC = () => {
           <Button
             key={collection.id}
             variant={selectedCollection === collection.id ? "default" : "outline"}
-            className="w-full justify-start"
+            className="w-full md:justify-start"
             onClick={() => handleCollectionChange(collection.id)}
             disabled={loading}
           >
@@ -138,7 +138,7 @@ const PhotoGallery: React.FC = () => {
       <div className="col-span-3">
         {loading ? (
           <div className="flex items-center justify-center h-full">
-            <Progress value={progress} className="w-[60%]" />
+            <Progress value={progress} className="w-full lg:w-[60%]" />
           </div>
         ) : (
           <Masonry
@@ -173,7 +173,7 @@ const PhotoGallery: React.FC = () => {
               <motion.img
                 src={selectedImage}
                 alt="Portfolio Image"
-                className="w-[83vw] h-[83vh] object-contain"
+                className="w-[78vw] h-[78vh] md:w-[83vw] md:h-[83vh] object-contain"
                 initial={{ opacity: 0.25 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 1 }}
