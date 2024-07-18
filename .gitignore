@@ -29,6 +29,8 @@ yarn-error.log*
 .env
 storage.rules
 .firebaserc
+lib/firebase-admin.js
+service-key.json
 
 # vercel
 .vercel

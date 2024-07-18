@@ -16,10 +16,10 @@ export function NavMenu() {
   const currentPath = usePathname()
 
   const menuItems = [
-    { href: "/#projects", label: "Projects" },
+    { href: "/#experience", label: "Experience" },
     { href: "/hobbies", label: "Hobbies" },
     { href: "/contact", label: "Contact Me" },
-    { href: "/resume/RESUME_KANG_MING.pdf", label: "Résumé", className: "bg-[#bc7b0b] text-white" },
+    { href: "/resume/RESUME_KANG_MING.pdf", label: "Résumé", className: "bg-[#bc7b0b] text-white ml-2" },
   ]
 
   return (

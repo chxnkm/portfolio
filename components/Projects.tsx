@@ -26,7 +26,7 @@ import { doc, getDoc } from 'firebase/firestore';
 const ITEMS_PER_PAGE = 3;
 
 type Project = {
-  date: string;  // Change this to string as JSON doesn't have a Date type
+  date: string;
   name: string;
   description: string;
   image: string;
@@ -63,6 +63,9 @@ const Projects = () => {
   const indexOfLastProject = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstProject = indexOfLastProject - ITEMS_PER_PAGE;
   const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
+
+  const isPreviousDisabled = currentPage === 1;
+  const isNextDisabled = currentPage === numPages;
 
   const SkeletonProject = () => (
     <Card className="bg-[#fdfdfd] border-gray-200 mt-4 shadow-lg rounded-lg overflow-hidden">
@@ -109,7 +112,7 @@ const Projects = () => {
                   <CardContent className="flex flex-wrap items-start justify-between mt-[-3%]">
                     <div className="flex flex-col flex-grow max-w-[75%] mt-[2vh]">
                       <p>{project.description}</p>
-                      <div className="flex flex-wrap font-belsey font-medium items-center justify-start gap-2 mt-8 text-md sm:text-lg lg:text-xl">
+                      <div className="flex flex-wrap font-belsey font-medium items-center justify-start gap-2 mt-8 text-base sm:text-lg lg:text-xl">
                         <strong>Skills:</strong>
                         {project.skills.map((skill, skillIndex) => (
                           <div key={skillIndex} className="flex items-center justify-center bg-pastelBeige py-1 md:px-3 px-2 rounded-md whitespace-nowrap text-xs md:text-sm">
@@ -129,7 +132,13 @@ const Projects = () => {
         </div>
         {!isLoading && (
           <Pagination className="mt-8" aria-label="Pagination">
-            <PaginationPrevious onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}>Previous</PaginationPrevious>
+            <PaginationPrevious 
+              onClick={() => !isPreviousDisabled && setCurrentPage(prev => prev - 1)}
+              className={isPreviousDisabled ? 'pointer-events-none opacity-50' : ''}
+              aria-disabled={isPreviousDisabled}
+            >
+              Previous
+            </PaginationPrevious>
             <PaginationContent>
               {Array.from({ length: numPages }, (_, i) => (
                 <PaginationItem key={i}>
@@ -137,7 +146,13 @@ const Projects = () => {
                 </PaginationItem>
               ))}
             </PaginationContent>
-            <PaginationNext onClick={() => setCurrentPage(prev => Math.min(prev + 1, numPages))}>Next</PaginationNext>
+            <PaginationNext 
+              onClick={() => !isNextDisabled && setCurrentPage(prev => prev + 1)}
+              className={isNextDisabled ? 'pointer-events-none opacity-50' : ''}
+              aria-disabled={isNextDisabled}
+            >
+              Next
+            </PaginationNext>
           </Pagination>
         )}
       </div>

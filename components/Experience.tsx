@@ -1,0 +1,135 @@
+'use client'
+
+import { useEffect, useState } from 'react';
+import {
+    Card,
+    CardContent
+} from '@/components/ui/card';
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
+import { Skeleton } from "@/components/ui/skeleton"
+import { db } from '@/lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import UnclickableImage from './UnclickableImage';
+
+type Experience = {
+    name: string;
+    description: string;
+    image: string;
+    skills: string[];
+};
+
+const Experience = () => {
+    const [experience, setExperience] = useState<Experience[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchExperience = async (): Promise<any | null> => {
+            const docRef = doc(db, "projects", "experience");
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                const projectArray = Object.keys(data).map(key => data[key]);
+                setExperience(projectArray);
+                setIsLoading(false);
+            } else {
+                console.error("No document found for projects");
+                setIsLoading(false);
+            }
+        };
+
+        fetchExperience();
+    }, []);
+
+    const SkeletonProject = () => (
+        <CarouselItem className="h-full">
+            <Card className="bg-[#fdfdfd] border-gray-200 shadow-md rounded-lg overflow-hidden h-full">
+                <CardContent className="p-4 sm:p-6 h-full">
+                    <div className='grid grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
+                        <div className='grid grid-rows-[auto_1fr] h-full'>
+                            <div className="overflow-y-auto p-4">
+                                <Skeleton className='h-6 w-1/2 mb-2' />
+                                <Skeleton className='h-4 w-full' />
+                                <Skeleton className='h-4 w-full mt-1' />
+                            </div>
+                            <div className='rounded-md flex flex-col px-4 py-2 mt-2 overflow-hidden'>
+                                <Skeleton className='h-4 w-1/4 mb-2' />
+                                <div className='flex flex-wrap overflow-y-auto'>
+                                    <Skeleton className='h-6 w-16 mr-2 mb-2' />
+                                    <Skeleton className='h-6 w-16 mr-2 mb-2' />
+                                    <Skeleton className='h-6 w-16 mr-2 mb-2' />
+                                    <Skeleton className='h-6 w-16 mr-2 mb-2' />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hidden sm:flex justify-center items-center sm:h-[350px] p-8">
+                            <Skeleton className='h-full w-full' />
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+        </CarouselItem>
+    );
+
+    return (
+        <main className="grid grid-cols-8 max-w-screen">
+            <div className="col-span-1"></div>
+            {isLoading ? (
+                <div className="col-span-6">
+                    <Carousel className='col-span-6 max-w-screen h-[320px] sm:h-full mt-12'>
+                        <CarouselContent className="h-full">
+                            {Array(3).fill(0).map((_, index) => (
+                                <SkeletonProject key={index} />
+                            ))}
+                        </CarouselContent>
+                    </Carousel>
+                </div>
+            ) : (
+                <Carousel className='col-span-6 max-w-screen h-[320px] sm:h-full mt-12'>
+                    <CarouselContent className="h-full">
+                        {experience.map((exp, index) => (
+                            <CarouselItem key={index} className="h-full">
+                                <Card className="bg-[#fdfdfd] border-gray-200 shadow-md rounded-lg overflow-hidden h-full">
+                                    <CardContent className="p-4 sm:p-6 h-full">
+                                        <div className='grid grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
+                                            <div className='grid grid-rows-[auto_1fr] h-full'>
+                                                <div className="overflow-y-auto p-4">
+                                                    <h2 className="text-sm sm:text-xl font-belsey font-extrabold mb-2">{exp.name}</h2>
+                                                    <p className="text-xs md:text-sm sm:text-base font-medium">{exp.description}</p>
+                                                </div>
+                                                <div className='rounded-md flex flex-col px-4 py-2 mt-2 overflow-hidden'>
+                                                    <p className='text-xs md:text-sm lg:text-base font-semibold font-belsey mb-4'>Skills:</p>
+                                                    <div className='flex flex-wrap overflow-y-auto'>
+                                                        {exp.skills.map((skill, skillIndex) => (
+                                                            <span key={skillIndex} className="inline-flex items-center bg-pastelBeige rounded-md px-2 sm:px-4 py-1 text-[0.4rem] sm:text-xs lg:text-[0.85rem] font-belsey mr-2 mb-2">
+                                                                {skill}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="hidden sm:flex justify-center items-center sm:h-[350px] p-8">
+                                                <UnclickableImage src={exp.image} alt={exp.name} width={300} height={300} unoptimized={true} />
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <CarouselPrevious className='hidden sm:flex border-0' />
+                    <CarouselNext className='hidden sm:flex border-0' />
+                </Carousel>
+            )}
+            <div className="col-span-1"></div>
+        </main>
+    );
+};
+
+export default Experience;

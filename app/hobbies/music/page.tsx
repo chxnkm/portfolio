@@ -58,7 +58,7 @@ export default function Home() {
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-belsey">
               <span className="text-cpfGreen">&quot;Music is life itself. What would this world be without good music?&quot;</span>
               <br />
-              <p className="text-sm sm:text-md text-right pr-8 mt-4">-Louis Armstrong</p>
+              <p className="text-sm sm:text-base text-right pr-8 mt-4">-Louis Armstrong</p>
             </h1>
           </div>
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
@@ -79,7 +79,7 @@ export default function Home() {
               <h1 className="text-xl lg:text-4xl text-center font-belsey">Favourite Albums of All Time</h1>
               <div className="grid grid-cols-4 mt-8">
                 {albums.map((album) => (
-                  <div key={album.id} className="col-span-1 px-4 pb-8">
+                  <div key={album.id} className="col-span-1 px-2 md:px-4 pb-2 md:pb-8">
                     <div
                       className="relative overflow-auto cursor-pointer transition-transform duration-300 hover:scale-110"
                       onClick={() => handleSearch(`${album.artists[0].name} ${album.name}`)}
