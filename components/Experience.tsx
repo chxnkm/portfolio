@@ -19,6 +19,7 @@ import UnclickableImage from './UnclickableImage';
 
 type Experience = {
     name: string;
+    link?: string;
     description: string;
     image: string;
     skills: string[];
@@ -101,7 +102,16 @@ const Experience = () => {
                                             <div className='grid grid-rows-[auto_1fr] h-full'>
                                                 <div className="overflow-y-auto p-4">
                                                     <h2 className="text-sm sm:text-xl font-belsey font-extrabold mb-2">{exp.name}</h2>
-                                                    <p className="text-xs md:text-sm sm:text-base font-medium">{exp.description}</p>
+                                                    <p className="text-xs md:text-sm sm:text-base font-medium">
+                                                        {exp.description}
+                                                        {exp.link && (
+                                                            <><br /><br /><a href={exp.link} target="_blank" rel="noopener noreferrer">
+                                                                <span className="inline-flex items-center bg-pastelOrange rounded-full px-2 sm:px-4 py-1 text-[0.4rem] sm:text-xs lg:text-[0.85rem] mb-[-2%]">
+                                                                    Learn More
+                                                                </span>
+                                                            </a></>
+                                                        )}
+                                                    </p>
                                                 </div>
                                                 <div className='rounded-md flex flex-col px-4 py-2 mt-2 overflow-hidden'>
                                                     <p className='text-xs md:text-sm lg:text-base font-semibold font-belsey mb-4'>Skills:</p>
