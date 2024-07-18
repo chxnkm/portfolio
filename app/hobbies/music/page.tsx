@@ -22,7 +22,6 @@ export default function Home() {
         const tracks = await getSpotifyAddiction();
         const trackUrls = tracks.map((item: any) => item.track.external_urls.spotify);
         setSpotifyAddiction(trackUrls);
-        console.log(trackUrls)
       } catch (error) {
         console.error("Error fetching Spotify addiction tracks:", error);
         setSpotifyAddiction([]);

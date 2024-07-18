@@ -78,11 +78,11 @@ const Experience = () => {
     );
 
     return (
-        <main className="grid grid-cols-8 max-w-screen">
+        <main className="grid grid-cols-8 max-w-[1400px]">
             <div className="col-span-1"></div>
             {isLoading ? (
                 <div className="col-span-6">
-                    <Carousel className='col-span-6 max-w-screen h-[320px] sm:h-full mt-12'>
+                    <Carousel className='col-span-6 max-w-screen-md h-[320px] sm:h-full mt-12'>
                         <CarouselContent className="h-full">
                             {Array(3).fill(0).map((_, index) => (
                                 <SkeletonProject key={index} />
@@ -115,7 +115,7 @@ const Experience = () => {
                                                 </div>
                                             </div>
                                             <div className="hidden sm:flex justify-center items-center sm:h-[350px] p-8">
-                                                <UnclickableImage src={exp.image} alt={exp.name} width={300} height={300} unoptimized={true} />
+                                                <UnclickableImage src={exp.image} alt={exp.name} width={300} height={320} unoptimized={true} />
                                             </div>
                                         </div>
                                     </CardContent>
