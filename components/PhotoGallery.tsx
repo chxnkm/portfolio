@@ -19,7 +19,7 @@ const PhotoGallery: React.FC = () => {
 
   useEffect(() => {
     const fetchCollections = async () => {
-      const storageRef = ref(storage, '/');
+      const storageRef = ref(storage, '/images');
       let collectionList: Array<{ id: string; name: string }> = [];
 
       try {
@@ -42,10 +42,9 @@ const PhotoGallery: React.FC = () => {
       setLoading(true);
       setProgress(0);
       let imagesList: Array<{ id: number; src: string }> = [];
-
+      const storageRef = ref(storage, '/images');
       try {
         if (selectedCollection === 'all') {
-          const storageRef = ref(storage, '/');
           const rootFolders = await listAll(storageRef);
 
           await Promise.all(rootFolders.prefixes.map(async (collectionRef) => {
@@ -56,7 +55,7 @@ const PhotoGallery: React.FC = () => {
             }));
           }));
         } else {
-          const collectionRef = ref(storage, `/${selectedCollection}`);
+          const collectionRef = ref(storageRef, `/${selectedCollection}`);
           const imagesInCollection = await listAll(collectionRef);
           await Promise.all(imagesInCollection.items.map(async (imageRef) => {
             const url = await getDownloadURL(imageRef);

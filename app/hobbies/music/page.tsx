@@ -53,7 +53,7 @@ export default function Home() {
           <div className="intro-words text-center">
             <h1 className="mt-8 text-5xl font-belsey font-black">Music</h1>
           </div>
-          <div className="mt-12 border-4 p-8 border-slate-700 rounded-lg">
+          <div className="mt-12 border-[2.5px] p-8 border-slate-700 rounded-lg">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-belsey">
               <span className="text-cpfGreen">&quot;Music is life itself. What would this world be without good music?&quot;</span>
               <br />

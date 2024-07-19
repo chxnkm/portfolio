@@ -12,7 +12,7 @@ export default function Component() {
                     </div>
                 </div>
             </div>
-            <div className="px-8 mt-8">
+            <div className="px-16 mt-8">
                 <PhotoGallery />
 
             </div>

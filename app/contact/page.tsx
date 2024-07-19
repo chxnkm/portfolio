@@ -10,7 +10,6 @@ export default function Home() {
         </h1>
         <ContactForm />
         <div className="flex flex-col items-center mt-12">
-          <p className="mb-4 font-bold">Picture of the Month:</p>
           <UnclickableImage width={900} src='/img/misc/contact_splash.jpg' alt='Panoramic Photo in Korea' />
           <p className="mt-4 text-gray-600"><i>Playground</i>, Han River, Seoul, 2024</p>
         </div>

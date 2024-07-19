@@ -17,7 +17,7 @@ export default function Home() {
       <div className="grid lg:grid-cols-2 px-8 gap-8 mt-12">
         <div className="col-span-1">
           <a href="/hobbies/photography">
-            <Card className="bg-image-photos min-h-96 flex items-center justify-center hover:scale-[1.02] duration-300">
+            <Card className="bg-image-photos min-h-[50vh] flex items-center justify-center hover:scale-[1.02] duration-300">
               <h1 className="text-4xl text-center font-belsey font-black">
                 Photography
               </h1>
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
         <div className="col-span-1">
           <a href="/hobbies/music">
-            <Card className="bg-image-music min-h-96 flex items-center justify-center hover:scale-[1.02] duration-300">
+            <Card className="bg-image-music min-h-[50vh] flex items-center justify-center hover:scale-[1.02] duration-300">
               <h1 className="text-4xl text-center font-belsey font-black">
                 Music</h1>
             </Card>
