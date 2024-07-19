@@ -1,15 +1,16 @@
 'use client'
 
 import React, { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { startTyping } from '@/lib/typingAnimation';
 
-import AutoCarousel from "@/components/AutoCarousel";
-import Projects from "@/components/Projects";
+const AutoCarousel = dynamic(() => import('@/components/AutoCarousel'), { ssr: false });
+const Projects = dynamic(() => import('@/components/Projects'), { ssr: false });
+const Experience = dynamic(() => import('@/components/Experience'), { ssr: false });
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import Experience from '@/components/Experience';
 
 const images = [
   { src: 'misc/main_splash.jpg' },
@@ -22,6 +23,7 @@ export default function Home() {
   useEffect(() => {
     startTyping();
   }, []);
+
   return (
     <main>
       <div className='bg-image-with-opacity bg-image min-w-full flex items-center justify-center animate-slideUp'>
@@ -72,7 +74,7 @@ export default function Home() {
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-belsey">My Experience 👨🏻‍💼</h1>
         <p className="text-lg mt-6">Swipe on each card to see more!</p>
       </div>
-      <Experience/>
+      <Experience />
       <div id='projects' className=" mt-16 lg:mt-32 container mx-auto animate-slideUp">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-belsey">Projects and Work Write-ups 👨🏻‍💻</h1>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
