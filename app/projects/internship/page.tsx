@@ -44,7 +44,7 @@ export default function Home() {
                     </p>   
                 </div>
                 <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/internship/guide.gif" alt="docCentral intro" unoptimized={true}/>
+                    <UnclickableImage src="/img/internship/guide.gif" alt="docCentral intro"/>
                     <p className='mt-2 font-medium text-center'>Screengrabs of the guide for docCentral.</p>
                 </div>
             </div>

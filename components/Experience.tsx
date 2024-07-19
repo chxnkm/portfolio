@@ -127,7 +127,7 @@ const Experience = () => {
                                                 </div>
                                             </div>
                                             <div className="hidden sm:flex justify-center items-center sm:h-[350px] p-8">
-                                                <UnclickableImage src={exp.image} alt={exp.name} width={300} priority={true} />
+                                                <UnclickableImage src={exp.image} alt={exp.name} width={300} />
                                             </div>
                                         </div>
                                     </CardContent>

@@ -69,7 +69,7 @@ export default function Home() {
                     </p>   
                 </div>
                 <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/misc/band-splash.jpg" width={400} alt="Me and my band!" priority={true}/>
+                    <UnclickableImage src="/img/misc/band-splash.jpg" width={400} alt="Me and my band!"/>
                     <p className='mt-2 font-medium text-center'>My band for one of my performances!</p>
                 </div>
             </div>

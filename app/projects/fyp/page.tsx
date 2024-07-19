@@ -16,7 +16,7 @@ export default function Home() {
                 </p>    
             </div>
             <div className="docCentral flex flex-col items-center order-1">
-                <UnclickableImage src="/img/fyp/fyp_1.gif" alt="docCentral intro" priority={true} unoptimized={true}/>
+                <UnclickableImage src="/img/fyp/fyp_1.gif" alt="docCentral intro"/>
                 <p className='mt-2 font-medium text-center'>Screenshots from crowd detections from the SG-CE dataset.</p>
             </div>
         </div>
