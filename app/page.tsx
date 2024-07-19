@@ -72,7 +72,7 @@ export default function Home() {
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-belsey">My Experience 👨🏻‍💼</h1>
         <p className="text-lg mt-6">Swipe on each card to see more!</p>
       </div>
-      <Experience />
+      <Experience/>
       <div id='projects' className=" mt-16 lg:mt-32 container mx-auto animate-slideUp">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-belsey">Projects and Work Write-ups 👨🏻‍💻</h1>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
