@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Masonry from 'react-masonry-css';
@@ -24,10 +24,10 @@ const PhotoGallery: React.FC = () => {
 
       try {
         const rootFolders = await listAll(storageRef);
-        rootFolders.prefixes.forEach((folderRef) => {
-          collectionList.push({ id: folderRef.name, name: folderRef.name });
-        });
-
+        collectionList = rootFolders.prefixes.map((folderRef) => ({
+          id: folderRef.name,
+          name: folderRef.name
+        }));
         setCollections([{ id: 'all', name: 'All' }, ...collectionList]);
       } catch (error) {
         console.error('Error fetching collections from Firebase:', error);
@@ -41,29 +41,27 @@ const PhotoGallery: React.FC = () => {
     const fetchImages = async () => {
       setLoading(true);
       setProgress(0);
-      let imagesList: Array<{ id: number; src: string }> = [];
+      const imagesList: Array<{ id: number; src: string }> = [];
       const storageRef = ref(storage, '/images');
+
       try {
+        const fetchCollectionImages = async (collectionRef: any) => {
+          const imagesInCollection = await listAll(collectionRef);
+          const urls = await Promise.all(imagesInCollection.items.map(async (imageRef) => {
+            return getDownloadURL(imageRef);
+          }));
+          return urls.map((url, index) => ({ id: imagesList.length + index + 1, src: url }));
+        };
+
         if (selectedCollection === 'all') {
           const rootFolders = await listAll(storageRef);
-
-          await Promise.all(rootFolders.prefixes.map(async (collectionRef) => {
-            const imagesInCollection = await listAll(ref(storage, collectionRef.fullPath));
-            await Promise.all(imagesInCollection.items.map(async (imageRef) => {
-              const url = await getDownloadURL(imageRef);
-              imagesList.push({ id: imagesList.length + 1, src: url });
-            }));
-          }));
+          const allImages = await Promise.all(rootFolders.prefixes.map(fetchCollectionImages));
+          setImages(allImages.flat());
         } else {
           const collectionRef = ref(storageRef, `/${selectedCollection}`);
-          const imagesInCollection = await listAll(collectionRef);
-          await Promise.all(imagesInCollection.items.map(async (imageRef) => {
-            const url = await getDownloadURL(imageRef);
-            imagesList.push({ id: imagesList.length + 1, src: url });
-          }));
+          const imagesInCollection = await fetchCollectionImages(collectionRef);
+          setImages(imagesInCollection);
         }
-
-        setImages(imagesList);
       } catch (error) {
         console.error('Error fetching images from Firebase:', error);
       } finally {
@@ -152,6 +150,7 @@ const PhotoGallery: React.FC = () => {
                   alt=""
                   className="object-cover w-full h-full"
                   onClick={() => openDialog(image.src, index)}
+                  loading='lazy'
                 />
               </div>
             ))}

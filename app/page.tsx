@@ -13,9 +13,9 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 
 const images = [
-  { src: 'misc/main_splash.jpg' },
-  { src: 'misc/splash_2.jpg' },
-  { src: 'misc/splash_3.jpg' },
+  { src: 'misc/main_splash.webp' },
+  { src: 'misc/splash_2.webp' },
+  { src: 'misc/splash_3.webp' },
   // Add more images as needed
 ];
 
@@ -26,17 +26,26 @@ export default function Home() {
 
   return (
     <main>
-      <div className='bg-image-with-opacity bg-image min-w-full flex items-center justify-center animate-slideUp'>
-        <div className="intro container mx-auto">
+      <div className='relative min-w-full flex items-center justify-center h-[500px] animate-slideUp'>
+        <img src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block absolute inset-0 object-cover w-full h-full opacity-15' />
+        <img src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block absolute inset-0 object-cover w-full h-full opacity-15' />
+        <img src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden absolute inset-0 object-cover w-full h-full opacity-15' />
+        <div className="intro container mx-auto absolute inset-0 flex items-center justify-center">
           <div className="intro-words text-center lg:pl-8">
             <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-belsey font-black">
               Hello, I&apos;m <span className="text-text leading-custom"><br />
-                <span id="typing-text" /></span><span className="caret">|</span></h1>
-            <p className="text-lg sm:text-xl lg:text-2xl font-bold">I&apos;m a Computer Science graduate,<br />software engineer, and <br />an avid tinkerer and hobbyist.</p>
-            <p className="text-base sm:text-lg lg:text-xl font-medium mb-12">Welcome to my portfolio. Happy browsing!</p>
+                <span id="typing-text" /></span><span className="caret">|</span>
+            </h1>
+            <p className="text-lg sm:text-xl lg:text-2xl font-bold">
+              I&apos;m a Computer Science graduate,<br />software engineer, and <br />an avid tinkerer and hobbyist.
+            </p>
+            <p className="text-base sm:text-lg lg:text-xl font-medium mb-12">
+              Welcome to my portfolio. Happy browsing!
+            </p>
           </div>
         </div>
       </div>
+
 
       <div className="about-me lg:container mx-auto px-4">
         <div className="mt-8 lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
