@@ -115,7 +115,7 @@ const Projects = () => {
                       <div className="flex flex-wrap font-belsey font-medium items-center justify-start gap-2 mt-8 text-base sm:text-lg lg:text-xl">
                         <strong>Skills:</strong>
                         {project.skills.map((skill, skillIndex) => (
-                          <div key={skillIndex} className="flex items-center justify-center bg-pastelBeige py-1 md:px-3 px-2 rounded-md whitespace-nowrap text-xs md:text-sm">
+                          <div key={skillIndex} className="flex items-center justify-center bg-pastelBeige px-2 py-1 md:px-3 rounded-md whitespace-nowrap text-xs md:text-sm">
                             {skill}
                           </div>
                         ))}
