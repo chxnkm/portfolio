@@ -188,16 +188,9 @@ h1 { @apply scroll-m-20 text-5xl font-extrabold lg:text-5xl; }
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 400px) {
   .responsive-svg {
       width: 10px;
       height: 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .responsive-svg {
-      width: 8px;
-      height: 8px;
   }
 }
