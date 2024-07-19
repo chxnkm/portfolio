@@ -175,3 +175,29 @@ h1 { @apply scroll-m-20 text-5xl font-extrabold lg:text-5xl; }
   background: grey;
   margin-bottom: 16px;
 }
+
+.responsive-svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 768px) {
+  .responsive-svg {
+      width: 12px;
+      height: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-svg {
+      width: 10px;
+      height: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .responsive-svg {
+      width: 8px;
+      height: 8px;
+  }
+}
