@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Card,
     CardContent
@@ -11,12 +11,11 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Skeleton } from "@/components/ui/skeleton";
+} from "@/components/ui/carousel"
+import { Skeleton } from "@/components/ui/skeleton"
 import { db } from '@/lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import UnclickableImage from './UnclickableImage';
-import React from 'react';
 
 type Experience = {
     name: string;
@@ -26,57 +25,58 @@ type Experience = {
     skills: string[];
 };
 
-const SkeletonProject = React.memo(() => (
-    <CarouselItem className="h-full">
-        <Card className="bg-[#fdfdfd] border-gray-200 shadow-md rounded-lg overflow-hidden h-full">
-            <CardContent className="p-4 sm:p-6 h-full">
-                <div className='grid grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
-                    <div className='grid grid-rows-[auto_1fr] h-full'>
-                        <div className="overflow-y-auto p-4">
-                            <Skeleton className='h-6 w-1/2 mb-2' />
-                            <Skeleton className='h-4 w-full' />
-                            <Skeleton className='h-4 w-full mt-1' />
-                        </div>
-                        <div className='rounded-md flex flex-col px-4 py-2 mt-2 overflow-hidden'>
-                            <Skeleton className='h-4 w-1/4 mb-2' />
-                            <div className='flex flex-wrap overflow-y-auto'>
-                                <Skeleton className='h-6 w-16 mr-2 mb-2' />
-                                <Skeleton className='h-6 w-16 mr-2 mb-2' />
-                                <Skeleton className='h-6 w-16 mr-2 mb-2' />
-                                <Skeleton className='h-6 w-16 mr-2 mb-2' />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="hidden sm:flex justify-center items-center sm:h-[350px] p-8">
-                        <Skeleton className='h-full w-full' />
-                    </div>
-                </div>
-            </CardContent>
-        </Card>
-    </CarouselItem>
-));
-
 const Experience = () => {
     const [experience, setExperience] = useState<Experience[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const fetchExperience = useCallback(async () => {
-        const docRef = doc(db, "projects", "experience");
-        const docSnap = await getDoc(docRef);
+    useEffect(() => {
+        const fetchExperience = async (): Promise<any | null> => {
+            const docRef = doc(db, "projects", "experience");
+            const docSnap = await getDoc(docRef);
 
-        if (docSnap.exists()) {
-            const data = docSnap.data();
-            const projectArray = Object.keys(data).map(key => data[key]);
-            setExperience(projectArray);
-        } else {
-            console.error("No document found for projects");
-        }
-        setIsLoading(false);
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                const projectArray = Object.keys(data).map(key => data[key]);
+                setExperience(projectArray);
+                setIsLoading(false);
+            } else {
+                console.error("No document found for projects");
+                setIsLoading(false);
+            }
+        };
+
+        fetchExperience();
     }, []);
 
-    useEffect(() => {
-        fetchExperience();
-    }, [fetchExperience]);
+    const SkeletonProject = () => (
+        <CarouselItem className="h-full">
+            <Card className="bg-[#fdfdfd] border-gray-200 shadow-md rounded-lg overflow-hidden h-full">
+                <CardContent className="p-4 sm:p-6 h-full">
+                    <div className='grid grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
+                        <div className='grid grid-rows-[auto_1fr] h-full'>
+                            <div className="overflow-y-auto p-4">
+                                <Skeleton className='h-6 w-1/2 mb-2' />
+                                <Skeleton className='h-4 w-full' />
+                                <Skeleton className='h-4 w-full mt-1' />
+                            </div>
+                            <div className='rounded-md flex flex-col px-4 py-2 mt-2 overflow-hidden'>
+                                <Skeleton className='h-4 w-1/4 mb-2' />
+                                <div className='flex flex-wrap overflow-y-auto'>
+                                    <Skeleton className='h-6 w-16 mr-2 mb-2' />
+                                    <Skeleton className='h-6 w-16 mr-2 mb-2' />
+                                    <Skeleton className='h-6 w-16 mr-2 mb-2' />
+                                    <Skeleton className='h-6 w-16 mr-2 mb-2' />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hidden sm:flex justify-center items-center sm:h-[350px] p-8">
+                            <Skeleton className='h-full w-full' />
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+        </CarouselItem>
+    );
 
     return (
         <main className="grid grid-cols-8 px-4 max-w-[1400px] mt-4 lg:mt-12">
@@ -144,4 +144,4 @@ const Experience = () => {
     );
 };
 
-export default React.memo(Experience);
+export default Experience;
