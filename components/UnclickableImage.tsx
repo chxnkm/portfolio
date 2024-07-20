@@ -23,11 +23,12 @@ const UnclickableImage: React.FC<UnclickableImageProps> = ({ width, height, src,
         width={0} 
         height={0} 
         alt={alt} 
-        sizes='100vw'
+        sizes='(min-width: 1360px) 403px, (min-width: 1040px) calc(32vw - 26px), (min-width: 640px) 403px, (min-width: 380px) calc(76.25vw - 70px), calc(13.33vw + 156px)'
         style={{
           width: width || "100%",
           height: height || "100%"
         }}
+        loading='lazy'
       />
     </div>
   );
