@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <main>
       <div className='relative min-w-full flex items-center justify-center h-[500px] animate-slideUp'>
-        <img src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block absolute inset-0 object-cover w-full h-full opacity-15' srcSet=''/>
+        <img src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block absolute inset-0 object-cover w-full h-full opacity-15'/>
         <img src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block absolute inset-0 object-cover w-full h-full opacity-15' />
         <img src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden absolute inset-0 object-cover w-full h-full opacity-15' />
         <div className="intro container mx-auto absolute inset-0 flex items-center justify-center">
