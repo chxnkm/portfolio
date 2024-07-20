@@ -19,7 +19,7 @@ export function NavMenu() {
     { href: "/#experience", label: "Experience" },
     { href: "/hobbies", label: "Hobbies" },
     { href: "/contact", label: "Contact Me" },
-    { href: "/resume/RESUME_KANG_MING.pdf", label: "Résumé", className: "" },
+    { href: "/resume/RESUME_KANG_MING.pdf", label: "Résumé", className: "bg-[#bc7b0b] text-white sm:ml-2" },
   ]
 
   return (
@@ -28,15 +28,13 @@ export function NavMenu() {
           <NavigationMenuList className="flex flex-row">
             {menuItems.map((item, index) => (
               <NavigationMenuItem key={index} className="md:my-0 my-1 hover:scale-110 duration-300">
-                <Link href={item.href} rel="noopener noreferrer" legacyBehavior passHref>
-                  <NavigationMenuLink
+                  <NavigationMenuLink asChild
                     className={`${navigationMenuTriggerStyle()} ${
                       currentPath === item.href ? "underline" : ""
                     } ${item.className || ''}`}
                   >
-                    {item.label}
+                    <a href={item.href}>{item.label}</a>
                   </NavigationMenuLink>
-                </Link>
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>
