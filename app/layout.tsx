@@ -14,7 +14,7 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "Kang Ming's Portfolio",
-  description: "Multi-purpose portfolio of yours truly.",
+  description: "Multi-purpose portfolio of yours truly. Chen Kang Ming is a graduate computer science student pursuing a career in tech.",
 };
 
 export default function RootLayout({
