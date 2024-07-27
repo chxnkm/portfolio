@@ -50,7 +50,7 @@ const Experience = () => {
 
     const SkeletonProject = () => (
         <CarouselItem className="h-full">
-            <Card className="bg-[#fdfdfd] border-gray-200 shadow-md rounded-lg overflow-hidden h-full">
+            <Card className="bg-[#fdfdfd] border-gray-200 rounded-lg overflow-hidden h-full">
                 <CardContent className="p-4 sm:p-6 h-full">
                     <div className='grid grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
                         <div className='grid grid-rows-[auto_1fr] h-full'>
@@ -96,7 +96,7 @@ const Experience = () => {
                     <CarouselContent className="h-full">
                         {experience.map((exp, index) => (
                             <CarouselItem key={index} className="min-h-[400px]">
-                                <Card className="bg-[#fdfdfd] border-gray-200 shadow-md rounded-lg overflow-hidden h-full">
+                                <Card className="bg-[#fdfdfd] border-gray-200 rounded-lg overflow-hidden h-full">
                                     <CardContent className="p-4 sm:p-6 h-full">
                                         <div className='grid grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
                                             <div className='grid grid-rows-[auto_1fr] h-full'>
