@@ -48,6 +48,9 @@ const Projects = () => {
       if (docSnap.exists()) {
         const data = docSnap.data();
         const projectArray = Object.keys(data).map(key => data[key]);
+
+        projectArray.sort((a: Project, b: Project) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
         setProjects(projectArray);
         setNumPages(Math.ceil(projectArray.length / ITEMS_PER_PAGE));
         setIsLoading(false);
@@ -130,7 +133,7 @@ const Projects = () => {
             ))
           )}
         </div>
-        {!isLoading && (
+        {!isLoading && numPages > 3 && (
           <Pagination className="mt-8" aria-label="Pagination">
             <PaginationPrevious 
               onClick={() => !isPreviousDisabled && setCurrentPage(prev => prev - 1)}
