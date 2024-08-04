@@ -5,9 +5,9 @@ export default function Home() {
     return (
       <main>
         <div className="text container mx-auto">
-            <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+            <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                 <div className='bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg order-2 mb-8 lg:mb-0'>
-                    <h1 className="text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Internship at <span className="text-cpfGreen">CPF Board</span></h1>
+                    <h1 className="text-left font-belsey ">Internship at <span className="text-cpfGreen">CPF Board</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">
                         In the beginning of 2023, I was grateful to be offered the opportunity to intern at the CPF Board under the <strong>Frontier Products Team.</strong>
                         <br /><br/>
@@ -19,7 +19,7 @@ export default function Home() {
                     <p className='mt-2 font-medium text-center'>Me and the docCentral team!</p> 
                 </div>
             </div>
-            <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+            <div className="mt-20 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                 <div className='order-2 mb-8 lg:mb-0'>
                     <h1 className="text-left font-belsey text-xl sm:text-2xl md:text-3xl lg:text-4xl"><span className="text-qaPurple">GPT-powered QA Bot 🤖</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">
@@ -34,7 +34,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+            <div className="mt-20 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                 <div className='order-2 mb-8 lg:mb-0'>
                     <h1 className="text-left font-belsey text-xl sm:text-2xl md:text-3xl lg:text-4xl"><span className="text-dcYellow">docCentral 📑</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">

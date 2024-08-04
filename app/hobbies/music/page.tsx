@@ -51,7 +51,7 @@ export default function Home() {
       <div className='min-w-full flex items-center justify-center animate-slideUp'>
         <div className="intro container mx-auto">
           <div className="intro-words text-center">
-            <h1 className="mt-8 text-5xl font-belsey font-black">Music</h1>
+            <h1 className="mt-8 font-belsey font-black">Music</h1>
           </div>
           <div className="mt-12 border-[2.5px] p-8 border-slate-700 rounded-lg">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-belsey">

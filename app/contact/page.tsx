@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main>
       <div className="container mx-auto mt-12 px-4">
-        <h1 className="text-center font-belsey text-2xl sm:text-4xl lg:text-5xl mb-8 animate-slideUp">
+        <h1 className="text-center font-belsey mb-8 animate-slideUp">
           Thank you for visiting my portfolio!
         </h1>
         <ContactForm />

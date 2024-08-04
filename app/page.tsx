@@ -55,7 +55,7 @@ export default function Home() {
             </div>
           </div>
           <div className='order-2 lg:order-none'>
-            <h1 className="text-center lg:text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">About Me</h1>
+            <h1 className="text-center lg:text-left font-belsey ">About Me</h1>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
               <a className='icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
                 <GitHubIcon style={{ fontSize: 24 }} className='hover:scale-110' />
@@ -80,12 +80,12 @@ export default function Home() {
         </div>
       </div>
       <div id='experience' className=" mt-16 lg:mt-24 container mx-auto animate-slideUp">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-belsey">My Experience 👨🏻‍💼</h1>
+        <h1 className="lg:text-4xl font-black font-belsey">My Experience 👨🏻‍💼</h1>
         <p className="text-lg mt-6">Swipe on each card to see more!</p>
       </div>
       <Experience />
       <div id='projects' className=" mt-16 lg:mt-32 container mx-auto animate-slideUp">
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black font-belsey">Projects and Work Write-ups 👨🏻‍💻</h1>
+        <h1 className="lg:text-4xl font-black font-belsey">Projects and Work Write-ups 👨🏻‍💻</h1>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
       </div>
       <Projects />

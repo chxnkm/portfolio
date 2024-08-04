@@ -55,7 +55,7 @@
 
 main, nav { @apply mx-auto; }
 p { @apply mt-6; }
-h1 { @apply scroll-m-20 text-5xl font-extrabold lg:text-5xl; }
+h1 { @apply scroll-m-20 font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl; }
 
 @font-face {
   font-family: 'belsey';
@@ -123,9 +123,6 @@ h1 { @apply scroll-m-20 text-5xl font-extrabold lg:text-5xl; }
 }
 
 @media (max-width: 768px) {
-  .bg-image-with-opacity::before {
-    background-image: ('/img/components/splash-medium.jpg');
-  }
   .responsive-svg {
       width: 12px;
       height: 12px;
@@ -133,9 +130,6 @@ h1 { @apply scroll-m-20 text-5xl font-extrabold lg:text-5xl; }
 }
 
 @media (max-width: 400px) {
-  .bg-image-with-opacity::before {
-    background-image: ('/img/components/splash-small.jpg');
-  }
   .responsive-svg {
       width: 10px;
       height: 10px;

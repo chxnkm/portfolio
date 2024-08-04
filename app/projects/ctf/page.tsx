@@ -8,7 +8,7 @@ export default function Home() {
             <div className="text container mx-auto">
                 <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                     <div className='bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg order-2 mb-8 lg:mb-0'>
-                        <h1 className="text-left font-belsey text-2xl sm:text-3xl md:text-4xl lg:text-5xl">CTF Assignment - Retrospective</h1>
+                        <h1 className="text-left font-belsey ">CTF Assignment - Retrospective</h1>
                         <p className="text-sm md:text-lg text-justify mt-4">
                             In my final semester in university, I was handed the opportunity to participate in a CTF as one part of a continuous assessment under my software security module.
                             <br /><br />
@@ -23,8 +23,8 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="mt-8 lg:mt-32 bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg">
-                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-left font-belsey"><span className="text-cpfGreen">Reflections</span></h1>
+                <div className="mt-20 lg:mt-32 bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg">
+                    <h1 className="text-left font-belsey"><span className="text-cpfGreen">Reflections</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">
                         Overall, I felt that me and my team did a stellar job despite us being first-timers in CTF challenges. The countless practices and hack-the-boxes certainly paid off for the actual CTF, and I am hugely appreciative of my members for our success.
                         <br /><br />
