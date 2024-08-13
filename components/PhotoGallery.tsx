@@ -150,7 +150,6 @@ const PhotoGallery: React.FC = () => {
                   alt=""
                   className="object-cover w-full h-full"
                   onClick={() => openDialog(image.src, index)}
-                  loading='lazy'
                 />
               </div>
             ))}
