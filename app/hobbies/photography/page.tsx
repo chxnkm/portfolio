@@ -1,4 +1,5 @@
-import PhotoGallery from "@/components/PhotoGallery";
+import dynamic from "next/dynamic";
+const PhotoGallery = dynamic(() => import("@/components/PhotoGallery").then((mod) => mod.default));
 
 export default function Component() {
     return (

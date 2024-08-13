@@ -1,6 +1,7 @@
-import UnclickableImage from '@/components/UnclickableImage';
-import { Button } from '@/components/ui/button';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
+
+const UnclickableImage = dynamic(() => import("@/components/UnclickableImage"));
 
 export default function Home() {
     return (

@@ -1,4 +1,5 @@
-import UnclickableImage from '@/components/UnclickableImage';
+const UnclickableImage = dynamic(() => import("@/components/UnclickableImage"));
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 

@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { Spotify } from "@/components/ui/Spotify";
+import dynamic from 'next/dynamic';
 import { getSpotifyAddiction, getSpotifyPlaylist, getAllTime } from "@/lib/spotify-retrieval";
-import UnclickableImage from "@/components/UnclickableImage";
+
+// Dynamic imports
+const Spotify = dynamic(() => import("@/components/ui/Spotify").then((mod) => mod.Spotify || mod.Spotify));
+const UnclickableImage = dynamic(() => import("@/components/UnclickableImage"));
 
 function handleSearch(albumNameArtist: string) {
   const searchQuery = encodeURIComponent(albumNameArtist);
