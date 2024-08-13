@@ -15,7 +15,7 @@ export default function Home() {
                     </p>    
                 </div>
                 <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/internship/intern-splash.jpg" alt="docCentral intro" />
+                    <UnclickableImage src="/img/internship/intern-splash.webp" alt="docCentral intro" />
                     <p className='mt-2 font-medium text-center'>Me and the docCentral team!</p> 
                 </div>
             </div>
@@ -29,7 +29,7 @@ export default function Home() {
                     </p>   
                 </div>
                 <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/internship/chatcentral.jpg" alt="GPT-QA Bot example" />
+                    <UnclickableImage src="/img/internship/chatcentral.webp" alt="GPT-QA Bot example" />
                     <p className='mt-2 font-medium text-center'>GPT-powered QA Bot in practice.</p>
                 </div>
             </div>
