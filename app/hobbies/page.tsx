@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 export default function Home() {
   return (
     <main>
-      <div className='min-w-full flex items-center justify-center'>
+      <section className='min-w-full flex items-center justify-center'>
         <div className="intro container mx-auto">
           <div className="intro-words text-center">
             <h1 className="mt-8 lg:text-6xl font-belsey font-black">
@@ -13,7 +13,7 @@ export default function Home() {
               Click on each card to take a look!</p>
           </div>
         </div>
-      </div>
+      </section>
       <div className="grid lg:grid-cols-2 px-8 gap-8 mt-12">
         <div className="col-span-1">
           <a href="/hobbies/photography">

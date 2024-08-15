@@ -34,7 +34,7 @@ export default function Home() {
       const link = await getSpotifyPlaylist();
       setSpotifyPlaylist(link);
     };
-    const fetchPlaylistTracks = async () => {
+    const fetchAllTimeTracks = async () => {
       const tracks = await getAllTime();
       const uniqueAlbums = tracks
         .map((item: any) => item.track.album)
@@ -46,7 +46,7 @@ export default function Home() {
 
     fetchSpotifyAddiction();
     fetchSpotifyPlaylist();
-    fetchPlaylistTracks();
+    fetchAllTimeTracks();
   }, []);
 
   return (

@@ -115,8 +115,8 @@ const Experience = () => {
                                                         )}
                                                     </p>
                                                 </div>
-                                                <div className='rounded-md flex flex-col px-4 py-2 mt-2 overflow-hidden'>
-                                                    <p className='text-xs md:text-sm lg:text-base font-semibold font-belsey mb-4'>Skills:</p>
+                                                <div className='rounded-md flex flex-col px-2 sm:px-4 py-2 mt-2 overflow-hidden'>
+                                                    <p className='text-xs md:text-sm lg:text-base font-semibold font-belsey mb-4 sm:pl-2'>Skills:</p>
                                                     <div className='flex flex-wrap overflow-y-auto'>
                                                         {exp.skills.map((skill, skillIndex) => (
                                                             <span key={skillIndex} className="inline-flex items-center bg-pastelBeige rounded-md px-2 sm:px-4 py-1 text-[0.7rem] sm:text-xs md:text-sm lg:text-[0.85rem] font-belsey mr-2 mb-2">
