@@ -6,14 +6,14 @@ const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
 let spotifyToken: string | null = null;
 
-const fetchSpotifyToken = async (): Promise<string | null> => {
+const fetchSpotifyToken = async () => {
   if (!clientId || !clientSecret) {
     console.error("Missing Spotify credentials");
     return null;
   }
 
   try {
-    const response = await axios.post('https://accounts.spotify.com/api/token', 
+    const response = await axios.post('https://accounts.spotify.com/api/token', //auth for spotify
       new URLSearchParams({ grant_type: 'client_credentials' }), {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -29,11 +29,10 @@ const fetchSpotifyToken = async (): Promise<string | null> => {
   }
 };
 
-const getSpotifyToken = async (): Promise<string | null> => {
-  if (spotifyToken) {
-    return spotifyToken;
+const getSpotifyToken = async () => {
+  if (!spotifyToken) {
+    spotifyToken = await fetchSpotifyToken();
   }
-  spotifyToken = await fetchSpotifyToken();
   return spotifyToken;
 };
 
@@ -46,7 +45,7 @@ const handleAxiosError = (error: any, context: string) => {
   }
 };
 
-const fetchFromFirestore = async (collection: string, document: string): Promise<any | null> => {
+const fetchFromFirestore = async (collection: string, document: string) => {
   try {
     const docRef = doc(db, collection, document);
     const docSnap = await getDoc(docRef);
@@ -62,7 +61,7 @@ const fetchFromFirestore = async (collection: string, document: string): Promise
   }
 };
 
-const getPlaylistTracks = async (playlistType: string): Promise<any[]> => {
+const getPlaylistTracks = async (playlistType: string)=> {
   const token = await getSpotifyToken();
   if (!token) {
     console.error("Failed to refresh Spotify token");

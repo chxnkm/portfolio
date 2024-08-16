@@ -42,7 +42,7 @@ export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouse
               <Card className='bg-inherit border-slate-0 mb-8'>
                 <CardContent className="flex aspect-video items-center justify-center p-6">
                   <a href={image.href}>
-                    <UnclickableImage width={600} src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
+                    <UnclickableImage src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
                   </a>
                 </CardContent>
               </Card>

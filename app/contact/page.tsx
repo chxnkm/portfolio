@@ -1,5 +1,14 @@
-import ContactForm from "@/components/ContactForm";
-import UnclickableImage from "@/components/UnclickableImage";
+import dynamic from 'next/dynamic';
+
+const ContactForm = dynamic (() => import("@/components/ContactForm"));
+const CaptionedPicture = dynamic (() => import("@/components/CaptionedPicture"));
+
+const picture = {
+    src: '/img/misc/contact_splash.webp',
+    alt: 'Panoramic Photo in Korea',
+    caption: 'Playground, Han River, Seoul, 2024',
+    width: 800  
+}
 
 export default function Home() {
   return (
@@ -9,11 +18,7 @@ export default function Home() {
           Thank you for visiting my portfolio!
         </h1>
         <ContactForm />
-        <div className="flex flex-col items-center mt-12">
-          <UnclickableImage width={900} src='/img/misc/contact_splash.webp' alt='Panoramic Photo in Korea' />
-          <p className="mt-4 text-gray-600"><i>Playground</i>, Han River, Seoul, 2024</p>
-        </div>
-        
+        <CaptionedPicture {...picture} />
       </div>
     </main>
   );

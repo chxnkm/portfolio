@@ -7,6 +7,16 @@ import { getSpotifyAddiction, getSpotifyPlaylist, getAllTime } from "@/lib/spoti
 // Dynamic imports
 const Spotify = dynamic(() => import("@/components/Spotify").then((mod) => mod.Spotify || mod.Spotify));
 const UnclickableImage = dynamic(() => import("@/components/UnclickableImage"));
+const CaptionedPicture = dynamic (() => import("@/components/CaptionedPicture"));
+
+const pictures = {
+    bandPicture : {
+        src: '/img/misc/band_splash.webp',
+        alt: 'Band Picture',
+        caption: 'My band for one of my performances!',
+        width: 400
+    },
+  };
 
 function handleSearch(albumNameArtist: string) {
   const searchQuery = encodeURIComponent(albumNameArtist);
@@ -64,10 +74,7 @@ export default function Home() {
                 In my free time when I&apos;m not coding, I play the piano, guitar and drums.
               </p>
             </div>
-            <figcaption className="docCentral flex flex-col items-center order-1">
-              <UnclickableImage src="/img/misc/band_splash.webp" width={400} alt="Me and my band!" />
-              <p className='mt-2 font-medium text-center'>My band for one of my performances!</p>
-            </figcaption>
+            <CaptionedPicture {...pictures.bandPicture} />
           </section>
           <div className="grid grid-cols-1 md:grid-cols-3 mt-8 gap-4 md:gap-8 lg:gap-12">
             <div className="col-span-2 mt-4 md:m-0">

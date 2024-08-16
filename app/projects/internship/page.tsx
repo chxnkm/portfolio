@@ -1,12 +1,31 @@
-import dynamic from "next/dynamic";
-const UnclickableImage = dynamic(() => import("@/components/UnclickableImage"));
+import dynamic from 'next/dynamic';
+
+const CaptionedPicture = dynamic (() => import("@/components/CaptionedPicture"));
+
+const pictures = {
+    internship: {
+        src: '/img/internship/intern-splash.webp',
+        alt: 'docCentral intro',
+        caption: 'Me and the docCentral team!'
+    },
+    guide: {
+        src: '/img/internship/guide.gif',
+        alt: 'docCentral intro',
+        caption: 'Screengrabs of the guide for docCentral.'
+    },
+    chatCentral: {
+        src: '/img/internship/chatcentral.webp',
+        alt: 'GPT-QA Bot example',
+        caption: 'GPT-powered QA Bot in practice.'
+    }   
+}
 
 
 export default function Home() {
     return (
       <main>
         <div className="text container mx-auto">
-            <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+            <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                 <div className='bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg order-2 mb-8 lg:mb-0'>
                     <h1 className="text-left font-belsey ">Internship at <span className="text-cpfGreen">CPF Board</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">
@@ -15,12 +34,9 @@ export default function Home() {
                         In my short 5-month tenure, I have been greatly exposed to industrial-standard full-stack development, and had the chance to be part of two projects - a<strong> QA-bot </strong> leveraging <strong>GPT technologies,</strong> and docCentral, a <strong>full-stack document templating webapp and plugin</strong> for Microsoft Word.
                     </p>    
                 </div>
-                <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/internship/intern-splash.webp" alt="docCentral intro" />
-                    <p className='mt-2 font-medium text-center'>Me and the docCentral team!</p> 
-                </div>
-            </div>
-            <div className="mt-20 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+                <CaptionedPicture {...pictures.internship} />
+            </section>
+            <section className="mt-20 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                 <div className='order-2 mb-8 lg:mb-0'>
                     <h1 className="text-left font-belsey text-xl sm:text-2xl md:text-3xl lg:text-4xl"><span className="text-qaPurple">GPT-powered QA Bot 🤖</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">
@@ -29,13 +45,10 @@ export default function Home() {
                         Leveraging the <strong>OpenAI GPT API</strong>, as well as a simple React-stack application, we were able to create a proof-of-concept, which received very positive feedback from the board of directors. We even presented the product in a inter-department sharing, where it also similarly was received very positively.
                     </p>   
                 </div>
-                <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/internship/chatcentral.webp" alt="GPT-QA Bot example" />
-                    <p className='mt-2 font-medium text-center'>GPT-powered QA Bot in practice.</p>
-                </div>
-            </div>
+                <CaptionedPicture {...pictures.chatCentral} />
+            </section>
 
-            <div className="mt-20 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+            <section className="mt-20 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                 <div className='order-2 mb-8 lg:mb-0'>
                     <h1 className="text-left font-belsey text-xl sm:text-2xl md:text-3xl lg:text-4xl"><span className="text-dcYellow">docCentral 📑</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">
@@ -44,11 +57,8 @@ export default function Home() {
                         The main motivations of creating docCentral was to reduce repetitive document filling, where most of the document does not change, and only pertinent fields like the name, date and so on need to be modified. It streamlines workflow and improves productivity. Upon rolling out in a pilot to various interested governmental agencies, many express great interest in using the product.
                     </p>   
                 </div>
-                <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/internship/guide.gif" alt="docCentral intro"/>
-                    <p className='mt-2 font-medium text-center'>Screengrabs of the guide for docCentral.</p>
-                </div>
-            </div>
+                <CaptionedPicture {...pictures.guide} />
+            </section>
         </div>
       </main>
     );
