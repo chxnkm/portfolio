@@ -17,65 +17,58 @@ function handleSearch(albumNameArtist: string) {
 export default function Home() {
   const [spotifyAddiction, setSpotifyAddiction] = useState<any>("");
   const [spotifyPlaylist, setSpotifyPlaylist] = useState<string>("");
-  const [albums, setAlbums] = useState<any[]>([]);
+  const [albums, setFavoriteAlbums] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchSpotifyAddiction = async () => {
+    const fetchSpotifyData = async () => {
       try {
-        const tracks = await getSpotifyAddiction();
-        const trackUrls = tracks.map((item: any) => item.track.external_urls.spotify);
-        setSpotifyAddiction(trackUrls);
+        const addictionTracks = await getSpotifyAddiction();
+        const addiction = addictionTracks.map((item: any) => item.track.external_urls.spotify);
+        setSpotifyAddiction(addiction);
+
+        const playlist = await getSpotifyPlaylist();
+        setSpotifyPlaylist(playlist);
+
+        const allTimeTracks = await getAllTime();
+        const uniqueAlbums = allTimeTracks
+          .map((item: any) => item.track.album)
+          .filter((album: any, index: number, self: any[]) =>
+            index === self.findIndex((a) => a.id === album.id)
+          );
+        setFavoriteAlbums(uniqueAlbums);
       } catch (error) {
-        console.error("Error fetching Spotify addiction tracks:", error);
-        setSpotifyAddiction([]);
+        console.error("Error fetching Spotify data:", error);
       }
     };
-    const fetchSpotifyPlaylist = async () => {
-      const link = await getSpotifyPlaylist();
-      setSpotifyPlaylist(link);
-    };
-    const fetchAllTimeTracks = async () => {
-      const tracks = await getAllTime();
-      const uniqueAlbums = tracks
-        .map((item: any) => item.track.album)
-        .filter((album: any, index: number, self: any[]) =>
-          index === self.findIndex((a) => a.id === album.id)
-        );
-      setAlbums(uniqueAlbums);
-    };
 
-    fetchSpotifyAddiction();
-    fetchSpotifyPlaylist();
-    fetchAllTimeTracks();
+    fetchSpotifyData();
   }, []);
 
   return (
     <main>
       <div className='min-w-full flex items-center justify-center animate-slideUp'>
         <div className="intro container mx-auto">
-          <div className="intro-words text-center">
+          <header className="intro-words text-center">
             <h1 className="mt-8 font-belsey font-black">Music</h1>
-          </div>
-          <div className="mt-12 border-[2.5px] p-8 border-slate-700 rounded-lg">
-            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-belsey">
-              <span className="text-cpfGreen">&quot;Music is life itself. What would this world be without good music?&quot;</span>
+            <article className="mt-12 border-[2.5px] p-8 border-slate-700 rounded-lg">
+              <q className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-black font-belsey text-cpfGreen">Music is life itself. What would this world be without good music?</q>
               <br />
-              <p className="text-sm sm:text-base text-right pr-8 mt-4">-Louis Armstrong</p>
-            </h1>
-          </div>
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
-                <div className='order-2 lg:order-none mb-8 lg:mb-0'>
-                    <p className="text-sm md:text-lg text-justify font-medium mt-4 lg:pl-8">
-                        Music has always been an essential part of my life. Taking up music lessons at a young age (as many Asian parents instructed us to do), I have since embraced music-making wholly and have enjoyed it ever since. It led me to joining concert band in my secondary and tertiary education, as well as leading the jam band in my university hall.
-                        <br/><br/>
-                        In my free time when I&apos;m not coding, I play the piano, guitar and drums.
-                    </p>   
-                </div>
-                <div className="docCentral flex flex-col items-center order-1">
-                    <UnclickableImage src="/img/misc/band_splash.webp" width={400} alt="Me and my band!"/>
-                    <p className='mt-2 font-medium text-center'>My band for one of my performances!</p>
-                </div>
+              <p className="text-sm sm:text-base text-right font-bold font-belsey pr-8 mt-4">-Louis Armstrong</p>
+            </article>
+          </header>
+          <section className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+            <div className='order-2 lg:order-none mb-8 lg:mb-0'>
+              <p className="text-sm md:text-lg text-justify font-medium mt-4 lg:pl-8">
+                Music has always been an essential part of my life. Taking up music lessons at a young age (as many Asian parents instructed us to do), I have since embraced music-making wholly and have enjoyed it ever since. It led me to joining concert band in my secondary and tertiary education, as well as leading the jam band in my university hall.
+                <br /><br />
+                In my free time when I&apos;m not coding, I play the piano, guitar and drums.
+              </p>
             </div>
+            <figcaption className="docCentral flex flex-col items-center order-1">
+              <UnclickableImage src="/img/misc/band_splash.webp" width={400} alt="Me and my band!" />
+              <p className='mt-2 font-medium text-center'>My band for one of my performances!</p>
+            </figcaption>
+          </section>
           <div className="grid grid-cols-1 md:grid-cols-3 mt-8 gap-4 md:gap-8 lg:gap-12">
             <div className="col-span-2 mt-4 md:m-0">
               <h1 className="text-xl lg:text-4xl text-center font-belsey">Favourite Albums of All Time</h1>
@@ -91,7 +84,7 @@ export default function Home() {
                         alt={album.name}
                         className="w-full h-full object-cover transition-opacity duration-300"
                       />
-                      <p className="text-[0.4rem] sm:text-xs font-semibold">{album.name}</p>
+                      <p className="text-[0.4rem] lg:text-xs font-semibold">{album.name}</p>
                     </div>
                   </div>
                 ))}

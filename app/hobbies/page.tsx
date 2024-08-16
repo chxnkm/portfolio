@@ -1,5 +1,33 @@
 import { Card } from "@/components/ui/card";
 
+const HobbyCard = (props: { title: string, image: string, alt: string, link: string }) => {
+  return (
+    <a href={props.link}>
+      <Card className="relative min-h-[60vh] flex items-center justify-center hover:scale-[1.02] duration-300">
+        <img src={props.image} alt={props.alt} className='absolute inset-0 object-cover w-full h-full opacity-40 rounded-lg' />
+        <h1 className="text-center font-belsey font-black z-10">
+          {props.title}
+        </h1>
+      </Card>
+    </a>
+  );
+}
+
+const hobbies = {
+  photography: {
+    title: 'Photography',
+    image: '/img/components/splash-photos.webp',
+    alt: 'Photography',
+    link: '/hobbies/photography'
+  },
+  music: {
+    title: 'Music',
+    image: '/img/components/splash-music.webp',
+    alt: 'Music',
+    link: '/hobbies/music'
+  }
+}
+
 export default function Home() {
   return (
     <main>
@@ -15,26 +43,9 @@ export default function Home() {
         </div>
       </section>
       <div className="grid lg:grid-cols-2 px-8 gap-8 mt-12">
-        <div className="col-span-1">
-          <a href="/hobbies/photography">
-            <Card className="relative min-h-[40vh] flex items-center justify-center hover:scale-[1.02] duration-300">
-              <img src='/img/components/splash-photos.webp' alt='Music Splash' className='absolute inset-0 object-cover w-full h-full opacity-40 rounded-lg' />
-              <h1 className="text-center font-belsey font-black z-10">
-                Photography
-              </h1>
-            </Card>
-          </a>
-        </div>
-        <div className="col-span-1">
-          <a href="/hobbies/music">
-            <Card className="relative min-h-[40vh] flex items-center justify-center hover:scale-[1.02] duration-300">
-              <img src='/img/components/splash-music.webp' alt='Music Splash' className='absolute inset-0 object-cover w-full h-full opacity-40 rounded-lg' />
-              <h1 className="relative text-center font-belsey font-black z-10">
-                Music
-              </h1>
-            </Card>
-          </a>
-        </div>
+        {Object.values(hobbies).map((hobby) => (
+          <HobbyCard key={hobby.title} {...hobby} />
+        ))}
       </div>
     </main>
   );
