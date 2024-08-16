@@ -7,11 +7,9 @@ interface UnclickableImageProps {
   height?: string | number;
   src: string;
   alt: string;
-  unoptimized?: boolean;
-  priority?: boolean;
 }
 
-const UnclickableImage: React.FC<UnclickableImageProps> = ({ width, height, src, alt, unoptimized, priority }) => {
+const UnclickableImage = ({ width, height, src, alt} : UnclickableImageProps) => {
   const handleContextMenu = (event: React.MouseEvent) => {
     event.preventDefault();
   };
@@ -29,6 +27,7 @@ const UnclickableImage: React.FC<UnclickableImageProps> = ({ width, height, src,
           height: height || "100%"
         }}
         loading='lazy'
+
       />
     </div>
   );
