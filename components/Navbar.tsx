@@ -21,7 +21,7 @@ const NavMenu = () => {
   ]
 
   return (
-    <div className="relative z-10">
+    <menu className="relative z-10">
         <NavigationMenu className="w-full">
           <NavigationMenuList className="flex flex-row">
             {menuItems.map((item, index) => (
@@ -37,7 +37,7 @@ const NavMenu = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
-      </div>
+      </menu>
   )
 }
 

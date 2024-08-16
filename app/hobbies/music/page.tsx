@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { getSpotifyAddiction, getSpotifyPlaylist, getAllTime } from "@/lib/spotify-retrieval";
 
 // Dynamic imports
-const Spotify = dynamic(() => import("@/components/ui/Spotify").then((mod) => mod.Spotify || mod.Spotify));
+const Spotify = dynamic(() => import("@/components/Spotify").then((mod) => mod.Spotify || mod.Spotify));
 const UnclickableImage = dynamic(() => import("@/components/UnclickableImage"));
 
 function handleSearch(albumNameArtist: string) {

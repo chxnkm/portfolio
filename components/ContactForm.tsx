@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import DownloadCard from "./ui/DownloadCard";
+import DownloadCard from "./DownloadCard";
 import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
