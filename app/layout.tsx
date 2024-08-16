@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter as FontSans} from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
 import { cn } from "@/lib/utils"
@@ -28,6 +29,7 @@ export default function RootLayout({
           "min-h-screen flex flex-col font-sans antialiased",
           fontSans.variable
         )}>
+          <SpeedInsights/>
           <Navbar/>
           <div className="flex-grow">{children}</div>
           <Footer/>

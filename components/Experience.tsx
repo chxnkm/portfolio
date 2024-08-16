@@ -26,11 +26,11 @@ type Experience = {
 };
 
 const Experience = () => {
-    const [experience, setExperience] = useState<Experience[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [experience, setExperience] = useState<Experience[]>([]); //state to store experience data
+    const [isLoading, setIsLoading] = useState(true); //state to store loading state
 
     useEffect(() => {
-        const fetchExperience = async (): Promise<any | null> => {
+        const fetchExperience = async (): Promise<any | null> => { //function to fetch experience data from firestore
             const docRef = doc(db, "projects", "experience");
             const docSnap = await getDoc(docRef);
 
@@ -45,15 +45,15 @@ const Experience = () => {
             }
         };
 
-        fetchExperience();
+        fetchExperience(); //call function to fetch experience data
     }, []);
 
     const SkeletonProject = () => (
         <CarouselItem className="h-full">
             <Card className="bg-[#fdfdfd] border-gray-200 rounded-lg overflow-hidden h-full">
                 <CardContent className="p-4 sm:p-6 h-full">
-                    <div className='grid grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
-                        <div className='grid grid-rows-[auto_1fr] h-full'>
+                    <div className='grid sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
+                        <div className='grid-rows-2h-full'>
                             <div className="overflow-y-auto p-4">
                                 <Skeleton className='h-6 w-1/2 mb-2' />
                                 <Skeleton className='h-4 w-full' />
@@ -81,7 +81,7 @@ const Experience = () => {
     return (
         <main className="grid grid-cols-8 px-4 max-w-[1400px] mt-4 lg:mt-12">
             <div className="col-span-1"></div>
-            {isLoading ? (
+            {isLoading ? ( //conditional rendering based on loading state
                 <div className="col-span-6">
                     <Carousel className='w-full'>
                         <CarouselContent className="h-full">
@@ -98,13 +98,13 @@ const Experience = () => {
                             <CarouselItem key={index} className="min-h-[400px]">
                                 <Card className="bg-[#fdfdfd] border-gray-200 rounded-lg overflow-hidden h-full">
                                     <CardContent className="p-4 sm:p-6 h-full">
-                                        <div className='grid grid-rows-1 sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
-                                            <div className='grid grid-rows-[auto_1fr] h-full'>
+                                        <div className='grid sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
+                                            <div className='grid-rows-2 h-full'>
                                                 <div className="overflow-y-auto p-4 border-[1.5px] border-black rounded-lg bg-pastelBeige">
                                                     <h2 className="text-sm sm:text-xl font-belsey font-extrabold mb-2">{exp.name}</h2>
                                                     <p className="text-xs md:text-sm sm:text-base font-medium">
                                                         {exp.description}
-                                                        {exp.link && (
+                                                        {exp.link && ( //optional link to learn more
                                                             <><br /><br /><a href={exp.link} rel="noopener noreferrer">
                                                                 <span className="inline-flex items-center bg-pastelOrange rounded-full px-2 sm:px-4 py-1 text-xs md:text-sm lg:text-[0.85rem] mb-[-2%]">
                                                                     Learn More <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-caret-right-fill responsive-svg" viewBox="0 0 16 16">
