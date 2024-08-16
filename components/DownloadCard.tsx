@@ -3,7 +3,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-interface DownloadCardProps {
+type DownloadCardProps = {
   fileUrl: string;
 }
 

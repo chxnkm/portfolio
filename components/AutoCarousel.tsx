@@ -10,12 +10,12 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel"
 
-interface ImageObject {
+type ImageObject = {
   src: string;
   href?: string;
-}
+} 
 
-interface AutoCarouselProps {
+type AutoCarouselProps = {
   basePath?: string;
   images: ImageObject[];
 }

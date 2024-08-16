@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-interface UnclickableImageProps {
+type UnclickableImageProps = {
   width?: string | number;
   height?: string | number;
   src: string;
