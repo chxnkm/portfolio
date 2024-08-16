@@ -4,9 +4,9 @@ import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { startTyping } from '@/lib/typingAnimation';
 
-const AutoCarousel = dynamic(() => import('@/components/AutoCarousel'), { ssr: false });
-const Projects = dynamic(() => import('@/components/Projects'), { ssr: false });
-const Experience = dynamic(() => import('@/components/Experience'), { ssr: false });
+const AutoCarousel = dynamic(() => import('@/components/AutoCarousel'));
+const Projects = dynamic(() => import('@/components/Projects'));
+const Experience = dynamic(() => import('@/components/Experience'));
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -17,7 +17,7 @@ const images = [
   { src: 'misc/splash_2.webp' },
   { src: 'misc/splash_3.webp' },
   // Add more images as needed
-];
+];  
 
 export default function Home() {
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className='relative min-w-full flex items-center justify-center h-[500px] animate-slideUp'>
+      <section className='relative min-w-full flex items-center justify-center h-[500px] animate-slideUp'>
         <img src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block absolute inset-0 object-cover w-full h-full opacity-15'/>
         <img src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block absolute inset-0 object-cover w-full h-full opacity-15' />
         <img src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden absolute inset-0 object-cover w-full h-full opacity-15' />
@@ -44,10 +44,10 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
 
-      <div className="about-me lg:container mx-auto px-4">
+      <section className="about-me lg:container mx-auto px-4">
         <div className="mt-8 lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
           <div className="order-1 lg:order-none flex justify-center lg:justify-start">
             <div className="flex flex-col items-center lg:items-start ">
@@ -55,7 +55,7 @@ export default function Home() {
             </div>
           </div>
           <div className='order-2 lg:order-none'>
-            <h1 className="text-center lg:text-left font-belsey ">About Me</h1>
+            <h2 className="lg:text-4xl text-center lg:text-left font-belsey ">About Me</h2>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
               <a className='icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
                 <GitHubIcon style={{ fontSize: 24 }} className='hover:scale-110' />
@@ -67,7 +67,7 @@ export default function Home() {
                 <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
             </div>
-            <p className="text-base lg:text-lg text-left lg:pr-8">
+            <p className="text-left lg:pr-8">
               A Computer Science graduate from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
               <br /><br />
               Having worked on a multitude of projects during my university tenure, I have amassed robust skills in <strong>full-stack development, data analytics,</strong> as well as <strong>machine learning and Generative AI-enabled applications</strong>.
@@ -78,16 +78,16 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
-      <div id='experience' className=" mt-16 lg:mt-24 container mx-auto animate-slideUp">
-        <h1 className="lg:text-4xl font-black font-belsey">My Experience 👨🏻‍💼</h1>
+      </section>
+      <section id='experience' className=" mt-16 lg:mt-24 container mx-auto animate-slideUp">
+        <h2 className="lg:text-4xl font-belsey">My Experience 👨🏻‍💼</h2>
         <p className="text-lg mt-6">Swipe on each card to see more!</p>
-      </div>
+      </section>
       <Experience />
-      <div id='projects' className=" mt-16 lg:mt-32 container mx-auto animate-slideUp">
-        <h1 className="lg:text-4xl font-black font-belsey">Projects and Work Write-ups 👨🏻‍💻</h1>
+      <section id='projects' className=" mt-16 lg:mt-32 container mx-auto animate-slideUp">
+        <h2 className="lg:text-4xl font-belsey">Projects and Work Write-ups 👨🏻‍💻</h2>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
-      </div>
+      </section>
       <Projects />
     </main>
   );
