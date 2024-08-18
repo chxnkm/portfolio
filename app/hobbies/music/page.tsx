@@ -23,7 +23,7 @@ function handleSearch(albumNameArtist: string) {
   window.open(searchUrl, '_blank');
 }
 
-export default function Home() {
+export default function MusicPage() {
   const [spotifyAddiction, setSpotifyAddiction] = useState<any>("");
   const [spotifyPlaylist, setSpotifyPlaylist] = useState<string>("");
   const [albums, setFavoriteAlbums] = useState<any[]>([]);
