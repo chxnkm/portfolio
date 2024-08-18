@@ -1,30 +1,31 @@
 'use client'
 
 import React from 'react';
+import Image from 'next/image';
 
 type UnclickableImageProps = {
-  width?: string | number;
-  height?: string | number;
+  width?: number;
+  height?: number;
   src: string;
   alt: string;
 }
 
-const UnclickableImage = ({ width, height, src, alt} : UnclickableImageProps) => {
+const UnclickableImage = ({ width, height, src, alt }: UnclickableImageProps) => {
   const handleContextMenu = (event: React.MouseEvent) => {
     event.preventDefault();
   };
 
   return (
     <div onContextMenu={handleContextMenu}>
-      <img
-        src={src} 
-        width={width} 
-        height={height} 
-        alt={alt} 
-        sizes='(min-width: 1360px) 403px, (min-width: 1040px) calc(32vw - 26px), (min-width: 640px) 403px, (min-width: 380px) calc(76.25vw - 70px), calc(13.33vw + 156px)'
+      <Image
+        src={src}
+        width={width || 0}
+        height={height || 0}
+        alt={alt}
+        sizes="100vw"
         style={{
           width: width || "100%",
-          height: height || "100%"
+          height: height || "auto"
         }}
         loading='lazy'
 
