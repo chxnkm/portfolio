@@ -6,7 +6,6 @@ import { getSpotifyAddiction, getSpotifyPlaylist, getAllTime } from "@/lib/spoti
 
 // Dynamic imports
 const Spotify = dynamic(() => import("@/components/Spotify").then((mod) => mod.Spotify || mod.Spotify));
-const UnclickableImage = dynamic(() => import("@/components/UnclickableImage"));
 const CaptionedPicture = dynamic (() => import("@/components/CaptionedPicture"));
 
 const pictures = {

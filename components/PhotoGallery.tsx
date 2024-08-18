@@ -14,8 +14,9 @@ const PhotoGallery: React.FC = () => {
   const [images, setImages] = useState<Array<{ id: number; src: string }>>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [progress, setProgress] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [actualProgress, setActualProgress] = useState<number>(0);
+  const [displayedProgress, setDisplayedProgress] = useState<number>(0);
 
   useEffect(() => {
     const fetchCollections = async () => {
@@ -30,7 +31,7 @@ const PhotoGallery: React.FC = () => {
         }));
         setCollections([{ id: 'all', name: 'All' }, ...collectionList]);
       } catch (error) {
-        console.error('Error fetching collections from Firebase:', error);
+        console.error('Error fetching collections. Please try again later.', error);
       }
     };
 
@@ -38,18 +39,40 @@ const PhotoGallery: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    const animationFrame = requestAnimationFrame(() => {
+      if (displayedProgress < actualProgress) {
+        setDisplayedProgress(prev => Math.min(prev + 3.5, actualProgress));
+      }
+    });
+    return () => cancelAnimationFrame(animationFrame);
+  }, [displayedProgress, actualProgress]);
+
+  useEffect(() => {
     const fetchImages = async () => {
       setLoading(true);
-      setProgress(0);
+      setActualProgress(0);
+      setDisplayedProgress(0);
+
+      // Add a small delay
+      await new Promise(resolve => setTimeout(resolve, 100));
+
+      const startTime = Date.now();
       const imagesList: Array<{ id: number; src: string }> = [];
       const storageRef = ref(storage, '/images');
 
       try {
         const fetchCollectionImages = async (collectionRef: any) => {
           const imagesInCollection = await listAll(collectionRef);
+          const totalImages = imagesInCollection.items.length;
+          let loadedImages = 0;
+
           const urls = await Promise.all(imagesInCollection.items.map(async (imageRef) => {
-            return getDownloadURL(imageRef);
+            const url = await getDownloadURL(imageRef);
+            loadedImages++;
+            setActualProgress((loadedImages / totalImages) * 100);
+            return url;
           }));
+
           return urls.map((url, index) => ({ id: imagesList.length + index + 1, src: url }));
         };
 
@@ -65,6 +88,14 @@ const PhotoGallery: React.FC = () => {
       } catch (error) {
         console.error('Error fetching images from Firebase:', error);
       } finally {
+        const endTime = Date.now();
+        const loadingTime = endTime - startTime;
+        const minLoadingTime = 1000; // 1 second minimum
+
+        if (loadingTime < minLoadingTime) {
+          await new Promise(resolve => setTimeout(resolve, minLoadingTime - loadingTime));
+        }
+
         setLoading(false);
       }
     };
@@ -77,19 +108,7 @@ const PhotoGallery: React.FC = () => {
       return; // Exit early if trying to click on the same collection
     }
     setImages([]);
-    setLoading(true);
-    setProgress(0);
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev > 100) {
-          clearInterval(interval);
-          setLoading(false);
-          setSelectedCollection(collectionId);
-          return 100;
-        }
-        return prev + (100 / 18); // Increment the progress every 100ms
-      });
-    }, 100);
+    setSelectedCollection(collectionId);
   };
 
   const openDialog = (src: string, index: number) => {
@@ -135,7 +154,7 @@ const PhotoGallery: React.FC = () => {
       <div className="col-span-3">
         {loading ? (
           <div className="flex items-center justify-center h-full">
-            <Progress value={progress} className="w-full lg:w-[60%]" />
+            <Progress value={displayedProgress} className="w-full lg:w-[60%]" />
           </div>
         ) : (
           <Masonry
