@@ -26,6 +26,7 @@ const config = {
         msz: ['msz', 'serif'],
       },
       colors: {
+        pastelOrange: '#FF964F',
         cpfGreen: '#0D6060',
         dcYellow: '#F5C51F',
         qaPurple: '#6a4cff',
