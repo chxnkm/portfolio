@@ -30,7 +30,7 @@ export default function Home() {
                 </section>
 
                 <section className="mt-20 lg:mt-32 bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg">
-                    <h1 className="text-left font-belsey"><span className="text-cpfGreen">Reflections</span></h1>
+                    <h1 className="text-left font-belsey"><span className="text-text">Reflections</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">
                         Overall, I felt that me and my team did a stellar job despite us being first-timers in CTF challenges. The countless practices and hack-the-boxes certainly paid off for the actual CTF, and I am hugely appreciative of my members for our success.
                         <br /><br />

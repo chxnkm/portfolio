@@ -61,7 +61,7 @@ export default function Home() {
           <header className="intro-words text-center">
             <h1 className="mt-8 font-belsey font-black">Music</h1>
             <article className="mt-12 border-[2.5px] p-8 border-slate-700 rounded-lg">
-              <q className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-black font-belsey text-cpfGreen">Music is life itself. What would this world be without good music?</q>
+              <q className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-black font-belsey text-text">Music is life itself. What would this world be without good music?</q>
               <br />
               <p className="text-sm sm:text-base text-right font-bold font-belsey pr-8 mt-4">-Louis Armstrong</p>
             </article>

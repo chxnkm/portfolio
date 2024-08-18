@@ -43,7 +43,7 @@ export default function Home() {
                 </section>
 
                 <section className="mt-20 md:mt-32 bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg">
-                    <h1 className="text-left font-belsey"><span className="text-cpfGreen">Reflections</span></h1>
+                    <h1 className="text-left font-belsey"><span className="text-text">Reflections</span></h1>
                     <p className="text-sm md:text-lg text-justify mt-4">
                         The journey of the final-year project was not an easy one - countless sleepless nights were spent toiling over training data, hyperparameter tuning, and writing and structuring ideas into a full-fledged report. Time management and efficiency were crucial in carrying the project over the line.<br /><br />
                         If I were to change anything in my project, it will be to give more time to my dataset creation and curation, which I felt was slightly lacking. However, I felt that the final-year project was overall well done, with an emphasis on <strong>clarity and solution-finding</strong>.

@@ -2,12 +2,9 @@ import type { Config } from "tailwindcss"
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
 const config = {
-  darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}'
 	],
   prefix: "",
   theme: {
@@ -28,9 +25,6 @@ const config = {
         msz: ['msz', 'serif'],
       },
       colors: {
-        pastelRed: '#FF6961',
-        pastelOrange: '#FF964F',
-        pastelBlue: '#699ed6',
         cpfGreen: '#0D6060',
         dcYellow: '#F5C51F',
         qaPurple: '#6a4cff',
