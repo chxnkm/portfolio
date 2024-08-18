@@ -68,7 +68,7 @@ export default function Home() {
           </header>
           <section className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
             <div className='order-2 lg:order-none mb-8 lg:mb-0'>
-              <p className="text-sm md:text-lg text-justify font-medium mt-4 lg:pl-8">
+              <p className="text-sm md:text-lg text-justify mt-4 lg:pl-8">
                 Music has always been an essential part of my life. Taking up music lessons at a young age (as many Asian parents instructed us to do), I have since embraced music-making wholly and have enjoyed it ever since. It led me to joining concert band in my secondary and tertiary education, as well as leading the jam band in my university hall.
                 <br /><br />
                 In my free time when I&apos;m not coding, I play the piano, guitar and drums.

@@ -23,7 +23,7 @@ const UnclickableImage = ({ width, height, src, alt} : UnclickableImageProps) =>
         alt={alt} 
         sizes='(min-width: 1360px) 403px, (min-width: 1040px) calc(32vw - 26px), (min-width: 640px) 403px, (min-width: 380px) calc(76.25vw - 70px), calc(13.33vw + 156px)'
         style={{
-          maxWidth: width || "100%",
+          width: width || "100%",
           height: height || "100%"
         }}
         loading='lazy'
