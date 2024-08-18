@@ -7,6 +7,8 @@ import { Progress } from "@/components/ui/progress";
 import { storage } from '@/lib/firebase';
 import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { motion, AnimatePresence } from 'framer-motion';
+import styles from './PhotoGallery.module.css';
+import Image from 'next/image';
 
 const PhotoGallery: React.FC = () => {
   const [selectedCollection, setSelectedCollection] = useState('all');
@@ -159,16 +161,22 @@ const PhotoGallery: React.FC = () => {
         ) : (
           <Masonry
             breakpointCols={{ default: 3, 900: 2, 700: 1 }}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
+            className={styles.masonryGrid}
+            columnClassName={styles.masonryGridColumn}
           >
             {images.map((image, index) => (
-              <div key={image.id} className="relative">
-                <img
+              <div
+                key={`${image.id}-${index}`}
+                className="relative w-full"
+              >
+                <Image
                   src={image.src}
                   alt=""
-                  className="object-cover w-full h-full"
                   onClick={() => openDialog(image.src, index)}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: '100%', height: 'auto' }} // optional
                 />
               </div>
             ))}
