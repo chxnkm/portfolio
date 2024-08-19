@@ -175,6 +175,8 @@ const PhotoGallery: React.FC = () => {
                   onClick={() => openDialog(image.src, index)}
                   width={0}
                   height={0}
+                  priority={index < 5}
+                  loading={index > 5? 'lazy' : undefined}
                   sizes="100vw"
                   style={{ width: '100%', height: 'auto' }} // optional
                 />

@@ -21,7 +21,7 @@ function NavMenu() {
       <NavigationMenu className="w-full">
         <NavigationMenuList className="flex flex-row">
           {menuItems.map((item, index) => (
-            <NavigationMenuItem key={index} className="md:my-0 my-1 hover:scale-110 hover:underline duration-300">
+            <NavigationMenuItem key={index} className="md:my-0 my-1 hover:scale-110 hover:underline underline-offset-[0.5px] duration-300">
               <NavigationMenuLink asChild
                 className={`${navigationMenuTriggerStyle()}  ${item.className || ''}`}>
                 <a href={item.href}>{item.label}</a>
