@@ -2,20 +2,21 @@
 
 import { useEffect, useState } from "react";
 import dynamic from 'next/dynamic';
-import { getSpotifyAddiction, getSpotifyPlaylist, getAllTime } from "@/lib/spotify-retrieval";
+import {getSpotifyPlaylist, getPlaylistRelated } from "@/lib/spotify-retrieval";
+import Image from "next/image";
 
 // Dynamic imports
 const Spotify = dynamic(() => import("@/components/Spotify").then((mod) => mod.Spotify || mod.Spotify));
-const CaptionedPicture = dynamic (() => import("@/components/CaptionedPicture"));
+const CaptionedPicture = dynamic(() => import("@/components/CaptionedPicture"));
 
 const pictures = {
-    bandPicture : {
-        src: '/img/misc/band_splash.webp',
-        alt: 'Band Picture',
-        caption: 'My band for one of my performances!',
-        width: 400
-    },
-  };
+  bandPicture: {
+    src: '/img/misc/band_splash.webp',
+    alt: 'Band Picture',
+    caption: 'My band for one of my performances!',
+    width: 400
+  },
+};
 
 function handleSearch(albumNameArtist: string) {
   const searchQuery = encodeURIComponent(albumNameArtist);
@@ -31,14 +32,15 @@ export default function MusicPage() {
   useEffect(() => {
     const fetchSpotifyData = async () => {
       try {
-        const addictionTracks = await getSpotifyAddiction();
+        const playlistRelated = await getPlaylistRelated();
+        const addictionTracks = playlistRelated.currentAddictionTracks;
         const addiction = addictionTracks.map((item: any) => item.track.external_urls.spotify);
         setSpotifyAddiction(addiction);
 
         const playlist = await getSpotifyPlaylist();
         setSpotifyPlaylist(playlist);
 
-        const allTimeTracks = await getAllTime();
+        const allTimeTracks = playlistRelated.allTimeTracks;
         const uniqueAlbums = allTimeTracks
           .map((item: any) => item.track.album)
           .filter((album: any, index: number, self: any[]) =>
@@ -78,19 +80,26 @@ export default function MusicPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 mt-8 gap-4 md:gap-8 lg:gap-12">
             <div className="col-span-2 mt-4 md:m-0">
               <h1 className="text-xl lg:text-4xl text-center font-belsey">Favourite Albums of All Time</h1>
-              <div className="grid grid-cols-4 mt-8">
+              <div className={`grid ${albums.length > 8 ? 'grid-cols-5' : 'grid-cols-4'} mt-8`}>
                 {albums.map((album) => (
                   <div key={album.id} className="col-span-1 px-2 md:px-4 pb-2 md:pb-8">
                     <div
                       className="relative overflow-auto cursor-pointer transition-transform duration-300 hover:scale-110"
                       onClick={() => handleSearch(`${album.artists[0].name} ${album.name}`)}
                     >
-                      <img
+                      <Image
                         src={album.images[0].url}
                         alt={album.name}
                         className="w-full h-full object-cover transition-opacity duration-300"
+                        width={0}
+                        height={0}
+                        priority
+                        sizes="100vw"
+                        style={{ width: '100%', height: 'auto' }}
                       />
-                      <p className="text-[0.4rem] lg:text-xs font-semibold">{album.name}</p>
+                      {albums.length <= 8 && (
+                        <p className="text-[0.4rem] lg:text-xs font-semibold">{album.name}</p>
+                      )}
                     </div>
                   </div>
                 ))}

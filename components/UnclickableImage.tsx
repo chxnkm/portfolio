@@ -20,12 +20,12 @@ const UnclickableImage = ({ width, height, src, alt }: UnclickableImageProps) =>
       <Image
         src={src}
         width={width || 0}
-        height={height || 0}
+        height={0}
         alt={alt}
         sizes="100vw"
         style={{
           width: width || "100%",
-          height: height || "auto"
+          height: "auto"
         }}
         loading='lazy'
 

@@ -5,11 +5,16 @@ import axios from 'axios';
 const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
 let spotifyToken: string | null = null;
+let tokenExpirationTime = 0;
 
 const fetchSpotifyToken = async () => {
   if (!clientId || !clientSecret) {
     console.error("Missing Spotify credentials");
     return null;
+  }
+
+  if (spotifyToken && Date.now() < tokenExpirationTime) {
+    return spotifyToken;
   }
 
   try {
@@ -21,19 +26,12 @@ const fetchSpotifyToken = async () => {
         }
       }
     );
-
+    tokenExpirationTime = Date.now() + (response.data.expires_in - 60) * 1000;
     return response.data.access_token;
   } catch (error) {
     handleAxiosError(error, "Spotify API Error");
     return null;
   }
-};
-
-const getSpotifyToken = async () => {
-  if (!spotifyToken) {
-    spotifyToken = await fetchSpotifyToken();
-  }
-  return spotifyToken;
 };
 
 const handleAxiosError = (error: any, context: string) => {
@@ -62,10 +60,8 @@ const fetchFromFirestore = async (collection: string, document: string) => {
 };
 
 const getPlaylistTracks = async (playlistType: string)=> {
-  const token = await getSpotifyToken();
-  if (!token) {
-    console.error("Failed to refresh Spotify token");
-    return [];
+  if (!spotifyToken) {
+    spotifyToken = await fetchSpotifyToken();
   }
 
   const playlistData = await fetchFromFirestore("spotifyLinks", playlistType);
@@ -76,7 +72,7 @@ const getPlaylistTracks = async (playlistType: string)=> {
 
   try {
     const response = await axios.get(`https://api.spotify.com/v1/playlists/${playlistData.id}/tracks`, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: { 'Authorization': `Bearer ${spotifyToken}` }
     });
     return response.data.items;
   } catch (error) {
@@ -95,8 +91,15 @@ const getPlaylistLink = async (playlistType: string): Promise<string> => {
   }
 };
 
-const getAllTime = () => getPlaylistTracks("all_time");
-const getSpotifyAddiction = () => getPlaylistTracks("current_addiction");
+const getPlaylistRelated = async () => {
+  const [allTimeTracks, currentAddictionTracks] = await Promise.all([
+    getPlaylistTracks("all_time"),
+    getPlaylistTracks("current_addiction"),
+  ]);
+
+  return { allTimeTracks, currentAddictionTracks };
+};
+
 const getSpotifyPlaylist = () => getPlaylistLink("playlist_of_the_month");
 
-export { getSpotifyAddiction, getSpotifyPlaylist, getAllTime };
+export { getSpotifyPlaylist, getPlaylistRelated };

@@ -88,7 +88,7 @@ const PhotoGallery: React.FC = () => {
           setImages(imagesInCollection);
         }
       } catch (error) {
-        console.error('Error fetching images from Firebase:', error);
+        console.error('Error fetching images. Try again later.', error);
       } finally {
         const endTime = Date.now();
         const loadingTime = endTime - startTime;
@@ -175,10 +175,10 @@ const PhotoGallery: React.FC = () => {
                   onClick={() => openDialog(image.src, index)}
                   width={0}
                   height={0}
-                  priority={index < 5}
-                  loading={index > 5? 'lazy' : undefined}
+                  priority={index < 12}
+                  loading={index > 12? 'lazy' : undefined}
                   sizes="100vw"
-                  style={{ width: '100%', height: 'auto' }} // optional
+                  style={{ width: '100%', height: 'auto' }}
                 />
               </div>
             ))}
