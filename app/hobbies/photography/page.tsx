@@ -4,7 +4,7 @@ const PhotoGallery = dynamic(() => import("@/components/PhotoGallery").then((mod
 export default function Component() {
     return (
         <main>
-            <div className='min-w-full flex items-center justify-center animate-slideUp'>
+            <div className='min-w-full flex items-center justify-center'>
                 <div className="intro container mx-auto">
                     <div className="intro-words text-center lg:pl-8">
                         <h1 className="mt-8 font-belsey font-black">

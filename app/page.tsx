@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <main>
-      <section className='relative min-w-full flex items-center justify-center h-[500px] animate-slideUp'>
+      <section className='relative min-w-full flex items-center justify-center h-[500px]'>
         <Image fill={true} src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true}/>
         <Image fill={true} src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true}/>
         <Image fill={true} src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true}/>
@@ -78,12 +78,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id='experience' className=" mt-16 lg:mt-24 container mx-auto animate-slideUp">
+      <section id='experience' className=" mt-16 lg:mt-24 container mx-auto">
         <h2 className="lg:text-4xl font-belsey">My Experience 👨🏻‍💼</h2>
         <p className="text-lg mt-6">Swipe on each card to see more!</p>
       </section>
       <Experience />
-      <section id='projects' className=" mt-16 lg:mt-32 container mx-auto animate-slideUp">
+      <section id='projects' className=" mt-16 lg:mt-32 container mx-auto">
         <h2 className="lg:text-4xl font-belsey">Projects and Work Write-ups 👨🏻‍💻</h2>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
       </section>

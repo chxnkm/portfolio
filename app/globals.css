@@ -73,13 +73,6 @@ img { @apply max-w-full;}
   font-style: normal;
 }
 
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.animate-slideUp { animation: slideUp 0.9s ease-out forwards; }
-
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }

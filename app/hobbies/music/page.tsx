@@ -57,7 +57,7 @@ export default function MusicPage() {
 
   return (
     <main>
-      <div className='min-w-full flex items-center justify-center animate-slideUp'>
+      <div className='min-w-full flex items-center justify-center'>
         <div className="intro container mx-auto">
           <header className="intro-words text-center">
             <h1 className="mt-8 font-belsey font-black">Music</h1>
