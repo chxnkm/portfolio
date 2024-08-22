@@ -75,7 +75,7 @@ export default function MusicPage() {
                 In my free time when I&apos;m not coding, I play the piano, guitar and drums.
               </p>
             </div>
-            <CaptionedPicture {...pictures.bandPicture} />
+            <CaptionedPicture {...pictures.bandPicture} loading='eager' priority={true}/>
           </section>
           <div className="flex flex-col md:flex-row mt-8 gap-4 md:gap-8 lg:gap-12">
             <div className="flex-1 mt-4 md:m-0">
