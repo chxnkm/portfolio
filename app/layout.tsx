@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter as FontSans} from "next/font/google";
+import { Inter as FontSans, Ma_Shan_Zheng as msz, Besley as belsey} from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
@@ -11,6 +11,18 @@ import Footer from "@/components/Footer";
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+})
+
+const mszFont = msz({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-msz",
+})
+
+const belseyFont = belsey({
+  weight: ["400"],
+  subsets: ["latin"],
+  variable: "--font-belsey",
 })
 
 export const metadata: Metadata = {
@@ -27,7 +39,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={cn(
           "min-h-screen flex flex-col font-sans antialiased",
-          fontSans.variable
+          fontSans.variable,
+          mszFont.variable,
+          belseyFont.variable
         )}>
           <SpeedInsights/>
           <Navbar/>

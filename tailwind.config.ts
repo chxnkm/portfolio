@@ -22,8 +22,8 @@ const config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        belsey: ['belsey', 'serif'],
-        msz: ['msz', 'serif'],
+        belsey: ["var(--font-belsey)"],
+        msz: ["var(--font-msz)"],
       },
       colors: {
         pastelOrange: '#FF964F',
