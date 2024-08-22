@@ -9,7 +9,7 @@ const pictures = {
         caption: 'Me and the docCentral team!'
     },
     guide: {
-        src: '/img/internship/guide.gif',
+        src: '/img/internship/guide.webp',
         alt: 'docCentral intro',
         caption: 'Screengrabs of the guide for docCentral.'
     },

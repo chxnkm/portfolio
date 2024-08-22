@@ -41,7 +41,7 @@ export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouse
             <div className="p-1">
               <Card className='bg-inherit border-slate-0 mb-8'>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                    <UnclickableImage src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
+                    <UnclickableImage src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} loading='eager' priority={true}/>
                 </CardContent>
               </Card>
             </div>
