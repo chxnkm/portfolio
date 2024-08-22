@@ -40,10 +40,8 @@ export default function AutoCarousel({ basePath = '/img/', images }: AutoCarouse
           <CarouselItem key={index}>
             <div className="p-1">
               <Card className='bg-inherit border-slate-0 mb-8'>
-                <CardContent className="flex aspect-video items-center justify-center p-6">
-                  <a href={image.href}>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
                     <UnclickableImage src={`${basePath}${image.src}`} alt={`Image ${index + 1}`} />
-                  </a>
                 </CardContent>
               </Card>
             </div>
