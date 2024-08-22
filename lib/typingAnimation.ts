@@ -4,7 +4,7 @@ export function typeWriter(text: string, i: number, fnCallback: () => void): voi
 
   if (i < text.length) {
     element.textContent = text.substring(0, i + 1);
-    setTimeout(() => typeWriter(text, i + 1, fnCallback), 125);
+    setTimeout(() => typeWriter(text, i + 1, fnCallback), 100);
   } else if (fnCallback) {
     fnCallback();
   }
