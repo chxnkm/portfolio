@@ -8,9 +8,11 @@ type UnclickableImageProps = {
   height?: number;
   src: string;
   alt: string;
+  loading?: 'lazy' | 'eager';
+  priority?: boolean;
 }
 
-const UnclickableImage = ({ width, height, src, alt }: UnclickableImageProps) => {
+const UnclickableImage = ({ width, height, src, alt, loading, priority }: UnclickableImageProps) => {
   const handleContextMenu = (event: React.MouseEvent) => {
     event.preventDefault();
   };
@@ -27,7 +29,8 @@ const UnclickableImage = ({ width, height, src, alt }: UnclickableImageProps) =>
           width: width || "100%",
           height: "auto"
         }}
-        loading='lazy'
+        loading={loading || 'lazy'}
+        priority={priority || false}
 
       />
     </div>

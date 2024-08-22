@@ -27,7 +27,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div className='flex-1 order-2 mb-8 lg:mb-0'>
-                        <CaptionedPicture {...pictures.ctfSplash} />
+                        <CaptionedPicture {...pictures.ctfSplash} loading='eager' priority={true}/>
                     </div>
                 </section>
 

@@ -35,7 +35,7 @@ export default function Home() {
                     </p>    
                 </div>
                 <div className='flex-1 order-2 mb-8 lg:mb-0'>
-                    <CaptionedPicture {...pictures.internship} />
+                    <CaptionedPicture {...pictures.internship} loading='eager' priority={true}/>
                 </div>
             </section>
             <section className="mt-20 md:mt-32 flex flex-col md:flex-row gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
