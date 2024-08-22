@@ -9,6 +9,8 @@ import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './PhotoGallery.module.css';
 import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
+
 
 const PhotoGallery: React.FC = () => {
   const [selectedCollection, setSelectedCollection] = useState('all');
@@ -169,14 +171,14 @@ const PhotoGallery: React.FC = () => {
                 key={`${image.id}-${index}`}
                 className="relative w-full"
               >
-                <Image
-                  src={image.src}
+                <CldImage
+                  src={encodeURIComponent(image.src)}
                   alt=""
                   onClick={() => openDialog(image.src, index)}
                   width={0}
                   height={0}
                   priority={index < 12}
-                  loading={index > 12? 'lazy' : undefined}
+                  loading={index > 12? 'lazy' : 'eager'}
                   sizes="100vw"
                   style={{ width: '100%', height: 'auto' }}
                 />

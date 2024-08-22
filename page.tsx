@@ -67,8 +67,8 @@ export default function MusicPage() {
               <p className="text-sm sm:text-base text-right font-bold font-belsey pr-8 mt-4">-Louis Armstrong</p>
             </article>
           </header>
-          <section className="mt-12 flex flex-col md:flex-row gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
-            <div className='flex-1 order-1 lg:order-none mb-8 lg:mb-0'>
+          <section className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
+            <div className='order-2 lg:order-none mb-8 lg:mb-0'>
               <p className="text-sm md:text-lg text-justify mt-4 lg:pl-8">
                 Music has always been an essential part of my life. Taking up music lessons at a young age (as many Asian parents instructed us to do), I have since embraced music-making wholly and have enjoyed it ever since. It led me to joining concert band in my secondary and tertiary education, as well as leading the jam band in my university hall.
                 <br /><br />
@@ -77,10 +77,10 @@ export default function MusicPage() {
             </div>
             <CaptionedPicture {...pictures.bandPicture} />
           </section>
-          <div className="flex flex-col md:flex-row mt-8 gap-4 md:gap-8 lg:gap-12">
-            <div className="flex-1 mt-4 md:m-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 mt-8 gap-4 md:gap-8 lg:gap-12">
+            <div className="col-span-2 mt-4 md:m-0">
               <h1 className="text-xl lg:text-4xl text-center font-belsey">Favourite Albums of All Time</h1>
-              <div className={`grid ${albums.length > 8 && 'lg:grid-cols-5'} grid-cols-4 mt-8`}>
+              <div className={`grid ${albums.length > 8 ? 'grid-cols-5' : 'grid-cols-4'} mt-8`}>
                 {albums.map((album) => (
                   <div key={album.id} className="col-span-1 px-2 md:px-4 pb-2 md:pb-8">
                     <div
@@ -105,7 +105,7 @@ export default function MusicPage() {
                 ))}
               </div>
             </div>
-            <div>
+            <div className="col-span-1">
               <h1 className="flex flex-col items-center text-lg lg:text-2xl font-belsey">Current Song/Album Addiction:</h1>
               {spotifyAddiction && spotifyPlaylist && (
                 <div className="flex flex-col items-center mt-4">
