@@ -28,9 +28,9 @@ export default function Home() {
   return (
     <main>
       <section className='relative min-w-full flex items-center justify-center h-[500px] animate-slideUp'>
-        <Image fill={true} src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block inset-0 object-cover w-full h-full opacity-15'/>
-        <Image fill={true} src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block inset-0 object-cover w-full h-full opacity-15' />
-        <Image fill={true} src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden inset-0 object-cover w-full h-full opacity-15' />
+        <Image fill={true} src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block inset-0 object-cover w-full h-full opacity-15' loading="eager"/>
+        <Image fill={true} src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block inset-0 object-cover w-full h-full opacity-15' loading="eager"/>
+        <Image fill={true} src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden inset-0 object-cover w-full h-full opacity-15' loading="eager" />
         <div className="intro container mx-auto absolute inset-0 flex items-center justify-center">
           <div className="intro-words text-center lg:pl-8">
             <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-belsey font-black">
