@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { startTyping } from '@/lib/typingAnimation';
+import Image from 'next/image';
 
 const AutoCarousel = dynamic(() => import('@/components/AutoCarousel'));
 const Projects = dynamic(() => import('@/components/Projects'));
@@ -27,9 +28,9 @@ export default function Home() {
   return (
     <main>
       <section className='relative min-w-full flex items-center justify-center h-[500px] animate-slideUp'>
-        <img src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block absolute inset-0 object-cover w-full h-full opacity-15'/>
-        <img src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block absolute inset-0 object-cover w-full h-full opacity-15' />
-        <img src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden absolute inset-0 object-cover w-full h-full opacity-15' />
+        <Image fill={true} src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block inset-0 object-cover w-full h-full opacity-15'/>
+        <Image fill={true} src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block inset-0 object-cover w-full h-full opacity-15' />
+        <Image fill={true} src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden inset-0 object-cover w-full h-full opacity-15' />
         <div className="intro container mx-auto absolute inset-0 flex items-center justify-center">
           <div className="intro-words text-center lg:pl-8">
             <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-belsey font-black">
@@ -48,13 +49,11 @@ export default function Home() {
 
 
       <section className="about-me lg:container mx-auto px-4">
-        <div className="mt-8 lg:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24">
-          <div className="order-1 lg:order-none flex justify-center lg:justify-start">
-            <div className="flex flex-col items-center lg:items-start ">
+        <div className="mt-8 lg:mt-16 flex flex-col md:flex-row gap-8 lg:gap-16 xl:gap-24">
+          <div className="order-1 flex-1 justify-center lg:justify-start">
               <AutoCarousel basePath='/img/' images={images} />
-            </div>
           </div>
-          <div className='order-2 lg:order-none'>
+          <div className='order-2 flex-1'>
             <h2 className="lg:text-4xl text-center lg:text-left font-belsey ">About Me</h2>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
               <a className='icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
