@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 type Hobby = {
   title: string;
@@ -11,7 +12,7 @@ const HobbyCard = ({title, image, alt, link}: Hobby) => {
   return (
     <a href={link}>
       <Card className="relative min-h-[60vh] flex items-center justify-center hover:scale-[1.02] duration-300">
-        <img src={image} alt={alt} className='absolute inset-0 object-cover w-full h-full opacity-40 rounded-lg' />
+        <Image src={image} alt={alt} fill={true} className='absolute inset-0 object-cover w-full h-full opacity-40 rounded-lg' />
         <h1 className="text-center font-belsey font-black z-10">
           {title}
         </h1>
