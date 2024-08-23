@@ -80,9 +80,8 @@ const Experience = () => {
 
     return (
         <main className="grid grid-cols-8 px-4 max-w-[1400px] mt-4 lg:mt-12">
-            <div className="col-span-1"></div>
             {isLoading ? ( //conditional rendering based on loading state
-                <div className="col-span-6">
+                <div className="col-start-2 col-span-6">
                     <Carousel className='w-full'>
                         <CarouselContent className="h-full">
                             {Array(3).fill(0).map((_, index) => (
@@ -92,7 +91,7 @@ const Experience = () => {
                     </Carousel>
                 </div>
             ) : (
-                <Carousel className='col-span-6 max-w-screen sm:h-full'>
+                <Carousel className='col-start-2 col-span-6 max-w-screen sm:h-full'>
                     <CarouselContent className="h-full">
                         {experience.map((exp, index) => (
                             <CarouselItem key={index} className="min-h-[400px]">
@@ -139,7 +138,6 @@ const Experience = () => {
                     <CarouselNext className='hidden sm:flex border-0' />
                 </Carousel>
             )}
-            <div className="col-span-1"></div>
         </main>
     );
 };
