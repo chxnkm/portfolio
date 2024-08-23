@@ -18,7 +18,7 @@ export default function Home() {
                 <section className="mt-16 flex flex-col md:flex-row gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
                     <div className='flex-1 bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg order-1 mb-8 lg:mb-0'>
                         <h1 className="text-left font-belsey ">CTF Assignment - Retrospective</h1>
-                        <p className="text-sm md:text-lg text-justify mt-4">
+                        <p className="md:text-lg text-justify mt-4">
                             In my final semester in university, I was handed the opportunity to participate in a CTF as one part of a continuous assessment under my software security module.
                             <br /><br />
                             The CTF included multiple types of challenges, ranging from simple steganography challenges and SQL-injections to more complicated OSINT and overflow-based tasks.
@@ -33,7 +33,7 @@ export default function Home() {
 
                 <section className="mt-20 lg:mt-32 bg-pastelBeige border-[2.5px] p-8 border-slate-700 rounded-lg">
                     <h1 className="text-left font-belsey"><span className="text-text">Reflections</span></h1>
-                    <p className="text-sm md:text-lg text-justify mt-4">
+                    <p className="md:text-lg text-justify mt-4">
                         Overall, I felt that me and my team did a stellar job despite us being first-timers in CTF challenges. The countless practices and hack-the-boxes certainly paid off for the actual CTF, and I am hugely appreciative of my members for our success.
                         <br /><br />
                         The importance of teamwork shouldn&apos;t be understated - we couldn&apos;t have done it without each other. I have also learnt that it&apos;s always good to be inquisitive, and to constantly ask questions, in which then one will improve themselves further.

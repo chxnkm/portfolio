@@ -60,7 +60,7 @@ export default function ContactForm() {
       <div className="space-y-6 md:order-1">
         <header className="space-y-[2vh]">
           <h1 className="lg:text-3xl font-black font-belsey">Contact 📞</h1>
-          <p className="text-sm lg:text-lg text-muted-foreground">
+          <p className="lg:text-lg text-muted-foreground">
             If you&apos;re interested in reaching out to me, please feel free to fill up the form below.
           </p>
         </header>
