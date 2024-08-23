@@ -109,12 +109,12 @@ const Projects = () => {
               <a href={project.href} key={index}>
                 <Card className="bg-[#fdfdfd] border-gray-200 mt-4 shadow-lg rounded-xl overflow-hidden hover:scale-[1.02] duration-300">
                   <CardHeader>
-                    <CardTitle className="font-belsey text-xl sm:text-2xl lg:text-3xl">{project.name}</CardTitle>
+                    <CardTitle className="font-belsey text-base sm:text-xl lg:text-3xl">{project.name}</CardTitle>
                     <CardDescription>{new Date(project.date).toDateString().split(' ').slice(1).join(' ')}</CardDescription>
                   </CardHeader>
-                  <CardContent className="flex flex-wrap items-start justify-between mt-[-3%]">
-                    <div className="flex flex-col flex-grow max-w-[75%] mt-[2vh]">
-                      <p>{project.description}</p>
+                  <CardContent className="flex flex-wrap items-start justify-evenly md:justify-between">
+                    <div className="flex flex-col md:max-w-[75%]">
+                      <p className='m-0'>{project.description}</p>
                       <div className="flex flex-wrap font-belsey font-medium items-center justify-start gap-2 mt-8 text-base sm:text-lg lg:text-xl">
                         <strong>Skills:</strong>
                         {project.skills.map((skill, skillIndex) => (
