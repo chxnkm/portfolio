@@ -6,9 +6,9 @@ interface Folder {
   external_id: string;
 }
 
-const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
-const apiKey = process.env.CLOUDINARY_API_KEY;
-const secretKey = process.env.CLOUDINARY_SECRET_KEY;
+const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
+const secretKey = process.env.NEXT_PUBLIC_CLOUDINARY_SECRET_KEY;
 
 export async function GET() {
   try {
