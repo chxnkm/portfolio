@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import axios from 'axios';
 
 interface Folder {
   name: string;
@@ -7,44 +6,42 @@ interface Folder {
   external_id: string;
 }
 
-const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
-const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
-const secretKey = process.env.NEXT_PUBLIC_CLOUDINARY_SECRET_KEY;
+const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+const apiKey = process.env.CLOUDINARY_API_KEY;
+const secretKey = process.env.CLOUDINARY_SECRET_KEY;
 
 export async function GET() {
   try {
     const auth = Buffer.from(`${apiKey}:${secretKey}`).toString('base64');
-
+    
     // Fetch the list of folders
-    const response = await axios.get(`https://api.cloudinary.com/v1_1/${cloudName}/folders/images`, {
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/folders/images`, {
       headers: {
         Authorization: `Basic ${auth}`,
       },
     });
 
-    if (response.status !== 200) {
+    if (!response.ok) {
       throw new Error('Failed to fetch data from Cloudinary');
     }
 
-    const folders = response.data.folders;
+    const data = await response.json();
+    const folders = data.folders;
 
     // Fetch details for each folder
     const folderDetailsPromises = folders.map(async (folder: Folder) => {
-      const folderResponse = await axios.get(`https://api.cloudinary.com/v1_1/${cloudName}/resources/by_asset_folder`, {
+      const folderResponse = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/resources/by_asset_folder?asset_folder=${folder.path}&max_results=30`, {
         headers: {
           Authorization: `Basic ${auth}`,
         },
-        params: {
-          asset_folder: folder.path,
-          max_results: 30,
-        },
       });
 
-      if (folderResponse.status !== 200) {
+      if (!folderResponse.ok) {
         throw new Error(`Failed to fetch details for folder: ${folder.name}`);
       }
 
-      return { folderName: folder.name, folderData: folderResponse.data };
+      const folderData = await folderResponse.json();
+      return { folderName: folder.name, folderData };
     });
 
     // Resolve all folder details requests

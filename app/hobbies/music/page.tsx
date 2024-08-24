@@ -15,12 +15,11 @@ const pictures = {
 };
 
 async function getSpotifyData() {
-  try {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`);
-    return res.data; 
-  } catch (error) {
+  const res = await fetch('/api/spotify-data', { cache: 'no-store' });
+  if (!res.ok) {
     throw new Error('Failed to fetch Spotify data');
   }
+  return res.json();
 }
 
 export default async function MusicPage() {

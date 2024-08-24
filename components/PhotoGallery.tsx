@@ -7,7 +7,6 @@ import { Progress } from "@/components/ui/progress";
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './PhotoGallery.module.css';
 import { CldImage } from 'next-cloudinary';
-import axios from 'axios';
 
 
 const PhotoGallery2: React.FC = () => {
@@ -22,8 +21,11 @@ const PhotoGallery2: React.FC = () => {
 
   useEffect(() => {
     const fetchImageFolders = async () => {
-      const response = await axios.get('/api/fetch-images');
-      const folderData = response.data;
+      const res = await fetch('/api/fetch-images');
+      if (!res.ok) {
+        throw new Error('Failed to fetch Spotify data');
+      }
+      const folderData = await res.json();
       const allFolder = {
         folderName: 'All',
         folderData: {
