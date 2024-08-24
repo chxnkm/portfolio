@@ -4,16 +4,15 @@ import React, { useState, useEffect } from 'react';
 import Masonry from 'react-masonry-css';
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { storage } from '@/lib/firebase';
-import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './PhotoGallery.module.css';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
+import axios from 'axios';
 
 
-const PhotoGallery: React.FC = () => {
+const PhotoGallery2: React.FC = () => {
   const [selectedCollection, setSelectedCollection] = useState('all');
-  const [collections, setCollections] = useState<Array<{ id: string; name: string }>>([]);
+  const [collections, setCollections] = useState<Array<any>>([]);
   const [images, setImages] = useState<Array<{ id: number; src: string }>>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -22,23 +21,23 @@ const PhotoGallery: React.FC = () => {
   const [displayedProgress, setDisplayedProgress] = useState<number>(0);
 
   useEffect(() => {
-    const fetchCollections = async () => {
-      const storageRef = ref(storage, '/images');
-      let collectionList: Array<{ id: string; name: string }> = [];
-
-      try {
-        const rootFolders = await listAll(storageRef);
-        collectionList = rootFolders.prefixes.map((folderRef) => ({
-          id: folderRef.name,
-          name: folderRef.name
-        }));
-        setCollections([{ id: 'all', name: 'All' }, ...collectionList]);
-      } catch (error) {
-        console.error('Error fetching collections. Please try again later.', error);
-      }
+    const fetchImageFolders = async () => {
+      const response = await axios.get('/api/fetch-images');
+      const folderData = response.data;
+      const allFolder = {
+        folderName: 'All',
+        folderData: {
+          resources: folderData.flatMap((folder: { folderData: { resources: any; }; }) => folder.folderData.resources)
+        }
+      };
+  
+      // Combine the "All" folder with the individual folders
+      const allCollections = [allFolder, ...folderData];
+      
+      setCollections(allCollections);
+      setSelectedCollection('All'); // Ensure "All" is selected by default
     };
-
-    fetchCollections();
+    fetchImageFolders();
   }, []);
 
   useEffect(() => {
@@ -55,38 +54,41 @@ const PhotoGallery: React.FC = () => {
       setLoading(true);
       setActualProgress(0);
       setDisplayedProgress(0);
-
+  
       // Add a small delay
       await new Promise(resolve => setTimeout(resolve, 100));
-
+  
       const startTime = Date.now();
-      const imagesList: Array<{ id: number; src: string }> = [];
-      const storageRef = ref(storage, '/images');
-
+      const imagesList: Array<{ id: number; asrc: string }> = [];
+  
       try {
-        const fetchCollectionImages = async (collectionRef: any) => {
-          const imagesInCollection = await listAll(collectionRef);
-          const totalImages = imagesInCollection.items.length;
+        const fetchCollectionImages = async (folderData: any) => {
+          const resources = folderData.resources;
+          const totalImages = resources.length;
           let loadedImages = 0;
-
-          const urls = await Promise.all(imagesInCollection.items.map(async (imageRef) => {
-            const url = await getDownloadURL(imageRef);
+  
+          const urls = resources.map((resource: any) => {
+            const url = resource.url;
             loadedImages++;
             setActualProgress((loadedImages / totalImages) * 100);
             return url;
-          }));
-
-          return urls.map((url, index) => ({ id: imagesList.length + index + 1, src: url }));
+          });
+  
+          return urls.map((url: string, index: number) => ({ id: imagesList.length + index + 1, src: url }));
         };
-
+  
         if (selectedCollection === 'all') {
-          const rootFolders = await listAll(storageRef);
-          const allImages = await Promise.all(rootFolders.prefixes.map(fetchCollectionImages));
-          setImages(allImages.flat());
+          const allFolders = collections; // `collections` would hold the entire response structure
+          const allImages = allFolders.map((folder: any) => fetchCollectionImages(folder.folderData));
+          const resolvedImages = await Promise.all(allImages);
+          setImages(resolvedImages.flat());
         } else {
-          const collectionRef = ref(storageRef, `/${selectedCollection}`);
-          const imagesInCollection = await fetchCollectionImages(collectionRef);
-          setImages(imagesInCollection);
+          // Filter the selected collection from your `collections` state
+          const selectedFolder = collections.find((folder: any) => folder.folderName === selectedCollection);
+          if (selectedFolder) {
+            const imagesInCollection = await fetchCollectionImages(selectedFolder.folderData);
+            setImages(imagesInCollection);
+          }
         }
       } catch (error) {
         console.error('Error fetching images. Try again later.', error);
@@ -94,17 +96,17 @@ const PhotoGallery: React.FC = () => {
         const endTime = Date.now();
         const loadingTime = endTime - startTime;
         const minLoadingTime = 1000; // 1 second minimum
-
+  
         if (loadingTime < minLoadingTime) {
           await new Promise(resolve => setTimeout(resolve, minLoadingTime - loadingTime));
         }
-
+  
         setLoading(false);
       }
     };
-
+  
     fetchImages();
-  }, [selectedCollection]);
+  }, [selectedCollection, collections]);
 
   const handleCollectionChange = (collectionId: string) => {
     if (collectionId === selectedCollection) {
@@ -144,13 +146,13 @@ const PhotoGallery: React.FC = () => {
       <div className="col-span-1 space-y-2">
         {collections.map((collection) => (
           <Button
-            key={collection.id}
-            variant={selectedCollection === collection.id ? "default" : "outline"}
-            className="w-full md:justify-start"
-            onClick={() => handleCollectionChange(collection.id)}
+            key={collection.folderName}
+            variant={selectedCollection === collection.folderName ? "default" : "outline"}
+            className="w-full md:justify-center"
+            onClick={() => handleCollectionChange(collection.folderName)}
             disabled={loading}
           >
-            {collection.name}
+            {collection.folderName}
           </Button>
         ))}
       </div>
@@ -170,14 +172,14 @@ const PhotoGallery: React.FC = () => {
                 key={`${image.id}-${index}`}
                 className="relative w-full"
               >
-                <Image
+                <CldImage
                   src={image.src}
                   alt=""
                   onClick={() => openDialog(image.src, index)}
                   width={0}
                   height={0}
                   priority={index < 12}
-                  loading={index > 12? 'lazy' : 'eager'}
+                  loading={index > 12 ? 'lazy' : 'eager'}
                   sizes="100vw"
                   style={{ width: '100%', height: 'auto' }}
                 />
@@ -239,4 +241,4 @@ const PhotoGallery: React.FC = () => {
   );
 };
 
-export default PhotoGallery;
+export default PhotoGallery2;

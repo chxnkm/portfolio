@@ -42,5 +42,3 @@ next-env.d.ts
 data
 server
 components/PhotoGallery2.tsx
-app/api/fetch-images/route.ts
-app/api/send-email/route.ts
