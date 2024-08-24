@@ -3,21 +3,27 @@
 import React, { useState, useEffect } from 'react';
 import Masonry from 'react-masonry-css';
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './PhotoGallery.module.css';
 import { CldImage } from 'next-cloudinary';
+import { Skeleton } from './ui/skeleton';
 
+const getBlurredPlaceholder = (src: string) => {
+  const parts = src.split('/');
+  const indexOfUpload = parts.indexOf('upload');
+  if (indexOfUpload !== -1) {
+    parts.splice(indexOfUpload + 1, 0, 'w_100,e_blur:1000,q_auto,f_auto');
+  }
+  return parts.join('/');
+};
 
-const PhotoGallery2: React.FC = () => {
+const PhotoGallery: React.FC = () => {
   const [selectedCollection, setSelectedCollection] = useState('all');
   const [collections, setCollections] = useState<Array<any>>([]);
   const [images, setImages] = useState<Array<{ id: number; src: string }>>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [actualProgress, setActualProgress] = useState<number>(0);
-  const [displayedProgress, setDisplayedProgress] = useState<number>(0);
+  const [buttonCooldown, setButtonCooldown] = useState(false);
 
   useEffect(() => {
     const fetchImageFolders = async () => {
@@ -32,10 +38,10 @@ const PhotoGallery2: React.FC = () => {
           resources: folderData.flatMap((folder: { folderData: { resources: any; }; }) => folder.folderData.resources)
         }
       };
-  
+
       // Combine the "All" folder with the individual folders
       const allCollections = [allFolder, ...folderData];
-      
+
       setCollections(allCollections);
       setSelectedCollection('All'); // Ensure "All" is selected by default
     };
@@ -43,42 +49,23 @@ const PhotoGallery2: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const animationFrame = requestAnimationFrame(() => {
-      if (displayedProgress < actualProgress) {
-        setDisplayedProgress(prev => Math.min(prev + 3.5, actualProgress));
-      }
-    });
-    return () => cancelAnimationFrame(animationFrame);
-  }, [displayedProgress, actualProgress]);
-
-  useEffect(() => {
     const fetchImages = async () => {
-      setLoading(true);
-      setActualProgress(0);
-      setDisplayedProgress(0);
-  
-      // Add a small delay
-      await new Promise(resolve => setTimeout(resolve, 100));
-  
-      const startTime = Date.now();
       const imagesList: Array<{ id: number; asrc: string }> = [];
-  
+
       try {
         const fetchCollectionImages = async (folderData: any) => {
           const resources = folderData.resources;
-          const totalImages = resources.length;
           let loadedImages = 0;
-  
+
           const urls = resources.map((resource: any) => {
             const url = resource.url;
             loadedImages++;
-            setActualProgress((loadedImages / totalImages) * 100);
             return url;
           });
-  
+
           return urls.map((url: string, index: number) => ({ id: imagesList.length + index + 1, src: url }));
         };
-  
+
         if (selectedCollection === 'all') {
           const allFolders = collections; // `collections` would hold the entire response structure
           const allImages = allFolders.map((folder: any) => fetchCollectionImages(folder.folderData));
@@ -94,19 +81,9 @@ const PhotoGallery2: React.FC = () => {
         }
       } catch (error) {
         console.error('Error fetching images. Try again later.', error);
-      } finally {
-        const endTime = Date.now();
-        const loadingTime = endTime - startTime;
-        const minLoadingTime = 1000; // 1 second minimum
-  
-        if (loadingTime < minLoadingTime) {
-          await new Promise(resolve => setTimeout(resolve, minLoadingTime - loadingTime));
-        }
-  
-        setLoading(false);
       }
     };
-  
+
     fetchImages();
   }, [selectedCollection, collections]);
 
@@ -116,6 +93,8 @@ const PhotoGallery2: React.FC = () => {
     }
     setImages([]);
     setSelectedCollection(collectionId);
+    setButtonCooldown(true);
+    setTimeout(() => setButtonCooldown(false), 250);
   };
 
   const openDialog = (src: string, index: number) => {
@@ -146,49 +125,47 @@ const PhotoGallery2: React.FC = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
       <div className="col-span-1 space-y-2">
-        {collections.map((collection) => (
+        {collections.map((collection, index) => (
           <Button
             key={collection.folderName}
             variant={selectedCollection === collection.folderName ? "default" : "outline"}
             className="w-full md:justify-center"
             onClick={() => handleCollectionChange(collection.folderName)}
-            disabled={loading}
+            disabled={buttonCooldown}
           >
             {collection.folderName}
           </Button>
         ))}
       </div>
       <div className="col-span-3">
-        {loading ? (
-          <div className="flex items-center justify-center h-full">
-            <Progress value={displayedProgress} className="w-full lg:w-[60%]" />
-          </div>
-        ) : (
-          <Masonry
-            breakpointCols={{ default: 3, 900: 2, 700: 1 }}
-            className={styles.masonryGrid}
-            columnClassName={styles.masonryGridColumn}
-          >
-            {images.map((image, index) => (
-              <div
-                key={`${image.id}-${index}`}
-                className="relative w-full"
-              >
+        <Masonry
+          breakpointCols={{ default: 3, 900: 2, 700: 1 }}
+          className={styles.masonryGrid}
+          columnClassName={styles.masonryGridColumn}
+        >
+          {images.map((image, index) => (
+            <div
+              key={`${image.id}-${index}`}
+              className="relative w-full"
+            >
+              {buttonCooldown ? (
+                <Skeleton className="w-full h-48 bg-gray-200 rounded-none" /> // Adjust height as needed
+              ) : (
                 <CldImage
                   src={image.src}
                   alt=""
                   onClick={() => openDialog(image.src, index)}
-                  width={0}
-                  height={0}
+                  width={600}
+                  height={400}
                   priority={index < 12}
                   loading={index > 12 ? 'lazy' : 'eager'}
-                  sizes="100vw"
-                  style={{ width: '100%', height: 'auto' }}
+                  placeholder='blur'
+                  blurDataURL={getBlurredPlaceholder(image.src)}
                 />
-              </div>
-            ))}
-          </Masonry>
-        )}
+              )}
+            </div>
+          ))}
+        </Masonry>
       </div>
 
       <AnimatePresence>
@@ -243,4 +220,4 @@ const PhotoGallery2: React.FC = () => {
   );
 };
 
-export default PhotoGallery2;
+export default PhotoGallery;
