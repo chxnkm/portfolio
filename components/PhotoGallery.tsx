@@ -59,7 +59,7 @@ const PhotoGallery: React.FC = () => {
           let loadedImages = 0;
 
           const urls = resources.map((resource: any) => {
-            const url = resource.url;
+            const url = resource.secure_url;
             loadedImages++;
             return url;
           });
@@ -179,6 +179,7 @@ const PhotoGallery: React.FC = () => {
             exit={{ opacity: 0 }}
           >
             <div className="relative max-w-[85%] max-h-screen flex items-center justify-center">
+
               <motion.img
                 src={selectedImage}
                 alt="Portfolio Image"
