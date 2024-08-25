@@ -42,3 +42,5 @@ next-env.d.ts
 data
 server
 components/PhotoGallery2.tsx
+components/Practice.tsx
+app/practice

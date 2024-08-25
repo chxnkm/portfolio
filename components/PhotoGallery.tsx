@@ -44,13 +44,14 @@ const PhotoGallery: React.FC = () => {
 
       setCollections(allCollections);
       setSelectedCollection('All'); // Ensure "All" is selected by default
+      
     };
     fetchImageFolders();
   }, []);
 
   useEffect(() => {
     const fetchImages = async () => {
-      const imagesList: Array<{ id: number; asrc: string }> = [];
+      const imagesList: Array<{ id: number; src: string }> = [];
 
       try {
         const fetchCollectionImages = async (folderData: any) => {
