@@ -29,7 +29,7 @@ const PhotoGallery: React.FC = () => {
     const fetchImageFolders = async () => {
       const res = await fetch('/api/fetch-images');
       if (!res.ok) {
-        throw new Error('Failed to fetch Spotify data');
+        throw new Error('Failed to fetch images, try again later.');
       }
       const folderData = await res.json();
       const allFolder = {
@@ -152,17 +152,17 @@ const PhotoGallery: React.FC = () => {
               {buttonCooldown ? (
                 <Skeleton className="w-full h-48 bg-gray-200 rounded-none" /> // Adjust height as needed
               ) : (
-                <CldImage
-                  src={image.src}
-                  alt=""
-                  onClick={() => openDialog(image.src, index)}
-                  width={600}
-                  height={400}
-                  priority={index < 12}
-                  loading={index > 12 ? 'lazy' : 'eager'}
-                  placeholder='blur'
-                  blurDataURL={getBlurredPlaceholder(image.src)}
-                />
+                  <CldImage
+                    src={image.src}
+                    alt=""
+                    onClick={() => openDialog(image.src, index)}
+                    width={400}
+                    height={0}
+                    priority={index < 12}
+                    loading={index > 12 ? 'lazy' : 'eager'}
+                    placeholder='blur'
+                    blurDataURL={getBlurredPlaceholder(image.src)}
+                  />
               )}
             </div>
           ))}

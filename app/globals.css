@@ -59,19 +59,6 @@ h1 { @apply scroll-m-20 font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-
 h2 { @apply scroll-m-20 font-extrabold text-2xl md:text-3xl lg:text-4xl; }
 img { @apply max-w-full;}
 
-@font-face {
-  font-family: 'belsey';
-  src: url('/fonts/Besley-VariableFont_wght.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'msz';
-  src: url('/fonts/MaShanZheng-Regular.ttf') format('truetype');
-  font-weight: 200;
-  font-style: normal;
-}
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
