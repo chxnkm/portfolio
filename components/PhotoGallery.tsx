@@ -147,7 +147,7 @@ const PhotoGallery: React.FC = () => {
           {images.map((image, index) => (
             <div
               key={`${image.id}-${index}`}
-              className="relative w-full"
+              className="relative max-w-[600px]"
             >
               {buttonCooldown ? (
                 <Skeleton className="w-full h-48 bg-gray-200 rounded-none" /> // Adjust height as needed
@@ -156,7 +156,7 @@ const PhotoGallery: React.FC = () => {
                     src={image.src}
                     alt=""
                     onClick={() => openDialog(image.src, index)}
-                    width={400}
+                    width={600}
                     height={0}
                     priority={index < 12}
                     loading={index > 12 ? 'lazy' : 'eager'}
