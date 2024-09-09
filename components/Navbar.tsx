@@ -37,7 +37,7 @@ function NavMenu() {
 export default function Navbar() {
   return (
     <nav className="w-full border-b-2 bg-background dark:bg-gray-950/90">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="sm:max-w-[75vw] mx-auto px-4 sm:px-0">
         <div className="grid grid-cols-12 md:grid-cols-3 h-20 items-center">
 
           <div className="flex col-span-4 md:col-span-1 items-center space-x-3">
