@@ -16,7 +16,9 @@ export async function GET() {
         index === self.findIndex((a) => a.id === album.id)
       );
 
-    return NextResponse.json({ spotifyAddiction, spotifyPlaylist, albums });
+    const response = NextResponse.json({ spotifyAddiction, spotifyPlaylist, albums });
+    response.headers.set('Cache-Control', 'reload'); // Disable caching
+    return response;
   } catch (error) {
     console.error("Error fetching Spotify data:", error);
     return NextResponse.json({ error: 'Failed to fetch Spotify data' }, { status: 500 });

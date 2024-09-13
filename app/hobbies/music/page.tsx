@@ -15,39 +15,16 @@ const pictures = {
   },
 };
 
-// Define the data types
-interface SpotifyData {
-  spotifyAddiction: string[];
-  spotifyPlaylist: string;
-  albums: any[]; // You might want to define a more specific type for albums
-}
-
-// Fetch Spotify data function
-async function fetchSpotifyData(): Promise<SpotifyData> {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`, {
-      cache: 'reload',
-    });
-    if (!res.ok) {
-      const errorText = await res.text();  // Read the error text
-      throw new Error(`Failed to fetch Spotify data: ${errorText}`);
-    }
-    return res.json();
-  } catch (error: unknown) {
-    // Handle error of type unknown
-    if (error instanceof Error) {
-      console.error('Error fetching Spotify data:', error.message);
-    } else {
-      console.error('Unknown error fetching Spotify data:', error);
-    }
-    return { spotifyAddiction: [], spotifyPlaylist: '', albums: [] };
+async function getSpotifyData() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`);
+  if (!res.ok) {
+    throw new Error('Failed to fetch Spotify data');
   }
+  return res.json();
 }
 
-// Page component
 export default async function MusicPage() {
-  const spotifyData = await fetchSpotifyData();
-  const { spotifyAddiction, spotifyPlaylist, albums } = spotifyData;
+  const { spotifyAddiction, spotifyPlaylist, albums } = await getSpotifyData();
 
   return (
     <main>
