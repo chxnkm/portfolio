@@ -1,10 +1,11 @@
 import dynamic from 'next/dynamic';
 import { Spotify } from '@/components/Spotify';
 
-
+// Dynamically import components
 const CaptionedPicture = dynamic(() => import("@/components/CaptionedPicture"));
 const AlbumGrid = dynamic(() => import("@/components/AlbumGrid"));
 
+// Define the picture data
 const pictures = {
   bandPicture: {
     src: '/img/misc/band_splash.webp',
@@ -14,16 +15,39 @@ const pictures = {
   },
 };
 
-async function getSpotifyData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`);
-  if (!res.ok) {
-    throw new Error('Failed to fetch Spotify data');
-  }
-  return res.json();
+// Define the data types
+interface SpotifyData {
+  spotifyAddiction: string[];
+  spotifyPlaylist: string;
+  albums: any[]; // You might want to define a more specific type for albums
 }
 
+// Fetch Spotify data function
+async function fetchSpotifyData(): Promise<SpotifyData> {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`, {
+      cache: 'reload',
+    });
+    if (!res.ok) {
+      const errorText = await res.text();  // Read the error text
+      throw new Error(`Failed to fetch Spotify data: ${errorText}`);
+    }
+    return res.json();
+  } catch (error: unknown) {
+    // Handle error of type unknown
+    if (error instanceof Error) {
+      console.error('Error fetching Spotify data:', error.message);
+    } else {
+      console.error('Unknown error fetching Spotify data:', error);
+    }
+    return { spotifyAddiction: [], spotifyPlaylist: '', albums: [] };
+  }
+}
+
+// Page component
 export default async function MusicPage() {
-  const { spotifyAddiction, spotifyPlaylist, albums } = await getSpotifyData();
+  const spotifyData = await fetchSpotifyData();
+  const { spotifyAddiction, spotifyPlaylist, albums } = spotifyData;
 
   return (
     <main>
@@ -45,23 +69,23 @@ export default async function MusicPage() {
                 In my free time when I&apos;m not coding, I play the piano, guitar and drums.
               </p>
             </div>
-            <CaptionedPicture {...pictures.bandPicture} loading='eager' priority={true}/>
+            <CaptionedPicture {...pictures.bandPicture} loading='eager' priority={true} />
           </section>
           <div className="flex flex-col md:flex-row mt-8 gap-4 md:gap-8 lg:gap-12">
-        <div className="flex-1 mt-4 md:m-0">
-          <h1 className="text-xl lg:text-4xl text-center font-belsey">Favourite Albums of All Time</h1>
-          <AlbumGrid albums={albums} />
-        </div>
-        <div>
-          <h1 className="flex flex-col items-center text-lg lg:text-2xl font-belsey">Current Song/Album Addiction:</h1>
-          {spotifyAddiction && spotifyPlaylist && (
-            <div className="flex flex-col items-center mt-4">
-              <Spotify wide link={spotifyAddiction[0]} />
-              <Spotify className="mt-4" link={spotifyPlaylist} />
+            <div className="flex-1 mt-4 md:m-0">
+              <h1 className="text-xl lg:text-4xl text-center font-belsey">Favourite Albums of All Time</h1>
+              <AlbumGrid albums={albums} />
             </div>
-          )}
-        </div>
-      </div>
+            <div>
+              <h1 className="flex flex-col items-center text-lg lg:text-2xl font-belsey">Current Song/Album Addiction:</h1>
+              {spotifyAddiction && spotifyPlaylist && (
+                <div className="flex flex-col items-center mt-4">
+                  <Spotify wide link={spotifyAddiction[0]} />
+                  <Spotify className="mt-4" link={spotifyPlaylist} />
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </main>

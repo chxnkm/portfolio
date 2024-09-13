@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
     upgrade-insecure-requests;
 `
   // Check if the request path starts with /img
-  if (request.nextUrl.pathname.startsWith('/img'))  {
+  if (request.nextUrl.pathname.startsWith('/img')||request.nextUrl.pathname.startsWith('/api'))  {
     // Get the referer and host headers
     const referer = request.headers.get('referer') ?? '';
     const host = request.headers.get('host') ?? '';
