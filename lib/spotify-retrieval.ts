@@ -72,7 +72,10 @@ const getPlaylistTracks = async (playlistType: string)=> {
 
   try {
     const response = await axios.get(`https://api.spotify.com/v1/playlists/${playlistData.id}/tracks`, {
-      headers: { 'Authorization': `Bearer ${spotifyToken}` }
+      headers: { 
+        'Authorization': `Bearer ${spotifyToken}`,
+        'Cache-Control': 'no-store' 
+      }
     });
     return response.data.items;
   } catch (error) {

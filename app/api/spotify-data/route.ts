@@ -1,4 +1,3 @@
-import { NextResponse } from 'next/server';
 import { getSpotifyPlaylist, getPlaylistRelated } from "@/lib/spotify-retrieval";
 
 export async function GET() {
@@ -16,11 +15,23 @@ export async function GET() {
         index === self.findIndex((a) => a.id === album.id)
       );
 
-    const response = NextResponse.json({ spotifyAddiction, spotifyPlaylist, albums });
-    response.headers.set('Cache-Control', 'no-store'); // Disable caching
+    const data = { spotifyAddiction, spotifyPlaylist, albums };
+
+    const response = new Response(JSON.stringify(data), {
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store must-revalidate' // Disable caching
+      }
+    });
+
     return response;
   } catch (error) {
     console.error("Error fetching Spotify data:", error);
-    return NextResponse.json({ error: 'Failed to fetch Spotify data' }, { status: 500 });
+    return new Response(JSON.stringify({ error: 'Failed to fetch Spotify data' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }
+
