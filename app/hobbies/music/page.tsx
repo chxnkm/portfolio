@@ -1,5 +1,3 @@
-'use client'
-
 import dynamic from 'next/dynamic';
 import { Spotify } from '@/components/Spotify';
 
@@ -26,7 +24,6 @@ async function getSpotifyData() {
 
 export default async function MusicPage() {
   const { spotifyAddiction, spotifyPlaylist, albums } = await getSpotifyData();
-  console.log(spotifyAddiction, spotifyPlaylist)
 
   return (
     <main>
