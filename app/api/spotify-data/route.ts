@@ -17,7 +17,7 @@ export async function GET() {
       );
 
     const response = NextResponse.json({ spotifyAddiction, spotifyPlaylist, albums });
-    response.headers.set('Cache-Control', 'reload'); // Disable caching
+    response.headers.set('Cache-Control', 'no-store'); // Disable caching
     return response;
   } catch (error) {
     console.error("Error fetching Spotify data:", error);
