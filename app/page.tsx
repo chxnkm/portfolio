@@ -69,7 +69,7 @@ export default function Home() {
             <p className="text-left lg:pr-8">
               A Computer Science graduate from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
               <br /><br />
-              Having worked on a multitude of projects during my university tenure, I have amassed robust skills in <strong>full-stack development, data analytics,</strong> as well as <strong>machine learning and Generative AI-enabled applications</strong>. During my <a href='/projects/internship' className="underline text-blue-500">internship,</a> I've worked on two projects, tapping into Generative AI and creating templating solutions for Government officers.
+              Having worked on a multitude of projects during my university tenure, I have amassed robust skills in <strong>full-stack development, data analytics,</strong> as well as <strong>machine learning and Generative AI-enabled applications</strong>. During my <a href='/projects/internship' className="underline text-blue-500">internship,</a> I&apos;ve worked on two projects, tapping into Generative AI and creating templating solutions for Government officers.
               <br /><br />
               In my free time, I pursue <a href='/hobbies/photography' className="underline text-blue-500">photography</a> (in both film and digital formats), jam to nostalgic tunes with my guitar and drums, and am an avid <i>Fallout</i> franchise lover. Check out my hobbies <a href='/hobbies' className="underline text-blue-500">here!</a>
               <br /><br />
