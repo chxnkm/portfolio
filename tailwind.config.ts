@@ -32,6 +32,7 @@ const config = {
         qaPurple: '#6a4cff',
         pastelBeige: '#fdf0d8',
         text: '#35733e',
+        accentButton: '#bc7b0b',
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

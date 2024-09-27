@@ -13,7 +13,7 @@ const menuItems = [
   { href: "/#experience", label: "Experience" },
   { href: "/hobbies", label: "Hobbies" },
   { href: "/contact", label: "Contact Me" },
-  { href: "/resume/RESUME_KANG_MING.pdf", label: "Résumé", className: "bg-[#bc7b0b] text-white sm:ml-2" },
+  { href: "/resume/RESUME_KANG_MING.pdf", label: "Résumé", className: "bg-accentButton text-white sm:ml-2" },
 ]
 function NavMenu() {
   return (
