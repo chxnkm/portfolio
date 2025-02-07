@@ -16,7 +16,11 @@ const pictures = {
 };
 
 async function getSpotifyData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`, { cache: 'no-store' });
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`,{
+    next: {
+      revalidate: 300
+    },
+  });
   if (!res.ok) {
     throw new Error('Failed to fetch Spotify data');
   }
