@@ -20,6 +20,7 @@ async function getSpotifyData() {
     next: {
       revalidate: 300
     },
+    cache: 'no-store'
   });
   if (!res.ok) {
     throw new Error('Failed to fetch Spotify data');
