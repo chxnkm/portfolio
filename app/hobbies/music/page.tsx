@@ -1,9 +1,8 @@
-import dynamic from 'next/dynamic';
 import { Spotify } from '@/components/Spotify';
+import CaptionedPicture from '@/components/CaptionedPicture';
+import AlbumGrid from '@/components/AlbumGrid';
 
-// Dynamically import components
-const CaptionedPicture = dynamic(() => import("@/components/CaptionedPicture"));
-const AlbumGrid = dynamic(() => import("@/components/AlbumGrid"));
+export const dynamic = "force-dynamic";
 
 // Define the picture data
 const pictures = {
@@ -18,9 +17,8 @@ const pictures = {
 async function getSpotifyData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`,{
     next: {
-      revalidate: 300
+      revalidate: 60
     },
-    cache: 'no-store'
   });
   if (!res.ok) {
     throw new Error('Failed to fetch Spotify data');
