@@ -1,6 +1,7 @@
 import { Spotify } from '@/components/Spotify';
 import CaptionedPicture from '@/components/CaptionedPicture';
 import AlbumGrid from '@/components/AlbumGrid';
+import { revalidatePath } from 'next/cache';
 
 export const dynamic = "force-dynamic";
 
@@ -15,11 +16,8 @@ const pictures = {
 };
 
 async function getSpotifyData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`,{
-    next: {
-      revalidate: 60
-    },
-  });
+  revalidatePath('/api/spotify-data');
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`);
   if (!res.ok) {
     throw new Error('Failed to fetch Spotify data');
   }
