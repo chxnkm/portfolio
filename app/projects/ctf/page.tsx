@@ -33,17 +33,17 @@ export default function Home() {
                     The CTF included multiple types of challenges, ranging from simple steganography challenges and SQL-injections to more complicated OSINT and overflow-based tasks.
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
-                    Overall, my team, 'sanitycheck', managed to attain the <strong>fastest 25% of submissions with all challenges completed</strong>, and obtaining an <strong>A+</strong> in the post-CTF write-up. Our report can be viewed <Link href='https://docs.google.com/document/d/1mSA6R24XB0T6NnGSDTNbPv5IG0WEnMUkfOjE8nq7HeQ/edit?usp=sharing' className="underline text-blue-500" target="_blank" rel="noopener noreferrer" prefetch={false}>here</Link>.
+                    Overall, my team, &apos;sanitycheck&apos;, managed to attain the <strong>fastest 25% of submissions with all challenges completed</strong>, and obtaining an <strong>A+</strong> in the post-CTF write-up. Our report can be viewed <Link href='https://docs.google.com/document/d/1mSA6R24XB0T6NnGSDTNbPv5IG0WEnMUkfOjE8nq7HeQ/edit?usp=sharing' className="underline text-blue-500" target="_blank" rel="noopener noreferrer" prefetch={false}>here</Link>.
                 </p>
             </section>
 
             <section className="mb-16">
                 <h2 className="text-3xl font-bold mb-6">Reflections</h2>
                 <p className="text-lg leading-relaxed">
-                    Overall, I felt that me and my team did a stellar job despite us being first-timers in CTF challenges. The countless practices and hack-the-boxes certainly paid off for the actual CTF, and I am hugely appreciative of my members for our success.
+                    Overall, I felt that me and my team did a stellar job despite us being first-timers in CTF challenges. The countless practices and hack-the-boxes certainly paid off for the actual CTF, and I&apos;m hugely appreciative of my members for our success.
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
-                    The importance of teamwork shouldn't be understated - we couldn't have done it without each other. I have also learnt that it's always good to be inquisitive, and to constantly ask questions, in which then one will improve themselves further.
+                    The importance of teamwork shouldn&apos;t be understated - we couldn&apos;t have done it without each other. I have also learnt that it&apos;s always good to be inquisitive, and to constantly ask questions, in which then one will improve themselves further.
                 </p>
             </section>
         </article>

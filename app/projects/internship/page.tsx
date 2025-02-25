@@ -46,7 +46,7 @@ export default function Home() {
                     <CaptionedPicture {...pictures.chatCentral} className="w-full rounded-xl shadow-lg"/>
                 </div>
                 <p className="text-lg leading-relaxed">
-                    I led the development of our team's large-language model (LLM) stack, creating a GPT-powered question-answering bot for CPF-related queries. The project began with automated data collection from the CPF website using <strong>Selenium</strong>.
+                    I led the development of our team&apos;s large-language model (LLM) stack, creating a GPT-powered question-answering bot for CPF-related queries. The project began with automated data collection from the CPF website using <strong>Selenium</strong>.
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
                     Using the <strong>OpenAI GPT API</strong> and a React-based application, we developed a proof-of-concept that received enthusiastic feedback from the board of directors. The success of our inter-department presentation further validated the potential of this technology.
