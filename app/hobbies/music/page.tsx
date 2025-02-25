@@ -31,11 +31,11 @@ export default async function MusicPage() {
       <div className='min-w-full flex items-center justify-center'>
         <div className="intro container mx-auto">
           <header className="intro-words text-center">
-            <h1 className="mt-8 font-belsey font-black">Music</h1>
+            <h1 className="mt-8 font-merriweather font-black">Music</h1>
             <article className="mt-12 border-[2.5px] p-8 border-slate-700 rounded-lg">
-              <q className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-black font-belsey text-text">Music is life itself. What would this world be without good music?</q>
+              <q className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-left font-black font-merriweather text-text">Music is life itself. What would this world be without good music?</q>
               <br />
-              <p className="sm:text-base text-right font-bold font-belsey pr-8 mt-4">-Louis Armstrong</p>
+              <p className="sm:text-base text-right font-bold font-merriweather pr-8 mt-4">-Louis Armstrong</p>
             </article>
           </header>
           <section className="mt-12 flex flex-col md:flex-row gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
@@ -50,11 +50,11 @@ export default async function MusicPage() {
           </section>
           <div className="flex flex-col md:flex-row mt-8 gap-4 md:gap-8 lg:gap-12">
             <div className="flex-1 mt-4 md:m-0">
-              <h1 className="text-xl lg:text-4xl text-center font-belsey">Favourite Albums of All Time</h1>
+              <h1 className="text-xl lg:text-4xl text-center font-merriweather">Favourite Albums of All Time</h1>
               <AlbumGrid albums={albums} />
             </div>
             <div>
-              <h1 className="flex flex-col items-center text-lg lg:text-2xl font-belsey">Current Song/Album Addiction:</h1>
+              <h1 className="flex flex-col items-center text-lg lg:text-2xl font-merriweather">Current Song/Album Addiction:</h1>
               {spotifyAddiction && spotifyPlaylist && (
                 <div className="flex flex-col items-center mt-4">
                   <Spotify wide link={spotifyAddiction[0]} />

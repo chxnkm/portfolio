@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter as FontSans, Ma_Shan_Zheng as msz, Besley as belsey} from "next/font/google";
+import { Inter as FontSans, Ma_Shan_Zheng as msz, Merriweather as merriweather} from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 
@@ -19,10 +19,10 @@ const mszFont = msz({
   variable: "--font-msz",
 })
 
-const belseyFont = belsey({
+const belseyFont = merriweather({
   weight: ["400"],
   subsets: ["latin"],
-  variable: "--font-belsey",
+  variable: "--font-merriweather",
 })
 
 export const metadata: Metadata = {

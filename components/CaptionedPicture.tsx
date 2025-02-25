@@ -2,10 +2,11 @@ import dynamic from 'next/dynamic';
 
 const UnclickableImage = dynamic(() => import("@/components/UnclickableImage"));
 
-type CaptionedPicture = {
+interface CaptionedPicture {
     src: string;
     alt: string;
-    caption: string
+    caption: string;
+    className?: string;
     width?: number;
     loading?: 'lazy' | 'eager';
     priority?: boolean;

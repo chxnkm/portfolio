@@ -22,7 +22,7 @@ const config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
-        belsey: ["var(--font-belsey)"],
+        merriweather: ["var(--font-merriweather)"],
         msz: ["var(--font-msz)"],
       },
       colors: {

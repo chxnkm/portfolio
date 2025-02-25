@@ -33,7 +33,7 @@ export default function Home() {
         <Image fill={true} src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true}/>
         <div className="intro container mx-auto absolute inset-0 flex items-center justify-center">
           <div className="intro-words text-center lg:pl-8">
-            <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-belsey font-black">
+            <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-merriweather font-black">
               Hello, I&apos;m <span className="text-text leading-custom"><br />
                 <span id="typing-text" /></span><span className="caret">|</span>
             </h1>
@@ -54,7 +54,7 @@ export default function Home() {
               <AutoCarousel basePath='/img/' images={images} />
           </div>
           <div className='order-2 flex-1'>
-            <h2 className="lg:text-4xl text-center lg:text-left font-belsey ">About Me</h2>
+            <h2 className="lg:text-4xl text-center lg:text-left font-merriweather ">About Me</h2>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
               <a className='icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
                 <GitHubIcon style={{ fontSize: 24 }} className='hover:scale-110' />
@@ -73,18 +73,18 @@ export default function Home() {
               <br /><br />
               In my free time, I pursue <a href='/hobbies/photography' className="underline text-blue-500">photography</a> (in both film and digital formats), jam to nostalgic tunes with my guitar and drums, and am an avid <i>Fallout</i> franchise lover. Check out my hobbies <a href='/hobbies' className="underline text-blue-500">here!</a>
               <br /><br />
-              Currently, I am open to any full-time software-related opportunities in Singapore. Please feel free to contact me <a href='/contact' className="underline text-blue-500">using this form</a> or at my socials above.
+              Currently, I am working as a Software Consultant at the CPF Board. Please feel free to contact me <a href='/contact' className="underline text-blue-500">using this form</a> or at my socials above if you have any questions or would like to collaborate!
             </p>
           </div>
         </div>
       </section>
-      <section id='experience' className=" mt-16 lg:mt-24 container mx-auto">
-        <h2 className="lg:text-4xl font-belsey">My Experience 👨🏻‍💼</h2>
+      <section id='experience' className=" mt-20 lg:mt-28 container mx-auto">
+        <h2 className="lg:text-4xl font-merriweather">My Experience 👨🏻‍💼</h2>
         <p className="text-lg mt-6">Swipe on each card to see more!</p>
       </section>
       <Experience />
       <section id='projects' className=" mt-16 lg:mt-32 container mx-auto">
-        <h2 className="lg:text-4xl font-belsey">Projects and Work Write-ups 👨🏻‍💻</h2>
+        <h2 className="lg:text-4xl font-merriweather">Projects and Work Write-ups 👨🏻‍💻</h2>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
       </section>
       <Projects />

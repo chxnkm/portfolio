@@ -13,7 +13,7 @@ const HobbyCard = ({title, image, alt, link}: Hobby) => {
     <a href={link}>
       <Card className="relative min-h-[60vh] flex items-center justify-center hover:scale-[1.02] duration-300">
         <Image src={image} alt={alt} fill={true} className='absolute inset-0 object-cover w-full h-full opacity-40 rounded-lg' />
-        <h1 className="text-center font-belsey font-black z-10">
+        <h1 className="text-center font-merriweather font-black z-10">
           {title}
         </h1>
       </Card>
@@ -42,7 +42,7 @@ export default function Home() {
       <section className='min-w-full flex items-center justify-center'>
         <div className="intro container mx-auto">
           <div className="intro-words text-center">
-            <h1 className="mt-8 lg:text-6xl font-belsey font-black">
+            <h1 className="mt-8 lg:text-6xl font-merriweather font-black">
               Hobbies</h1>
             <p className="sm:text-base lg:text-lg font-medium">When I&apos;m not busy coding, here&apos;s what I&apos;m doing.
               <br />

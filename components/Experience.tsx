@@ -100,7 +100,7 @@ const Experience = () => {
                                         <div className='grid sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
                                             <div className='grid-rows-2 h-full'>
                                                 <div className="overflow-y-auto p-4 border-[1.5px] border-black rounded-lg bg-pastelBeige">
-                                                    <h2 className="text-sm sm:text-xl font-belsey font-extrabold mb-2">{exp.name}</h2>
+                                                    <h2 className="text-sm sm:text-xl font-merriweather font-extrabold mb-2">{exp.name}</h2>
                                                     <p className="text-xs md:text-sm sm:text-base font-medium">
                                                         {exp.description}
                                                         {exp.link && ( //optional link to learn more
@@ -115,10 +115,10 @@ const Experience = () => {
                                                     </p>
                                                 </div>
                                                 <div className='rounded-md flex flex-col px-2 sm:px-4 py-2 mt-2 overflow-hidden'>
-                                                    <p className='text-xs md:text-sm lg:text-base font-semibold font-belsey mb-4 sm:pl-2'>Skills:</p>
+                                                    <p className='text-xs md:text-sm lg:text-base font-semibold font-merriweather mb-4 sm:pl-2'>Skills:</p>
                                                     <div className='flex flex-wrap overflow-y-auto'>
                                                         {exp.skills.map((skill, skillIndex) => (
-                                                            <span key={skillIndex} className="inline-flex items-center bg-pastelBeige rounded-md px-2 sm:px-4 py-1 text-[0.7rem] sm:text-xs md:text-sm lg:text-[0.85rem] font-belsey mr-2 mb-2">
+                                                            <span key={skillIndex} className="inline-flex items-center bg-pastelBeige rounded-md px-2 sm:px-4 py-1 text-[0.7rem] sm:text-xs md:text-sm lg:text-[0.85rem] font-merriweather mr-2 mb-2">
                                                                 {skill}
                                                             </span>
                                                         ))}
