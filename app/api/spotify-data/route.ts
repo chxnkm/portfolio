@@ -1,4 +1,5 @@
 import { getSpotifyPlaylist, getPlaylistRelated } from "@/lib/spotify-retrieval";
+import { revalidatePath } from "next/cache";
 
 export async function GET() {
   try {
@@ -16,7 +17,8 @@ export async function GET() {
       );
 
     const data = { spotifyAddiction, spotifyPlaylist, albums };
-
+    
+    revalidatePath('/api/spotify-data');
     const response = new Response(JSON.stringify(data), {
       status: 200,
       headers: {

@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic';
 import { Spotify } from '@/components/Spotify';
+import CaptionedPicture from '@/components/CaptionedPicture';
+import AlbumGrid from '@/components/AlbumGrid';
+import { revalidatePath } from 'next/cache';
 
-// Dynamically import components
-const CaptionedPicture = dynamic(() => import("@/components/CaptionedPicture"));
-const AlbumGrid = dynamic(() => import("@/components/AlbumGrid"));
+export const dynamic = "force-dynamic";
 
 // Define the picture data
 const pictures = {
