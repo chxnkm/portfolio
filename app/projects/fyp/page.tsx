@@ -31,7 +31,7 @@ export default function Home() {
 
             <section className="mb-16">
                 <p className="text-lg leading-relaxed mb-8">
-                    For my final year in university, I delved into crowd estimation as my topic for my final-year project. Under the tutelage and guidance of my professor Cham Tat Jen, I successfully utilised and improved the <strong>Point-Query Transformer (PET)</strong> crowd counting method, and evaluated it on a <strong>local novel Singaporean crowd dataset</strong> created for this project. The full report can be found <Link href="https://dr.ntu.edu.sg/handle/10356/174984" className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">here.</Link>
+                    For my final year in university, I delved into crowd estimation as my topic for my final-year project. Under the tutelage and guidance of my professor Cham Tat Jen, I successfully utilised and improved the <strong>Point-Query Transformer (PET)</strong> crowd counting method, and evaluated it on a <strong>local novel Singaporean crowd dataset</strong> created for this project. The full report can be found <Link href="https://dr.ntu.edu.sg/handle/10356/174984" className="text-blue-800 underline" target="_blank" rel="noopener noreferrer">here.</Link>
                 </p>
             </section>
 

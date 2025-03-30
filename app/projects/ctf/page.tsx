@@ -31,7 +31,7 @@ export default function Home() {
                     The CTF included multiple types of challenges, ranging from simple steganography challenges and SQL-injections to more complicated OSINT and overflow-based tasks.
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
-                    Overall, my team, &apos;sanitycheck&apos;, managed to attain the <strong>fastest 25% of submissions with all challenges completed</strong>, and obtaining an <strong>A+</strong> in the post-CTF write-up. Our report can be viewed <Link href='https://docs.google.com/document/d/1mSA6R24XB0T6NnGSDTNbPv5IG0WEnMUkfOjE8nq7HeQ/edit?usp=sharing' className="underline text-blue-500" target="_blank" rel="noopener noreferrer" prefetch={false}>here</Link>.
+                    Overall, my team, &apos;sanitycheck&apos;, managed to attain the <strong>fastest 25% of submissions with all challenges completed</strong>, and obtaining an <strong>A+</strong> in the post-CTF write-up. Our report can be viewed <Link href='https://docs.google.com/document/d/1mSA6R24XB0T6NnGSDTNbPv5IG0WEnMUkfOjE8nq7HeQ/edit?usp=sharing' className="underline text-blue-800" target="_blank" rel="noopener noreferrer" prefetch={false}>here</Link>.
                 </p>
             </section>
 
