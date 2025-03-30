@@ -9,13 +9,13 @@ const today = new Date();
 const Footer= () => {
   return (
     <footer className="bg-background font-semibold text-center p-4 mt-32 flex items-center justify-center">
-      <div>&copy; {today.getFullYear()} | KANG MING | <a className='icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
+      <div>&copy; {today.getFullYear()} | KANG MING | <a className='github-icon icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
         <GitHubIcon style={{ fontSize: 24 }} className='hover:scale-110 mb-1 mr-1' />
       </a>
-        <a className='icon-appear' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
+        <a className='linkedin-icon icon-appear' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
           <LinkedInIcon style={{ fontSize: 24 }} className='hover:scale-110 mb-1 mr-1' />
         </a>
-        <a className='icon-appear' href="mailto:me@chenkm.com">
+        <a className='email-icon icon-appear' href="mailto:me@chenkm.com">
           <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110 mb-1 mr-1' />
         </a></div>
     </footer>

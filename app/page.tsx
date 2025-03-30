@@ -38,7 +38,7 @@ export default function Home() {
                 <span id="typing-text" /></span><span className="caret">|</span>
             </h1>
             <p className="text-lg sm:text-xl lg:text-2xl font-bold">
-              I&apos;m a Computer Science graduate,<br />software engineer, and <br />an avid tinkerer and hobbyist.
+              I&apos;m a Computer Science graduate,<br />software engineer, and <br />a tinkerer and hobbyist.
             </p>
             <p className="text-base sm:text-lg lg:text-xl font-medium mb-12">
               Welcome to my portfolio. Happy browsing!
@@ -56,13 +56,13 @@ export default function Home() {
           <div className='order-2 flex-1'>
             <h2 className="lg:text-4xl text-center lg:text-left font-merriweather ">About Me</h2>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
-              <a className='icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
+              <a className='github-icon icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
                 <GitHubIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
-              <a className='icon-appear' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
+              <a className='linkedin-icon icon-appear' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
                 <LinkedInIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
-              <a className='icon-appear' href="mailto:me@chenkm.com">
+              <a className='email-icon icon-appear' href="mailto:me@chenkm.com">
                 <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
             </div>

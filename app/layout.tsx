@@ -19,7 +19,7 @@ const mszFont = msz({
   variable: "--font-msz",
 })
 
-const belseyFont = merriweather({
+const merriweatherFont = merriweather({
   weight: ["400"],
   subsets: ["latin"],
   variable: "--font-merriweather",
@@ -27,7 +27,7 @@ const belseyFont = merriweather({
 
 export const metadata: Metadata = {
   title: "Kang Ming's Portfolio",
-  description: "Chen Kang Ming is a graduate computer science student pursuing a career in tech. This is a showcase of his work, skills and hobbies.",
+  description: "Chen Kang Ming is a graduate computer science student, with a career in tech. This is a showcase of his work, skills and hobbies.",
 };
 
 export default function RootLayout({
@@ -41,7 +41,7 @@ export default function RootLayout({
           "min-h-screen flex flex-col font-sans antialiased",
           fontSans.variable,
           mszFont.variable,
-          belseyFont.variable
+          merriweatherFont.variable
         )}>
           <SpeedInsights/>
           <Navbar/>
