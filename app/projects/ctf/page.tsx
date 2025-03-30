@@ -14,15 +14,13 @@ const pictures = {
 export default function Home() {
     return (
       <main className="max-w-4xl mx-auto px-4 py-12">
-        <article className="prose prose-lg dark:prose-invert">
+        <article>
             <header className="mb-16 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 font-merriweather">CTF Assignment - Retrospective</h1>
                 <div className="text-gray-600 dark:text-gray-400 mb-8">
                     <time>January 2024 - April 2024</time>
-                    <span className="mx-2">•</span>
-                    <span>Software Security Module</span>
                 </div>
-                <CaptionedPicture {...pictures.ctfSplash} loading='eager' priority={true} className="w-full rounded-xl shadow-lg"/>
+                <CaptionedPicture {...pictures.ctfSplash} loading='eager' priority={true} width={480} className="w-full rounded-xl shadow-lg"/>
             </header>
 
             <section className="mb-16">

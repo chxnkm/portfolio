@@ -23,13 +23,11 @@ const pictures = {
 export default function Home() {
     return (
       <main className="max-w-4xl mx-auto px-4 py-12">
-        <article className="prose prose-lg dark:prose-invert">
+        <article>
             <header className="mb-16 text-center">
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 font-merriweather">My Internship Journey at CPF Board</h1>
                 <div className="text-gray-600 dark:text-gray-400 mb-8">
                     <time>January - May 2023</time>
-                    <span className="mx-2">•</span>
-                    <span>Frontier Products Team</span>
                 </div>
                 <CaptionedPicture {...pictures.internship} loading='eager' priority={true} className="w-full rounded-xl shadow-lg"/>
             </header>
@@ -43,7 +41,7 @@ export default function Home() {
             <section className="mb-16">
                 <h2 className="text-3xl font-bold mb-6 text-qaPurple">GPT-powered QA Bot 🤖</h2>
                 <div className="mb-8">
-                    <CaptionedPicture {...pictures.chatCentral} className="w-full rounded-xl shadow-lg"/>
+                    <CaptionedPicture {...pictures.chatCentral} width={480} className="w-full rounded-xl shadow-lg"/>
                 </div>
                 <p className="text-lg leading-relaxed">
                     I led the development of our team&apos;s large-language model (LLM) stack, creating a GPT-powered question-answering bot for CPF-related queries. The project began with automated data collection from the CPF website using <strong>Selenium</strong>.
@@ -56,7 +54,7 @@ export default function Home() {
             <section className="mb-16">
                 <h2 className="text-3xl font-bold mb-6 text-dcYellow">docCentral 📑</h2>
                 <div className="mb-8">
-                    <CaptionedPicture {...pictures.guide} className="w-full rounded-xl shadow-lg"/>
+                    <CaptionedPicture {...pictures.guide} width={480} className="w-full rounded-xl shadow-lg"/>
                 </div>
                 <p className="text-lg leading-relaxed">
                     docCentral revolutionizes document creation for government officers through a seamless Microsoft Word plugin. Built with Next.js and Microsoft Word XML Add-in technology, it integrates with FormSG to streamline document templating and delivery.
