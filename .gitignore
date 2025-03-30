@@ -44,3 +44,4 @@ server
 components/PhotoGallery2.tsx
 components/Practice.tsx
 app/practice
+.env*.local

@@ -99,7 +99,7 @@ export default function ContactForm() {
         <div className="relative h-full flex items-center justify-center rounded-lg">
           <div className="absolute inset-0 bg-cover bg-center blur-sm" style={{ backgroundImage: `url('/resume/RESUME_KANG_MING.png')` }} />
           <div className="relative z-10">
-            <DownloadCard fileUrl='/resume/RESUME_KANG_MING.pdf' />
+            <DownloadCard fileUrl='/resume/KANG_MING_RESUME.pdf' />
           </div>
         </div>
       </div>

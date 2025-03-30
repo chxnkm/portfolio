@@ -15,7 +15,7 @@ const Footer= () => {
         <a className='icon-appear' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
           <LinkedInIcon style={{ fontSize: 24 }} className='hover:scale-110 mb-1 mr-1' />
         </a>
-        <a className='icon-appear' href="mailto:ckangming0.com">
+        <a className='icon-appear' href="mailto:me@chenkm.com">
           <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110 mb-1 mr-1' />
         </a></div>
     </footer>
