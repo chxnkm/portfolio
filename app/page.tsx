@@ -18,7 +18,7 @@ const images = [
   { src: 'misc/splash_2.webp' },
   { src: 'misc/splash_3.webp' },
   // Add more images as needed
-];  
+];
 
 export default function Home() {
   useEffect(() => {
@@ -28,9 +28,9 @@ export default function Home() {
   return (
     <main>
       <section className='relative min-w-full flex items-center justify-center h-[500px]'>
-        <Image fill={true} src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true}/>
-        <Image fill={true} src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true}/>
-        <Image fill={true} src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true}/>
+        <Image fill={true} src='/img/components/splash.webp' alt='Heading Splash' className='hidden lg:block inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true} />
+        <Image fill={true} src='/img/components/splash-medium.webp' alt='Heading Splash' className='hidden lg:hidden md:block inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true} />
+        <Image fill={true} src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true} />
         <div className="intro container mx-auto absolute inset-0 flex items-center justify-center">
           <div className="intro-words text-center lg:pl-8">
             <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-merriweather font-black">
@@ -51,18 +51,31 @@ export default function Home() {
       <section className="about-me lg:container mx-auto px-4">
         <div className="mt-8 lg:mt-16 flex flex-col md:flex-row gap-8 lg:gap-16 xl:gap-24">
           <div className="order-1 flex-1 justify-center lg:justify-start">
-              <AutoCarousel basePath='/img/' images={images} />
+            <AutoCarousel basePath='/img/' images={images} />
           </div>
           <div className='order-2 flex-1'>
             <h2 className="lg:text-4xl text-center lg:text-left font-merriweather ">About Me</h2>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
-              <a className='github-icon icon-appear' href="https://github.com/chxnkm" target="_blank" rel="noopener noreferrer">
+              <a
+                className='github-icon icon-appear'
+                href="https://github.com/chxnkm"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Link">
                 <GitHubIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
-              <a className='linkedin-icon icon-appear' href="https://linkedin.com/in/ckangming" target="_blank" rel="noopener noreferrer">
+              <a
+                className='linkedin-icon icon-appear'
+                href="https://linkedin.com/in/ckangming"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Link">
                 <LinkedInIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
-              <a className='email-icon icon-appear' href="mailto:me@chenkm.com">
+              <a
+                className='email-icon icon-appear'
+                href="mailto:me@chenkm.com"
+                aria-label="Email Link">
                 <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
             </div>
