@@ -16,11 +16,17 @@ const pictures = {
 };
 
 async function getSpotifyData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`);
-  if (!res.ok) {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`);
+    if (!res.ok) {
+      throw new Error('Failed to fetch Spotify data');
+    }
+    return res.json();
+  }
+  catch (error) {
     throw new Error('Failed to fetch Spotify data');
   }
-  return res.json();
+ 
 }
 
 export default async function MusicPage() {

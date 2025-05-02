@@ -182,7 +182,7 @@ const PhotoGallery: React.FC = () => {
 
               <motion.img
                 src={selectedImage}
-                alt="Portfolio Image"
+                alt=""
                 className="w-[78vw] h-[78vh] md:w-[83vw] md:h-[83vh] object-contain"
                 initial={{ opacity: 0.25 }}
                 animate={{ opacity: 1 }}
