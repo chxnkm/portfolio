@@ -17,7 +17,7 @@ const pictures = {
 
 async function getSpotifyData() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/spotify-data`);
+    const res = await fetch(`/api/spotify-data`);
     if (!res.ok) {
       throw new Error('Failed to fetch Spotify data');
     }
@@ -45,7 +45,7 @@ export default async function MusicPage() {
             </article>
           </header>
           <section className="mt-12 flex flex-col md:flex-row gap-4 sm:gap-4 md:gap-8 lg:gap-16 xl:gap-24">
-            <div className='flex-1 order-1 lg:order-none mb-8 lg:mb-0'>
+            <div className='flex-1 order-1 lg:order-0 mb-8 lg:mb-0'>
               <p className="md:text-lg text-justify mt-4 lg:pl-8">
                 Music has always been an essential part of my life. Taking up music lessons at a young age (as many Asian parents instructed us to do), I have since embraced music-making wholly and have enjoyed it ever since. It led me to joining concert band in my secondary and tertiary education, as well as leading the jam band in my university hall.
                 <br /><br />

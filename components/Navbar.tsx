@@ -13,7 +13,7 @@ const menuItems = [
   { href: "/#experience", label: "Experience" },
   { href: "/hobbies", label: "Hobbies" },
   { href: "/contact", label: "Contact Me" },
-  { href: "/resume/KANG_MING_RESUME.pdf", label: "Résumé", className: "bg-accentButton text-white sm:ml-2" },
+  { href: "/resume/KANG_MING_RESUME.pdf", label: "Résumé", className: "bg-accent-button text-white sm:ml-2" },
 ]
 function NavMenu() {
   return (
@@ -36,7 +36,7 @@ function NavMenu() {
 
 export default function Navbar() {
   return (
-    <nav className="w-full border-b-2 bg-background dark:bg-gray-950/90">
+    <nav className="w-full border-b-2 bg-background">
       <div className="sm:max-w-[75vw] mx-auto px-4 sm:px-0">
         <div className="grid grid-cols-12 md:grid-cols-3 h-20 items-center">
 

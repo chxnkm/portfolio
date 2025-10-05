@@ -190,7 +190,7 @@ const PhotoGallery: React.FC = () => {
               />
               {currentIndex > 0 && (
                 <button
-                  className="absolute flex left-[-2rem] rounded-full justify-start"
+                  className="absolute flex -left-8 rounded-full justify-start"
                   onClick={(e) => {
                     e.stopPropagation();
                     prevImage();
@@ -203,7 +203,7 @@ const PhotoGallery: React.FC = () => {
               )}
               {currentIndex < images.length - 1 && (
                 <button
-                  className="absolute flex right-[-2rem] rounded-full justify-end"
+                  className="absolute flex -right-8 rounded-full justify-end"
                   onClick={(e) => {
                     e.stopPropagation();
                     nextImage();

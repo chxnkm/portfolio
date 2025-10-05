@@ -45,7 +45,7 @@ export default function RootLayout({
         )}>
           <SpeedInsights/>
           <Navbar/>
-          <div className="flex-grow">{children}</div>
+          <div className="grow">{children}</div>
           <Footer/>
         </body>
     </html>

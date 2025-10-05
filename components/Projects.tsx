@@ -77,7 +77,7 @@ const Projects = () => {
         <Skeleton className="h-4 w-12 mt-4" />
       </CardHeader>
       <CardContent className="flex flex-wrap items-start justify-between">
-        <div className="flex flex-col flex-grow max-w-[75%] mt-[2vh]">
+        <div className="flex flex-col grow max-w-[75%] mt-[2vh]">
           <Skeleton className="h-4 w-full mb-2" />
           <Skeleton className="h-4 w-full mb-2" />
           <Skeleton className="h-4 w-3/4" />
