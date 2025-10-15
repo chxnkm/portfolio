@@ -9,7 +9,8 @@
   --color-pastel-beige: #fdf0d8;
   --color-text: #35733e;
   --color-accent-button: #7a4f06;
-
+  --font-merriweather: "Merriweather", serif; 
+  --font-msz: "MaSanZhang", serif
   /* Custom line height */
   --line-height-custom: 1.25;
 }
@@ -63,7 +64,9 @@
 }
 
 @layer base {
-  html, body {
+
+  html,
+  body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -72,7 +75,7 @@
   * {
     border-color: hsl(var(--border));
   }
-  
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -144,6 +147,7 @@ img {
 }
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: 1;
