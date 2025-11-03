@@ -79,7 +79,7 @@ export default function Home() {
                 <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
             </div>
-            <p className="text-left lg:pr-8 text-md">
+            <p className="text-justify lg:pr-8 text-md">
               A Computer Science graduate from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
               <br /><br />
               Having worked on a multitude of projects during my university tenure, I have amassed robust skills in <strong>full-stack development, data analytics,</strong> as well as <strong>machine learning and Generative AI-enabled applications</strong>. During my <a href='/projects/internship' className="underline text-blue-800">internship,</a> I&apos;ve worked on two projects, tapping into Generative AI and creating templating solutions for Government officers.
