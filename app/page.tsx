@@ -50,7 +50,7 @@ export default function Home() {
 
       <section className="about-me lg:container mx-auto px-4">
         <div className="mt-8 lg:mt-16 flex flex-col md:flex-row gap-8 lg:gap-16 xl:gap-24">
-          <div className="order-1 flex-1 justify-center lg:justify-start">
+          <div className="order-1 flex-1 flex lg:justify-start">
             <AutoCarousel basePath='/img/' images={images} />
           </div>
           <div className='order-2 flex-1'>

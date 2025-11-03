@@ -21,7 +21,7 @@ function NavMenu() {
       <NavigationMenu className="w-full">
         <NavigationMenuList className="flex flex-row">
           {menuItems.map((item, index) => (
-            <NavigationMenuItem key={index} className="md:my-0 my-1 hover:scale-110 hover:underline underline-offset-[0.5px] duration-300">
+            <NavigationMenuItem key={index} className="md:my-0 my-1 hover:scale-120 duration-300">
               <NavigationMenuLink asChild
                 className={`${navigationMenuTriggerStyle()}  ${item.className || ''}`}>
                 <a href={item.href}>{item.label}</a>
@@ -42,7 +42,7 @@ export default function Navbar() {
 
           <div className="flex col-span-4 md:col-span-1 items-center space-x-3">
             <Link href="/" rel="noopener noreferrer" passHref>
-              <span className="font-msz text-3xl md:text-4xl font-extrabold duration-300">陈</span>
+              <span className="font-msz text-3xl md:text-4xl font-extrabold">陈</span>
             </Link>
           </div>
 
