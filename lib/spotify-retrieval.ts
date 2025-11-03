@@ -20,11 +20,11 @@ const fetchSpotifyToken = async () => {
   try {
     const response = await axios.post('https://accounts.spotify.com/api/token', //auth for spotify
       new URLSearchParams({ grant_type: 'client_credentials' }), {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': 'Basic ' + Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
-        }
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Basic ' + Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
       }
+    }
     );
     tokenExpirationTime = Date.now() + (response.data.expires_in - 60) * 1000;
     return response.data.access_token;
@@ -59,7 +59,7 @@ const fetchFromFirestore = async (collection: string, document: string) => {
   }
 };
 
-const getPlaylistTracks = async (playlistType: string)=> {
+const getPlaylistTracks = async (playlistType: string) => {
   if (!spotifyToken) {
     spotifyToken = await fetchSpotifyToken();
   }
@@ -72,9 +72,9 @@ const getPlaylistTracks = async (playlistType: string)=> {
 
   try {
     const response = await axios.get(`https://api.spotify.com/v1/playlists/${playlistData.id}/tracks`, {
-      headers: { 
+      headers: {
         'Authorization': `Bearer ${spotifyToken}`,
-        'Cache-Control': 'no-store' 
+        'Cache-Control': 'no-store'
       }
     });
     return response.data.items;
@@ -95,12 +95,19 @@ const getPlaylistLink = async (playlistType: string): Promise<string> => {
 };
 
 const getPlaylistRelated = async () => {
-  const [allTimeTracks, currentAddictionTracks] = await Promise.all([
-    getPlaylistTracks("all_time"),
-    getPlaylistTracks("current_addiction"),
-  ]);
+  try {
+    const [allTimeTracks, currentAddictionTracks] = await Promise.all([
+      getPlaylistTracks("all_time"),
+      getPlaylistTracks("current_addiction"),
+    ]);
 
-  return { allTimeTracks, currentAddictionTracks };
+    return { allTimeTracks, currentAddictionTracks };
+  }
+  catch (error) {
+    console.log('error:', error)
+    return {}
+  }
+  
 };
 
 const getSpotifyPlaylist = () => getPlaylistLink("playlist_of_the_month");
