@@ -92,12 +92,12 @@ export default function Home() {
         </div>
       </section>
       <section id='experience' className=" mt-20 lg:mt-28 container mx-auto">
-        <h2 className="lg:text-4xl font-merriweather">My Experience 👨🏻‍💼</h2>
+        <h2 className="lg:text-4xl font-merriweather font-bold">My Experience 👨🏻‍💼</h2>
         <p className="text-lg mt-6">Swipe on each card to see more!</p>
       </section>
       <Experience />
       <section id='projects' className=" mt-16 lg:mt-32 container mx-auto">
-        <h2 className="lg:text-4xl font-merriweather">Projects and Work Write-ups 👨🏻‍💻</h2>
+        <h2 className="lg:text-4xl font-merriweather font-bold">Projects and Work Write-ups 👨🏻‍💻</h2>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
       </section>
       <Projects />
