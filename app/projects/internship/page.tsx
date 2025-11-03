@@ -39,7 +39,7 @@ export default function Home() {
             </section>
 
             <section className="mb-16">
-                <h2 className="text-3xl font-bold mb-6 text-qaPurple">GPT-powered QA Bot 🤖</h2>
+                <h2 className="text-3xl font-bold mb-6 text-qa-purple">GPT-powered QA Bot 🤖</h2>
                 <div className="mb-8">
                     <CaptionedPicture {...pictures.chatCentral} width={480} className="w-full rounded-xl shadow-lg"/>
                 </div>
@@ -52,7 +52,7 @@ export default function Home() {
             </section>
 
             <section className="mb-16">
-                <h2 className="text-3xl font-bold mb-6 text-dcYellow">docCentral 📑</h2>
+                <h2 className="text-3xl font-bold mb-6 text-dc-yellow">docCentral 📑</h2>
                 <div className="mb-8">
                     <CaptionedPicture {...pictures.guide} width={480} className="w-full rounded-xl shadow-lg"/>
                 </div>
