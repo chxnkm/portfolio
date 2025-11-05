@@ -95,7 +95,7 @@ export default function ContactForm() {
         </form>
       </div>
       <div className="relative min-h-32 md:order-2 md:block">
-        <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent rounded-lg" />
+        <div className="absolute inset-0 bg-linear-to-r from-background to-transparent rounded-lg" />
         <div className="relative h-full flex items-center justify-center rounded-lg">
           <div className="absolute inset-0 bg-cover bg-center blur-sm" style={{ backgroundImage: `url('/resume/RESUME_KANG_MING.png')` }} />
           <div className="relative z-10">

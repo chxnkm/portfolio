@@ -99,13 +99,13 @@ const Experience = () => {
                                     <CardContent className="p-4 sm:p-6 h-full">
                                         <div className='grid sm:grid-cols-2 gap-4 sm:gap-6 w-full h-full'>
                                             <div className='grid-rows-2 h-full'>
-                                                <div className="overflow-y-auto p-4 border-[1.5px] border-black rounded-lg bg-pastelBeige">
+                                                <div className="overflow-y-auto p-4 border-[1.5px] border-black rounded-lg bg-pastel-beige">
                                                     <h2 className="text-sm sm:text-xl font-merriweather font-extrabold mb-2">{exp.name}</h2>
                                                     <p className="text-xs md:text-sm sm:text-base font-medium">
                                                         {exp.description}
                                                         {exp.link && ( //optional link to learn more
                                                             <><br /><br /><a href={exp.link} rel="noopener noreferrer">
-                                                                <span className="inline-flex items-center bg-pastelOrange rounded-full px-2 sm:px-4 py-1 text-xs md:text-sm lg:text-[0.85rem] mb-[-2%] hover:scale-105 duration-300">
+                                                                <span className="inline-flex items-center bg-pastel-orange rounded-full px-2 sm:px-4 py-1 text-xs md:text-sm lg:text-[0.85rem] mb-[-2%] hover:scale-105 duration-300">
                                                                     Learn More <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-caret-right-fill responsive-svg" viewBox="0 0 16 16">
                                                                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                                                                     </svg>
@@ -118,7 +118,7 @@ const Experience = () => {
                                                     <p className='text-xs md:text-sm lg:text-base font-semibold font-merriweather mb-4 sm:pl-2'>Skills:</p>
                                                     <div className='flex flex-wrap overflow-y-auto'>
                                                         {exp.skills.map((skill, skillIndex) => (
-                                                            <span key={skillIndex} className="inline-flex items-center bg-pastelBeige rounded-md px-2 sm:px-4 py-1 text-[0.7rem] sm:text-xs md:text-sm lg:text-[0.85rem] font-merriweather mr-2 mb-2">
+                                                            <span key={skillIndex} className="inline-flex items-center bg-pastel-beige rounded-md px-2 sm:px-4 py-1 text-[0.7rem] sm:text-xs md:text-sm lg:text-[0.85rem] font-merriweather mr-2 mb-2">
                                                                 {skill}
                                                             </span>
                                                         ))}

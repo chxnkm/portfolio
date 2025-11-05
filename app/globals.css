@@ -1,9 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  /* Custom colors */
+  --color-pastel-orange: #ff964f;
+  --color-cpf-green: #0d6060;
+  --color-dc-yellow: #f5c51f;
+  --color-qa-purple: #6a4cff;
+  --color-pastel-beige: #fdf0d8;
+  --color-text: #35733e;
+  --color-accent-button: #7a4f06;
+  --font-merriweather: "Merriweather", serif; 
+  --font-msz: "MaSanZhang", serif
+  /* Custom line height */
+  --line-height-custom: 1.25;
+}
 
 @layer base {
   :root {
+    /* shadcn/ui theme colors */
     --background: 0, 0%, 95%;
     --foreground: 219 59% 13%;
     --card: 0 0% 100%;
@@ -47,22 +61,56 @@
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
   }
-
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground; }
-  html { scroll-behavior: smooth; }
 }
 
-main, nav { @apply mx-auto; }
-p { @apply mt-6 text-sm lg:text-base leading-relaxed; }
-h1 { @apply scroll-m-20 font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl; }
-h2 { @apply scroll-m-20 font-extrabold text-2xl md:text-3xl lg:text-4xl; }
-img { @apply max-w-full;}
+@layer base {
 
+  html,
+  body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+main,
+nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+h1 {
+  line-height: 1.25;
+}
+
+img {
+  max-width: 100%;
+}
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .caret {
@@ -72,15 +120,31 @@ img { @apply max-w-full;}
 }
 
 @keyframes slideInFromLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .icon-appear {
   animation: slideInFromLeft 0.8s ease forwards;
-  &:nth-child(1) { animation-delay: 0.1s; }
-  &:nth-child(2) { animation-delay: 0.125s; }
-  &:nth-child(3) { animation-delay: 0.15s; }
+
+  &:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.125s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.15s;
+  }
 }
 
 .responsive-svg {
@@ -90,14 +154,14 @@ img { @apply max-w-full;}
 
 @media (max-width: 768px) {
   .responsive-svg {
-      width: 12px;
-      height: 12px;
+    width: 12px;
+    height: 12px;
   }
 }
 
 @media (max-width: 400px) {
   .responsive-svg {
-      width: 10px;
-      height: 10px;
+    width: 10px;
+    height: 10px;
   }
 }

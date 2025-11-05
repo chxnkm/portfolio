@@ -33,7 +33,7 @@ export default function Home() {
         <Image fill={true} src='/img/components/splash-small.webp' alt='Heading Splash' className='block md:hidden inset-0 object-cover w-full h-full opacity-15' loading='eager' priority={true} />
         <div className="intro container mx-auto absolute inset-0 flex items-center justify-center">
           <div className="intro-words text-center lg:pl-8">
-            <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-merriweather font-black">
+            <h1 className="mt-16 text-3xl sm:text-5xl lg:text-6xl font-merriweather font-semibold">
               Hello, I&apos;m <span className="text-text leading-custom"><br />
                 <span id="typing-text" /></span><span className="caret">|</span>
             </h1>
@@ -50,11 +50,11 @@ export default function Home() {
 
       <section className="about-me lg:container mx-auto px-4">
         <div className="mt-8 lg:mt-16 flex flex-col md:flex-row gap-8 lg:gap-16 xl:gap-24">
-          <div className="order-1 flex-1 justify-center lg:justify-start">
+          <div className="order-1 flex-1 flex lg:justify-start">
             <AutoCarousel basePath='/img/' images={images} />
           </div>
           <div className='order-2 flex-1'>
-            <h2 className="lg:text-4xl text-center lg:text-left font-merriweather ">About Me</h2>
+            <h2 className="lg:text-4xl text-center lg:text-left font-merriweather font-bold">About Me</h2>
             <div className="flex mt-4 space-x-4 justify-center lg:justify-normal">
               <a
                 className='github-icon icon-appear'
@@ -79,7 +79,7 @@ export default function Home() {
                 <EmailIcon style={{ fontSize: 24 }} className='hover:scale-110' />
               </a>
             </div>
-            <p className="text-left lg:pr-8">
+            <p className="text-justify lg:pr-8 text-md">
               A Computer Science graduate from Nanyang Technological University, I am an aspiring <strong>software engineer</strong> and <strong>data analyst</strong>.
               <br /><br />
               Having worked on a multitude of projects during my university tenure, I have amassed robust skills in <strong>full-stack development, data analytics,</strong> as well as <strong>machine learning and Generative AI-enabled applications</strong>. During my <a href='/projects/internship' className="underline text-blue-800">internship,</a> I&apos;ve worked on two projects, tapping into Generative AI and creating templating solutions for Government officers.
@@ -92,12 +92,12 @@ export default function Home() {
         </div>
       </section>
       <section id='experience' className=" mt-20 lg:mt-28 container mx-auto">
-        <h2 className="lg:text-4xl font-merriweather">My Experience 👨🏻‍💼</h2>
+        <h2 className="lg:text-4xl font-merriweather font-bold">My Experience 👨🏻‍💼</h2>
         <p className="text-lg mt-6">Swipe on each card to see more!</p>
       </section>
       <Experience />
       <section id='projects' className=" mt-16 lg:mt-32 container mx-auto">
-        <h2 className="lg:text-4xl font-merriweather">Projects and Work Write-ups 👨🏻‍💻</h2>
+        <h2 className="lg:text-4xl font-merriweather font-bold">Projects and Work Write-ups 👨🏻‍💻</h2>
         <p className="text-lg mt-6">Click on each card to learn more!</p>
       </section>
       <Projects />

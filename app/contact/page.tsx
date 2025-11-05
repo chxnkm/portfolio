@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main>
       <div className="container mx-auto mt-12 px-4">
-        <h1 className="text-center font-merriweather mb-8">
+        <h1 className="text-center font-merriweather mb-8 text-3xl font-bold">
           Thank you for visiting my portfolio!
         </h1>
         <ContactForm />

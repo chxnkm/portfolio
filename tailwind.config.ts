@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss"
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}'
@@ -20,19 +20,7 @@ const config = {
       lineHeight: {
         'custom': '1.25',
       },
-      fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
-        merriweather: ["var(--font-merriweather)"],
-        msz: ["var(--font-msz)"],
-      },
       colors: {
-        pastelOrange: '#FF964F',
-        cpfGreen: '#0D6060',
-        dcYellow: '#F5C51F',
-        qaPurple: '#6a4cff',
-        pastelBeige: '#fdf0d8',
-        text: '#35733e',
-        accentButton: '#7a4f06',
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
