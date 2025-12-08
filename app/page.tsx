@@ -86,7 +86,7 @@ export default function Home() {
               <br /><br />
               In my free time, I pursue <a href='/hobbies/photography' className="underline text-blue-800">photography</a> (in both film and digital formats), jam to nostalgic tunes with my guitar and drums, and am an avid <i>Fallout</i> franchise lover. Check out my hobbies <a href='/hobbies' className="underline text-blue-800">here!</a>
               <br /><br />
-              Currently, I am working as a Software Consultant at the CPF Board. Please feel free to contact me <a href='/contact' className="underline text-blue-800">using this form</a> or at my socials above if you have any questions or would like to collaborate!
+              Currently, I am working as a Software Consultant at the CPF Board. Please feel free to contact me at my socials above if you have any questions or would like to collaborate!
             </p>
           </div>
         </div>
