@@ -12,7 +12,6 @@ import {
 const menuItems = [
   { href: "/#experience", label: "Experience" },
   { href: "/hobbies", label: "Hobbies" },
-  { href: "/contact", label: "Contact Me" },
   { href: "/resume/KANG_MING_RESUME.pdf", label: "Résumé", className: "bg-accent-button text-white sm:ml-2" },
 ]
 function NavMenu() {
